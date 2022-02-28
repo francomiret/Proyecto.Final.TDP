@@ -1,4 +1,4 @@
-﻿using Administrador.Dominio;
+﻿using Dominio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Administrador.Dominio
+namespace Dominio
 {
     public class Dificultad
     {

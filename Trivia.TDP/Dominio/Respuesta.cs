@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Administrador.Dominio
+namespace Dominio
 {
 	public class Respuesta
 	{

@@ -1,11 +1,11 @@
-﻿using ProyectoFinalTDP.Administrador.DAL.Interfaz;
+﻿using ProyectoFinalTDP.DAL.Interfaz;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProyectoFinalTDP.Administrador.DAL.Repositorios
+namespace ProyectoFinalTDP.DAL.Repositorios
 {
     class UnitOfWork : IUnitOfWork
     {

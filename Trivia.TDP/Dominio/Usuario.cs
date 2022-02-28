@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Administrador.Dominio
+namespace Dominio
 {
 	public class Usuario
 	{

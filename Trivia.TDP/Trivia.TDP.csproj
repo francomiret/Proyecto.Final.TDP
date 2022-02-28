@@ -63,23 +63,23 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Administrador\DAL\Interfaz\IRepositorio.cs" />
-    <Compile Include="Administrador\DAL\Interfaz\IUnitOfWork.cs" />
-    <Compile Include="Administrador\DAL\Interfaz\IUsuarioRepositorio.cs" />
-    <Compile Include="Administrador\DAL\PruebaDBContext.cs" />
-    <Compile Include="Administrador\DAL\Repositorios\EFRepositorio.cs" />
-    <Compile Include="Administrador\DAL\Repositorios\UnitOfWork.cs" />
-    <Compile Include="Administrador\DAL\Repositorios\UsuarioRepositorio.cs" />
-    <Compile Include="Administrador\Dominio\Categoria.cs" />
-    <Compile Include="Administrador\Dominio\Dificultad.cs" />
-    <Compile Include="Administrador\Dominio\Examen.cs" />
-    <Compile Include="Administrador\Dominio\Pregunta.cs" />
-    <Compile Include="Administrador\Dominio\Respuesta.cs" />
-    <Compile Include="Administrador\Dominio\Usuario.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="DAL\Interfaz\IRepositorio.cs" />
+    <Compile Include="DAL\Interfaz\IUnitOfWork.cs" />
+    <Compile Include="DAL\Interfaz\IUsuarioRepositorio.cs" />
+    <Compile Include="DAL\PruebaDBContext.cs" />
+    <Compile Include="DAL\Repositorios\EFRepositorio.cs" />
+    <Compile Include="DAL\Repositorios\UnitOfWork.cs" />
+    <Compile Include="DAL\Repositorios\UsuarioRepositorio.cs" />
+    <Compile Include="Dominio\Categoria.cs" />
+    <Compile Include="Dominio\Dificultad.cs" />
+    <Compile Include="Dominio\Examen.cs" />
+    <Compile Include="Dominio\Pregunta.cs" />
+    <Compile Include="Dominio\Respuesta.cs" />
+    <Compile Include="Dominio\Usuario.cs" />
+    <Compile Include="Vistas\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="Vistas\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />

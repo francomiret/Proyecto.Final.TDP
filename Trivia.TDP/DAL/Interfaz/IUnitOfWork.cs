@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProyectoFinalTDP.Administrador.DAL.Interfaz
+namespace ProyectoFinalTDP.DAL.Interfaz
 {
     interface IUnitOfWork : IDisposable
     {

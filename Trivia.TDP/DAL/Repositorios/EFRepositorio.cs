@@ -1,4 +1,4 @@
-﻿using ProyectoFinalTDP.Administrador.DAL.Interfaz;
+﻿using ProyectoFinalTDP.DAL.Interfaz;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProyectoFinalTDP.Administrador.DAL.Repositorios
+namespace ProyectoFinalTDP.DAL.Repositorios
 {
         abstract class EFRepositorio<TEntity, TDbContext> : IRepositorio<TEntity>
         where TEntity : class

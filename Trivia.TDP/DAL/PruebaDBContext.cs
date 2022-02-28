@@ -1,4 +1,4 @@
-﻿using Administrador.Dominio;
+﻿using Dominio;
 
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProyectoFinalTDP.Administrador.DAL
+namespace ProyectoFinalTDP.DAL
 {
 
     public class PruebaDBContext : DbContext
