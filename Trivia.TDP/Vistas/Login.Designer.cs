@@ -33,12 +33,12 @@ namespace Trivia.TDP.Vistas
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.button3 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -95,28 +95,17 @@ namespace Trivia.TDP.Vistas
             this.label2.Text = "Contraseña";
             this.label2.UseWaitCursor = true;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Trivia.TDP.Properties.Resources.Logo1;
-            this.pictureBox1.Location = new System.Drawing.Point(-426, -120);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(975, 579);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.UseWaitCursor = true;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.label3.Location = new System.Drawing.Point(435, 55);
+            this.label3.Location = new System.Drawing.Point(428, 55);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(202, 37);
+            this.label3.Size = new System.Drawing.Size(220, 37);
             this.label3.TabIndex = 5;
-            this.label3.Text = "INICIA SESION";
+            this.label3.Text = "INICIAR SESION";
             this.label3.UseWaitCursor = true;
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
@@ -145,6 +134,7 @@ namespace Trivia.TDP.Vistas
             this.linkLabel1.TabIndex = 8;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "¿No recuerdas tu contraseña?";
+            this.linkLabel1.UseWaitCursor = true;
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // button3
@@ -158,6 +148,18 @@ namespace Trivia.TDP.Vistas
             this.button3.TabIndex = 9;
             this.button3.Text = "X";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.UseWaitCursor = true;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Trivia.TDP.Properties.Resources.Logo1;
+            this.pictureBox1.Location = new System.Drawing.Point(-426, -120);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(975, 579);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.UseWaitCursor = true;
             // 
             // Login
             // 
