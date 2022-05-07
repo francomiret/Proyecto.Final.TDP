@@ -47,7 +47,9 @@ namespace Trivia.TDP.Vistas
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // label5
@@ -203,6 +205,7 @@ namespace Trivia.TDP.Vistas
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Silver;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(98, 220);
             this.label4.Name = "label4";
@@ -222,6 +225,7 @@ namespace Trivia.TDP.Vistas
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Silver;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(99, 252);
             this.label6.Name = "label6";
@@ -232,10 +236,10 @@ namespace Trivia.TDP.Vistas
             // 
             // button4
             // 
-            this.button4.BackColor = System.Drawing.Color.Transparent;
+            this.button4.BackColor = System.Drawing.Color.Silver;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.button4.ForeColor = System.Drawing.Color.OrangeRed;
             this.button4.Location = new System.Drawing.Point(83, 203);
             this.button4.Margin = new System.Windows.Forms.Padding(0);
             this.button4.Name = "button4";
@@ -243,6 +247,16 @@ namespace Trivia.TDP.Vistas
             this.button4.TabIndex = 46;
             this.button4.UseVisualStyleBackColor = false;
             this.button4.UseWaitCursor = true;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Trivia.TDP.Properties.Resources.FondoFinal;
+            this.pictureBox2.Location = new System.Drawing.Point(-34, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(768, 374);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 47;
+            this.pictureBox2.TabStop = false;
             // 
             // Register
             // 
@@ -267,11 +281,13 @@ namespace Trivia.TDP.Vistas
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.button4);
+            this.Controls.Add(this.pictureBox2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Register";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -297,5 +313,6 @@ namespace Trivia.TDP.Vistas
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
