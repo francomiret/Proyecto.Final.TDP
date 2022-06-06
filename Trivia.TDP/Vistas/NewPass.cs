@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace Trivia.TDP.Vistas
 {
-    public partial class Form1 : Form
+    public partial class NewPass : Form
     {
-        public Form1()
+        public NewPass()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
