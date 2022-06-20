@@ -15,6 +15,21 @@ namespace ProyectoFinalTDP.DAL.Repositorios
         {
 
         }
+
+        public Usuario buscarPorLegajo (string legajo)
+        {
+            return iDbContext.Usuarios.Where(u => u.legajo == legajo).FirstOrDefault();
+        }
+
+        public Usuario buscarPorNombre(string nombre)
+        {
+            return iDbContext.Usuarios.Where(u => u.nombre == nombre).FirstOrDefault();
+        }
+
+        public Usuario buscarPorApellido(string apellido)
+        {
+            return iDbContext.Usuarios.Where(u => u.apellido == apellido).FirstOrDefault();
+        }
     }
 
 }

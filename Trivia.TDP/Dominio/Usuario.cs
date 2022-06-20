@@ -9,13 +9,15 @@ namespace Dominio
 		[Key]
 		public int UsuarioId { get; set; }
 
-		private string dni { get; set; }
+		public String legajo { get; set; }
 
-		private string nombre { get; set; }
+		public String nombre { get; set; }
 
-		private string apellido { get; set; }
+		public String apellido { get; set; }
 
-		private TimeSpan fechaNacimiento { get; set; }
+		public String contrasena { get; set; }
+
+		private Boolean esAdministrador { get; set; }
 
 		public virtual IList<Examen> listaExamenes { get; set; }
 

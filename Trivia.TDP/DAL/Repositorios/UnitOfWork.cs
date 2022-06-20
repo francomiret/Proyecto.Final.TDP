@@ -13,35 +13,15 @@ namespace ProyectoFinalTDP.DAL.Repositorios
         private static volatile UnitOfWork cInstancia = null;
         private static readonly object cPadlock = new object();
 
-        
-
-        private UnitOfWork()
+        public UnitOfWork(PruebaDBContext pDbContex)
         {
-
-            this.pDbContext = new PruebaDBContext();
+            this.pDbContext = pDbContex;
             this.UsuarioRepositorio = new UsuarioRepositorio(pDbContext);
-       
         }
+
 
         public IUsuarioRepositorio UsuarioRepositorio { get; private set; }
 
-        public static UnitOfWork Instancia
-        {
-            get
-            {
-                if (cInstancia == null)
-                {
-                    lock (cPadlock)
-                    {
-                        if (cInstancia == null)
-                        {
-                            cInstancia = new UnitOfWork();
-                        }
-                    }
-                }
-                return cInstancia;
-            }
-        }
 
         public void Complete()
         {
