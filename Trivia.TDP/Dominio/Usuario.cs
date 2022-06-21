@@ -19,6 +19,8 @@ namespace Dominio
 
 		private Boolean esAdministrador { get; set; }
 
+		public Boolean active { get; set; }
+
 		public virtual IList<Examen> listaExamenes { get; set; }
 
 }

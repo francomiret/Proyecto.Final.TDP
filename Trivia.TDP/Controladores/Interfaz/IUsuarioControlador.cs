@@ -14,6 +14,10 @@ namespace Trivia.TDP.Controladores.Interfaz
         Usuario autenticar(string legajo, string contrasena);
         Usuario ObtenerUsuarioAutenticado();
         void CerrarSesion();
-        IList<Usuario> buscarUsuario(String legajo, String nombre);
+        IList<Usuario> buscarUsuario(Usuario usuario);
+
+        void actualizarUsuario(Usuario usuario);
+
+        void eliminarUsuario(String legajo);
     }
 }

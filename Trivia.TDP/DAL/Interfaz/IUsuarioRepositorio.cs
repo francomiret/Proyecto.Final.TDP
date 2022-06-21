@@ -10,6 +10,9 @@ namespace ProyectoFinalTDP.DAL.Interfaz
     interface IUsuarioRepositorio: IRepositorio<Usuario>
     {
         Usuario buscarPorLegajo(string legajo);
-        Usuario buscarPorNombre(string nombre);
+        IList<Usuario> buscar(Usuario usuario);
+        void actualizar(Usuario usuario);
+
+        void eliminar(String legajo);
     }
 }

@@ -30,8 +30,10 @@ namespace Trivia.TDP.Vistas
                 Usuario usuario = this.iUsuarioControlador.autenticar(legajo, contrasena);
                 if (usuario != null)
                 {
+                    
                     Vistas.Main main = new Vistas.Main();
                     main.ShowDialog();
+                    this.Close();
                 }
             }
             catch (ErrorUsuarioNoExiste) {

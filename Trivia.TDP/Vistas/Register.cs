@@ -39,6 +39,7 @@ namespace Trivia.TDP.Vistas
                     user.apellido = textApellido.Text;
                     user.legajo = textLegajo.Text;
                     user.contrasena = textContrasena.Text;
+                    user.active = true;
                     try
                     {
                         Boolean created = iUsuarioControlador.crearUsuario(user);

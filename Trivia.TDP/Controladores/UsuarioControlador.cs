@@ -64,34 +64,43 @@ namespace Trivia.TDP.Controladores
             usuarioAutenticado = null;
         }
 
-        public IList<Usuario> buscarUsuario(String legajo, String nombre)
+        public IList<Usuario> buscarUsuario(Usuario usuario)
         {
             using (var bDbContext = new PruebaDBContext())
             {
                 using (IUnitOfWork bUoW = new UnitOfWork(bDbContext))
                 {
                     IList<Usuario> usuarios = new List<Usuario>();
-                    if (legajo != null)
-                    {
-                        Usuario usuario = bUoW.UsuarioRepositorio.buscarPorLegajo(legajo);
-                        if (usuario == null)
-                            throw new ErrorUsuarioNoExiste();
-                        usuarios.Add(usuario);
-                        return usuarios;
-
-                    } else
-                    {
-                        if (nombre != null)
-                        {
-                            Usuario usuario = bUoW.UsuarioRepositorio.buscarPorNombre(nombre);
-                            if (usuario == null)
-                                throw new ErrorUsuarioNoExiste();
-                            usuarios.Add(usuario);
-                            return usuarios;
-                        }                                             
-                    }
+                    usuarios = bUoW.UsuarioRepositorio.buscar(usuario);
+                    if (usuario == null)
+                        throw new ErrorUsuarioNoExiste();
+                    usuarios.Add(usuario);
                     bUoW.Complete();
-                    return null;
+                    return usuarios;                        
+                }
+            }
+        }
+
+        public void actualizarUsuario(Usuario usuario)
+        {
+            using (var bDbContext = new PruebaDBContext())
+            {
+                using (IUnitOfWork bUoW = new UnitOfWork(bDbContext))
+                {
+                    bUoW.UsuarioRepositorio.actualizar(usuario);
+                    bUoW.Complete();
+                }
+            }
+        }
+
+        public void eliminarUsuario(String legajo)
+        {
+            using (var bDbContext = new PruebaDBContext())
+            {
+                using (IUnitOfWork bUoW = new UnitOfWork(bDbContext))
+                {
+                    bUoW.UsuarioRepositorio.eliminar(legajo);
+                    bUoW.Complete();
                 }
             }
         }

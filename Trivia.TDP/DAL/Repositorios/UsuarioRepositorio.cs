@@ -18,17 +18,40 @@ namespace ProyectoFinalTDP.DAL.Repositorios
 
         public Usuario buscarPorLegajo (string legajo)
         {
-            return iDbContext.Usuarios.Where(u => u.legajo == legajo).FirstOrDefault();
+            return iDbContext.Usuarios.Where(u => u.legajo == legajo && u.active == true).FirstOrDefault();
         }
 
-        public Usuario buscarPorNombre(string nombre)
+
+        public IList<Usuario> buscar(Usuario usuario)
         {
-            return iDbContext.Usuarios.Where(u => u.nombre == nombre).FirstOrDefault();
+            return iDbContext.Usuarios.Where(u => (
+            (usuario.nombre != null && u.nombre == usuario.nombre) ||
+            (usuario.apellido != null && u.apellido == usuario.apellido) ||
+            (usuario.legajo != null && u.legajo == usuario.legajo) ||
+            (u.active == usuario.active))
+            ).ToList();
         }
 
-        public Usuario buscarPorApellido(string apellido)
+        public void actualizar(Usuario usuario)
         {
-            return iDbContext.Usuarios.Where(u => u.apellido == apellido).FirstOrDefault();
+            Usuario user = buscarPorLegajo(usuario.legajo);
+            if (user == null)
+            {
+                return;
+            }
+            iDbContext.Entry(user).CurrentValues.SetValues(usuario);
+        }
+
+        public void eliminar(String legajo)
+        {
+            Usuario user = buscarPorLegajo(legajo);
+            if (user == null)
+            {
+                return;
+            }
+            Usuario deletedUser = user;
+            deletedUser.active = false;
+            iDbContext.Entry(user).CurrentValues.SetValues(deletedUser);
         }
     }
 
