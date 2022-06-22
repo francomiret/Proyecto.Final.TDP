@@ -46,9 +46,9 @@ namespace Trivia.TDP.Vistas
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button4 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.radioActive = new System.Windows.Forms.RadioButton();
             this.button6 = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.radioActive = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -58,7 +58,7 @@ namespace Trivia.TDP.Vistas
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Trivia.TDP.Properties.Resources.Logo;
-            this.pictureBox1.Location = new System.Drawing.Point(221, -61);
+            this.pictureBox1.Location = new System.Drawing.Point(220, -61);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(234, 123);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -74,9 +74,8 @@ namespace Trivia.TDP.Vistas
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(653, 216);
+            this.dataGridView1.Size = new System.Drawing.Size(652, 216);
             this.dataGridView1.TabIndex = 21;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // button2
             // 
@@ -99,12 +98,12 @@ namespace Trivia.TDP.Vistas
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(535, 495);
+            this.button1.Location = new System.Drawing.Point(536, 495);
             this.button1.Margin = new System.Windows.Forms.Padding(0);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(130, 26);
             this.button1.TabIndex = 24;
-            this.button1.Text = "AGREGAR USUARIO";
+            this.button1.Text = "ACTIVAR USUARIO";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -144,7 +143,6 @@ namespace Trivia.TDP.Vistas
             this.label1.Size = new System.Drawing.Size(57, 17);
             this.label1.TabIndex = 28;
             this.label1.Text = "Estado :";
-            this.label1.UseWaitCursor = true;
             // 
             // textNombre
             // 
@@ -186,7 +184,6 @@ namespace Trivia.TDP.Vistas
             this.textLegajo.Name = "textLegajo";
             this.textLegajo.Size = new System.Drawing.Size(145, 20);
             this.textLegajo.TabIndex = 35;
-            this.textLegajo.UseWaitCursor = true;
             // 
             // button5
             // 
@@ -194,14 +191,13 @@ namespace Trivia.TDP.Vistas
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button5.Location = new System.Drawing.Point(541, 60);
+            this.button5.Location = new System.Drawing.Point(542, 60);
             this.button5.Margin = new System.Windows.Forms.Padding(0);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(95, 26);
+            this.button5.Size = new System.Drawing.Size(94, 26);
             this.button5.TabIndex = 38;
             this.button5.Text = "BUSCAR";
             this.button5.UseVisualStyleBackColor = false;
-            this.button5.UseWaitCursor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // label6
@@ -229,7 +225,7 @@ namespace Trivia.TDP.Vistas
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.groupBox1.Location = new System.Drawing.Point(12, 123);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(653, 119);
+            this.groupBox1.Size = new System.Drawing.Size(652, 119);
             this.groupBox1.TabIndex = 41;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros";
@@ -240,14 +236,13 @@ namespace Trivia.TDP.Vistas
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button4.Location = new System.Drawing.Point(541, 25);
+            this.button4.Location = new System.Drawing.Point(542, 25);
             this.button4.Margin = new System.Windows.Forms.Padding(0);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(95, 26);
+            this.button4.Size = new System.Drawing.Size(94, 26);
             this.button4.TabIndex = 42;
             this.button4.Text = "LIMPIAR";
             this.button4.UseVisualStyleBackColor = false;
-            this.button4.UseWaitCursor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // label5
@@ -259,7 +254,18 @@ namespace Trivia.TDP.Vistas
             this.label5.Size = new System.Drawing.Size(57, 17);
             this.label5.TabIndex = 45;
             this.label5.Text = "Legajo :";
-            this.label5.UseWaitCursor = true;
+            // 
+            // radioActive
+            // 
+            this.radioActive.AutoSize = true;
+            this.radioActive.Location = new System.Drawing.Point(374, 60);
+            this.radioActive.Name = "radioActive";
+            this.radioActive.Size = new System.Drawing.Size(55, 17);
+            this.radioActive.TabIndex = 26;
+            this.radioActive.TabStop = true;
+            this.radioActive.Text = "Activo";
+            this.radioActive.UseVisualStyleBackColor = true;
+            this.radioActive.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // button6
             // 
@@ -284,23 +290,11 @@ namespace Trivia.TDP.Vistas
             this.pictureBox2.TabIndex = 44;
             this.pictureBox2.TabStop = false;
             // 
-            // radioActive
-            // 
-            this.radioActive.AutoSize = true;
-            this.radioActive.Location = new System.Drawing.Point(374, 60);
-            this.radioActive.Name = "radioActive";
-            this.radioActive.Size = new System.Drawing.Size(55, 17);
-            this.radioActive.TabIndex = 26;
-            this.radioActive.TabStop = true;
-            this.radioActive.Text = "Activo";
-            this.radioActive.UseVisualStyleBackColor = true;
-            this.radioActive.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
-            // 
             // ABMuser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(678, 567);
+            this.ClientSize = new System.Drawing.Size(701, 572);
             this.ControlBox = false;
             this.Controls.Add(this.button6);
             this.Controls.Add(this.label6);

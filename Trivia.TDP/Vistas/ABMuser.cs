@@ -78,7 +78,17 @@ namespace Trivia.TDP.Vistas
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            Usuario usuario = (Usuario)dataGridView1.CurrentRow.DataBoundItem;
+            if (usuario.active == false)
+            {
+                usuario.active = true;
+                iUsuarioControlador.actualizarUsuario(usuario);
+                MessageBox.Show("Usuario activado.");
+            }
+            else
+            {
+                MessageBox.Show("El usuario ya existe en el sistema.");
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -89,11 +99,6 @@ namespace Trivia.TDP.Vistas
             textApellido.Text = "";
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void button3_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedCells.Count > 0)
@@ -102,6 +107,7 @@ namespace Trivia.TDP.Vistas
                 DataGridViewRow selectedRow = dataGridView1.Rows[selectedrowindex];
                 string cellValue = Convert.ToString(selectedRow.Cells["legajo"].Value);
                 iUsuarioControlador.eliminarUsuario(cellValue);
+                MessageBox.Show("Usuario eliminado.");
             }
             
         }
