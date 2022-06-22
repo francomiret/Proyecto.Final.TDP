@@ -46,9 +46,9 @@ namespace Trivia.TDP.Vistas
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button4 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.radioActive = new System.Windows.Forms.RadioButton();
             this.button6 = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.radioActive = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -95,7 +95,7 @@ namespace Trivia.TDP.Vistas
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.button1.BackColor = System.Drawing.Color.LimeGreen;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -110,7 +110,7 @@ namespace Trivia.TDP.Vistas
             // 
             // button3
             // 
-            this.button3.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.button3.BackColor = System.Drawing.Color.Red;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -261,6 +261,18 @@ namespace Trivia.TDP.Vistas
             this.label5.Text = "Legajo :";
             this.label5.UseWaitCursor = true;
             // 
+            // radioActive
+            // 
+            this.radioActive.AutoSize = true;
+            this.radioActive.Location = new System.Drawing.Point(374, 60);
+            this.radioActive.Name = "radioActive";
+            this.radioActive.Size = new System.Drawing.Size(55, 17);
+            this.radioActive.TabIndex = 26;
+            this.radioActive.TabStop = true;
+            this.radioActive.Text = "Activo";
+            this.radioActive.UseVisualStyleBackColor = true;
+            this.radioActive.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            // 
             // button6
             // 
             this.button6.BackColor = System.Drawing.Color.IndianRed;
@@ -277,24 +289,12 @@ namespace Trivia.TDP.Vistas
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Trivia.TDP.Properties.Resources.FondoFinal;
-            this.pictureBox2.Location = new System.Drawing.Point(-46, 203);
+            this.pictureBox2.Location = new System.Drawing.Point(-46, 183);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(729, 366);
+            this.pictureBox2.Size = new System.Drawing.Size(737, 386);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 44;
             this.pictureBox2.TabStop = false;
-            // 
-            // radioActive
-            // 
-            this.radioActive.AutoSize = true;
-            this.radioActive.Location = new System.Drawing.Point(374, 60);
-            this.radioActive.Name = "radioActive";
-            this.radioActive.Size = new System.Drawing.Size(55, 17);
-            this.radioActive.TabIndex = 26;
-            this.radioActive.TabStop = true;
-            this.radioActive.Text = "Activo";
-            this.radioActive.UseVisualStyleBackColor = true;
-            this.radioActive.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // ABMuser
             // 
