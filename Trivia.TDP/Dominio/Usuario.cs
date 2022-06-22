@@ -17,7 +17,7 @@ namespace Dominio
 
 		public String contrasena { get; set; }
 
-		private Boolean esAdministrador { get; set; }
+		public Boolean esAdministrador { get; set; }
 
 		public Boolean active { get; set; }
 

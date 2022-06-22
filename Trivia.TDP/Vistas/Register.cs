@@ -40,12 +40,12 @@ namespace Trivia.TDP.Vistas
                     user.legajo = textLegajo.Text;
                     user.contrasena = textContrasena.Text;
                     user.active = true;
+                    user.esAdministrador = false;
                     try
                     {
                         Boolean created = iUsuarioControlador.crearUsuario(user);
                         if (created)
                             MessageBox.Show("Usuario registrado existosamente.");
-
                     }
                     catch (ErrorUsuarioYaExiste)
                     {
@@ -55,7 +55,6 @@ namespace Trivia.TDP.Vistas
                     {
                         MessageBox.Show("Error en el sistema.");
                     }
-
                 }
                 else
                 {
