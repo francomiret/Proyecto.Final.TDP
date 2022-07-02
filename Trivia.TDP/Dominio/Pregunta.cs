@@ -6,7 +6,7 @@ namespace Dominio
 	public class Pregunta
 	{
 		[Key]
-		public int PreguntaId { get; set; }
+		public string PreguntaId { get; set; }
 
 		private string descripcion { get; set; }
 
@@ -14,7 +14,17 @@ namespace Dominio
 
 		public virtual IList<Respuesta> listaRespuestas { get; set; }
 
-	}
+        public ConjuntoPreguntas ConjuntoPreguntas { get; set; }
+
+        public Pregunta(string pPregunta, ConjuntoPreguntas pConjunto)
+        {
+            PreguntaId = pPregunta;
+            ConjuntoPreguntas = pConjunto;
+        }
+
+        public Pregunta() { }
+	    }
+
 
 }
 
