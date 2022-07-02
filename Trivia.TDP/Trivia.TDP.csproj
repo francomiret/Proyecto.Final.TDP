@@ -89,6 +89,18 @@
       <DependentUpon>ABMuser.cs</DependentUpon>
     </Compile>
     <Compile Include="Vistas\ErrorLegajoNoExiste.cs" />
+    <Compile Include="Vistas\AdmQuestions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\AdmQuestions.Designer.cs">
+      <DependentUpon>AdmQuestions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\ImportQuestions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\ImportQuestions.Designer.cs">
+      <DependentUpon>ImportQuestions.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +139,12 @@
     </Compile>
     <EmbeddedResource Include="Vistas\ABMuser.resx">
       <DependentUpon>ABMuser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\AdmQuestions.resx">
+      <DependentUpon>AdmQuestions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\ImportQuestions.resx">
+      <DependentUpon>ImportQuestions.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>

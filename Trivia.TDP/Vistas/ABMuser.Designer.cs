@@ -94,7 +94,7 @@ namespace Trivia.TDP.Vistas
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.button1.BackColor = System.Drawing.Color.LimeGreen;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -109,7 +109,7 @@ namespace Trivia.TDP.Vistas
             // 
             // button3
             // 
-            this.button3.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.button3.BackColor = System.Drawing.Color.Red;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -267,6 +267,18 @@ namespace Trivia.TDP.Vistas
             this.radioActive.UseVisualStyleBackColor = true;
             this.radioActive.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
+            // radioActive
+            // 
+            this.radioActive.AutoSize = true;
+            this.radioActive.Location = new System.Drawing.Point(374, 60);
+            this.radioActive.Name = "radioActive";
+            this.radioActive.Size = new System.Drawing.Size(55, 17);
+            this.radioActive.TabIndex = 26;
+            this.radioActive.TabStop = true;
+            this.radioActive.Text = "Activo";
+            this.radioActive.UseVisualStyleBackColor = true;
+            this.radioActive.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            // 
             // button6
             // 
             this.button6.BackColor = System.Drawing.Color.IndianRed;
@@ -283,9 +295,9 @@ namespace Trivia.TDP.Vistas
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Trivia.TDP.Properties.Resources.FondoFinal;
-            this.pictureBox2.Location = new System.Drawing.Point(-46, 203);
+            this.pictureBox2.Location = new System.Drawing.Point(-46, 183);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(729, 366);
+            this.pictureBox2.Size = new System.Drawing.Size(737, 386);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 44;
             this.pictureBox2.TabStop = false;
