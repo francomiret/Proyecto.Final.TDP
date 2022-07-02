@@ -53,5 +53,11 @@ namespace Trivia.TDP.Vistas
             Vistas.ABMuser users = new Vistas.ABMuser();
             users.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Vistas.AdmQuestions admQuestions = new Vistas.AdmQuestions();
+            admQuestions.Show();
+        }
     }
 }

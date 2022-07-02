@@ -34,7 +34,7 @@ namespace ProyectoFinalTDP.DAL.Repositorios
 
         public void actualizar(Usuario usuario)
         {
-            Usuario user = buscarPorLegajo(usuario.legajo);
+            Usuario user = iDbContext.Usuarios.Where(u => u.legajo == usuario.legajo).FirstOrDefault();
             if (user == null)
             {
                 return;
