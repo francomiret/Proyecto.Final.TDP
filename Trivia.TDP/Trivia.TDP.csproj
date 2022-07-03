@@ -98,11 +98,6 @@
     <Compile Include="DTO\PreguntaDTO.cs" />
     <Compile Include="DTO\RespuestaDTO.cs" />
     <Compile Include="DTO\UsuarioDTO.cs" />
-    <Compile Include="Migrations\202206220158150_Initial.cs" />
-    <Compile Include="Migrations\202206220158150_Initial.Designer.cs">
-      <DependentUpon>202206220158150_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Vistas\ABMuser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,9 +142,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Migrations\202206220158150_Initial.resx">
-      <DependentUpon>202206220158150_Initial.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
