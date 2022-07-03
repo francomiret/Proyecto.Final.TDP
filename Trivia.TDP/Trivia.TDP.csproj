@@ -74,6 +74,7 @@
     <Compile Include="Controladores\Errores\ErrorUsuarioNoExiste.cs" />
     <Compile Include="Controladores\Errores\ErrorUsuarioNoAutenticado.cs" />
     <Compile Include="Controladores\Interfaz\IUsuarioControlador.cs" />
+    <Compile Include="Controladores\Errores\DataNotFound.cs" />
     <Compile Include="Controladores\OpentDB\Estrategia.cs" />
     <Compile Include="Controladores\OpentDB\OpentDBWebRequester.cs" />
     <Compile Include="Controladores\OpentDB\ResponseParser.cs" />
