@@ -10,7 +10,7 @@ namespace Trivia.TDP.Controladores.OpentDB
             var url = string.Format("https://opentdb.com/api.php?amount={0}&category={1}&difficulty={2}&type=multiple",
                                 pCantidad,
                                 pConjunto.Categoria.CategoriaId,
-                                pConjunto.Dificultad.DificultadId);
+                                pConjunto.Dificultad.descripcion);
             return url;
         }
         

@@ -48,8 +48,7 @@ namespace Trivia.TDP.Controladores.OpentDB
 
                     if ((nombreCategoria != pConjunto.Categoria.nombre) || (nombreDificultad != pConjunto.Dificultad.descripcion))
                     {
-                        throw new FormatException(String.Format("Recibio otra cosa de la api {0} = {1}, {2} = {3}",
-                            nombreCategoria, pConjunto.Categoria.CategoriaId, nombreDificultad, pConjunto.Dificultad.DificultadId));
+                        throw new DataNotFound("Categoria o Dificultad no validos.");
                     }
 
 
@@ -82,6 +81,7 @@ namespace Trivia.TDP.Controladores.OpentDB
                     preguntas.Add(preg);
                 }
             }
+
             return preguntas;
 
         }

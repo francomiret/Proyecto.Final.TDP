@@ -38,7 +38,8 @@ namespace Trivia.TDP.Controladores.OpentDB
             }
             var url = iUrlCreador.CrearUrl(pCantidad, pConjunto);
             var response = iWebRequester.PeticionAUrl(url);
-            return iParser.ParseResponse(response, pConjunto);
+            var responseParsed = iParser.ParseResponse(response, pConjunto);
+            return responseParsed;
         }
 
 
