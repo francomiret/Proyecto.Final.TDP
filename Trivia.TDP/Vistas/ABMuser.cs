@@ -1,12 +1,6 @@
 ﻿using Dominio;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Trivia.TDP.Controladores;
 using Trivia.TDP.Controladores.Interfaz;
@@ -70,7 +64,7 @@ namespace Trivia.TDP.Vistas
                     usuarios.Clear();
                 }
             }
-            catch (ErrorLegajoNoExiste)
+            catch (ErrorUsuarioNoExiste)
             {
                 MessageBox.Show("El usuario no existe en el sistema.");
             }
