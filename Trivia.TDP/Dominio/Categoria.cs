@@ -10,9 +10,16 @@ namespace Dominio
 {
     public class Categoria
     {
+
+        public Categoria(int v1, String v2)
+        {
+            this.CategoriaId = v1;
+            this.nombre = v2;
+        }
+
         [Key]
         public int CategoriaId { get; set; }
-        public string nombre { get; set; }
+        public String nombre { get; set; }
 
     }
 }

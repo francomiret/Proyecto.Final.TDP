@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace Dominio
@@ -12,6 +13,14 @@ namespace Dominio
 		private bool correcta { get; set; }
 
 		public virtual Pregunta Pregunta { get; set; }
+
+		public Respuesta(string pTexto, bool pCorrecta)
+		{
+			descripcion = pTexto;
+			correcta = pCorrecta;
+		}
+
+		public Respuesta() { }
 	}
 
 }
