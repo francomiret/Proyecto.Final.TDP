@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Trivia.TDP.Controladores;
+using Trivia.TDP.Controladores.Interfaz;
 using Trivia.TDP.Controladores.OpentDB;
 
 namespace Trivia.TDP.Vistas
@@ -16,9 +18,31 @@ namespace Trivia.TDP.Vistas
     {
         private Estrategia estrategia = new Estrategia();
 
+        private IDificultadControlador iDificultadControlador;
+
+        private IConjuntoPreguntasControlador iConjuntoPreguntasControlador;
         public ImportQuestions()
         {
+            this.iConjuntoPreguntasControlador = new ConjuntoPreguntasControlador();
+            this.iDificultadControlador = new DificultadControlador();
             InitializeComponent();
+            var dificultades = iDificultadControlador.obtenerDificultades();
+            for (int i = 0; i < dificultades.Count; i++)
+            {
+                comboBoxDificultad.Items.Add(dificultades[i]);
+            }
+            comboBoxDificultad.DisplayMember = "descripcion";
+
+            var categorias = estrategia.obtenerCategorias();
+
+            for (int i = 0; i < categorias.Count; i++)
+            {
+                comboBoxCategorias.Items.Add(categorias[i]);
+            }
+            comboBoxCategorias.DisplayMember = "nombre";
+
+
+
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -33,8 +57,28 @@ namespace Trivia.TDP.Vistas
 
         private void button1_Click(object sender, EventArgs e)
         {
-            IEnumerable<Pregunta>  preguntas = estrategia.DescargarPreguntas(20, new ConjuntoPreguntas("preg", 10, new Dificultad(1, "easy", 1), new Categoria(9, "General Knowledge")));
-            Console.WriteLine(preguntas);
+            Dificultad dificultadSeleccionada = (Dificultad)comboBoxDificultad.SelectedItem;
+            Categoria categoriaSeleccionada = (Categoria)comboBoxCategorias.SelectedItem;
+            int cant = Int32.Parse(cantidadPreg.Text);
+            ConjuntoPreguntas conjunto = new ConjuntoPreguntas("preg", 10, dificultadSeleccionada, categoriaSeleccionada);
+            IEnumerable<Pregunta> preguntas = estrategia.DescargarPreguntas(cant, conjunto);
+            this.iConjuntoPreguntasControlador.agregarConjunto(conjunto);
+            
+
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void comboBoxCategorias_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void domainUpDown1_SelectedItemChanged(object sender, EventArgs e)
+        {
 
         }
     }

@@ -18,6 +18,11 @@ namespace Dominio
             this.peso= v3;
         }
 
+        public Dificultad()
+        {
+ 
+        }
+
         [Key]
         public int DificultadId { get; set; }
         public string descripcion { get; set; }

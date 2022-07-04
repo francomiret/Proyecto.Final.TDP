@@ -69,15 +69,26 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controladores\ConjuntoPreguntasControlador.cs" />
+    <Compile Include="Controladores\DificultadControlador.cs" />
     <Compile Include="Controladores\Errores\ErrorContrasenaIncorrecta.cs" />
     <Compile Include="Controladores\Errores\ErrorUsuarioYaExiste.cs" />
     <Compile Include="Controladores\Errores\ErrorUsuarioNoExiste.cs" />
     <Compile Include="Controladores\Errores\ErrorUsuarioNoAutenticado.cs" />
+    <Compile Include="Controladores\Interfaz\IConjuntoPreguntasControlador.cs" />
+    <Compile Include="Controladores\Interfaz\IDificultadControlador.cs" />
     <Compile Include="Controladores\Interfaz\IUsuarioControlador.cs" />
     <Compile Include="Controladores\Errores\DataNotFound.cs" />
     <Compile Include="Controladores\OpentDB\Estrategia.cs" />
     <Compile Include="Controladores\OpentDB\OpentDBWebRequester.cs" />
     <Compile Include="Controladores\OpentDB\ResponseParser.cs" />
+    <Compile Include="DAL\Interfaz\IConjuntoPreguntasRepositorio.cs" />
+    <Compile Include="DAL\Interfaz\IDificultadRepositorio.cs" />
+    <Compile Include="DAL\Migrations\Configuracion.cs" />
+    <Compile Include="DAL\Migrations\DificultadSeeder.cs" />
+    <Compile Include="DAL\Migrations\UsuariosSeeder.cs" />
+    <Compile Include="DAL\Repositorios\ConjuntoPreguntasRepositorio.cs" />
+    <Compile Include="DAL\Repositorios\DificultadRepositorio.cs" />
     <Compile Include="Dominio\ConjuntoPreguntas.cs" />
     <Compile Include="Controladores\OpentDB\CreadorURLOpentDB.cs" />
     <Compile Include="Controladores\UsuarioControlador.cs" />
