@@ -32,6 +32,7 @@ namespace Trivia.TDP.Vistas
                 {
                     
                     Vistas.Main main = new Vistas.Main();
+                    Visible = !Visible;
                     main.ShowDialog();
                     this.Close();
                 }

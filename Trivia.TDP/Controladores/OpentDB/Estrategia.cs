@@ -42,6 +42,13 @@ namespace Trivia.TDP.Controladores.OpentDB
             return responseParsed;
         }
 
+        public List<Categoria> obtenerCategorias ()
+        {
+            var url = "https://opentdb.com/api_category.php";
+            var response = iWebRequester.PeticionAUrl(url);
+            List<Categoria> responseParsed = iParser.ParseResponseCategorias(response);
+            return responseParsed;
+        }
 
         public Estrategia() 
         {

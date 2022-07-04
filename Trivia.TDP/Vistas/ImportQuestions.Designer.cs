@@ -37,11 +37,11 @@
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.domainUpDown1 = new System.Windows.Forms.DomainUpDown();
+            this.cantidadPreg = new System.Windows.Forms.DomainUpDown();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBoxDificultad = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxCategorias = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -147,11 +147,11 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox2.Controls.Add(this.domainUpDown1);
+            this.groupBox2.Controls.Add(this.cantidadPreg);
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.comboBox2);
+            this.groupBox2.Controls.Add(this.comboBoxDificultad);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.comboBox1);
+            this.groupBox2.Controls.Add(this.comboBoxCategorias);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.groupBox2.Location = new System.Drawing.Point(24, 200);
@@ -161,13 +161,13 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Configure la sesión";
             // 
-            // domainUpDown1
+            // cantidadPreg
             // 
-            this.domainUpDown1.Location = new System.Drawing.Point(119, 109);
-            this.domainUpDown1.Name = "domainUpDown1";
-            this.domainUpDown1.Size = new System.Drawing.Size(191, 22);
-            this.domainUpDown1.TabIndex = 73;
-            this.domainUpDown1.Text = "domainUpDown1";
+            this.cantidadPreg.Location = new System.Drawing.Point(119, 109);
+            this.cantidadPreg.Name = "cantidadPreg";
+            this.cantidadPreg.Size = new System.Drawing.Size(191, 22);
+            this.cantidadPreg.TabIndex = 73;
+            this.cantidadPreg.SelectedItemChanged += new System.EventHandler(this.domainUpDown1_SelectedItemChanged);
             // 
             // label4
             // 
@@ -179,13 +179,14 @@
             this.label4.TabIndex = 72;
             this.label4.Text = "Cantidad :";
             // 
-            // comboBox2
+            // comboBoxDificultad
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(119, 76);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(191, 24);
-            this.comboBox2.TabIndex = 71;
+            this.comboBoxDificultad.FormattingEnabled = true;
+            this.comboBoxDificultad.Location = new System.Drawing.Point(119, 76);
+            this.comboBoxDificultad.Name = "comboBoxDificultad";
+            this.comboBoxDificultad.Size = new System.Drawing.Size(191, 24);
+            this.comboBoxDificultad.TabIndex = 71;
+            this.comboBoxDificultad.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -197,13 +198,14 @@
             this.label2.TabIndex = 70;
             this.label2.Text = "Dificultad :";
             // 
-            // comboBox1
+            // comboBoxCategorias
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(119, 41);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(191, 24);
-            this.comboBox1.TabIndex = 69;
+            this.comboBoxCategorias.FormattingEnabled = true;
+            this.comboBoxCategorias.Location = new System.Drawing.Point(119, 41);
+            this.comboBoxCategorias.Name = "comboBoxCategorias";
+            this.comboBoxCategorias.Size = new System.Drawing.Size(191, 24);
+            this.comboBoxCategorias.TabIndex = 69;
+            this.comboBoxCategorias.SelectedIndexChanged += new System.EventHandler(this.comboBoxCategorias_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -251,11 +253,11 @@
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DomainUpDown domainUpDown1;
+        private System.Windows.Forms.DomainUpDown cantidadPreg;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBoxDificultad;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxCategorias;
         private System.Windows.Forms.Label label1;
     }
 }

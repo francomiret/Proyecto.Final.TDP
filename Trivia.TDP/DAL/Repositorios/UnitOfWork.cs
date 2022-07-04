@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Trivia.TDP.DAL.Interfaz;
 
 namespace ProyectoFinalTDP.DAL.Repositorios
 {
@@ -17,11 +18,15 @@ namespace ProyectoFinalTDP.DAL.Repositorios
         {
             this.pDbContext = pDbContex;
             this.UsuarioRepositorio = new UsuarioRepositorio(pDbContext);
+            this.ConjuntoPreguntasRepositorio = new ConjuntoPreguntasRepositorio(pDbContext);
+            this.DificultadRepositorio = new DificultadRepositorio(pDbContext);
         }
 
 
         public IUsuarioRepositorio UsuarioRepositorio { get; private set; }
 
+        public IDificultadRepositorio DificultadRepositorio { get; private set; }
+        public IConjuntoPreguntasRepositorio ConjuntoPreguntasRepositorio { get; private set; }
 
         public void Complete()
         {

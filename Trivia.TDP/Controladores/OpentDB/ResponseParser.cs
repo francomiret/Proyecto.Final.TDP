@@ -86,6 +86,33 @@ namespace Trivia.TDP.Controladores.OpentDB
 
         }
 
+        public List<Categoria> ParseResponseCategorias(WebResponse webResponse)
+        {
+            var categorias = new List<Categoria>();
+            using (Stream responseStream = webResponse.GetResponseStream())
+            {
+                StreamReader reader = new StreamReader(responseStream, Encoding.UTF8);
+
+                // Se parsea la respuesta y se serializa a JSON a un objeto dynamic
+                dynamic mResponseJSON = JsonConvert.DeserializeObject(reader.ReadToEnd());
+
+                foreach (var bResponseItem in mResponseJSON.trivia_categories)
+                {
+                    int idCategoria = bResponseItem.id;
+                    string nombreCategoria = bResponseItem.name.ToString();
+
+                    //Crea la categoria
+                    var categoria = new Categoria(idCategoria, nombreCategoria);
+
+                    categorias.Add(categoria);
+                }
+            }
+
+            return categorias;
+        }
+
+
+
 
 
     }
