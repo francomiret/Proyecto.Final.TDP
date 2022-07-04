@@ -29,7 +29,6 @@ namespace Trivia.TDP.Vistas
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -48,22 +47,13 @@ namespace Trivia.TDP.Vistas
             this.label5 = new System.Windows.Forms.Label();
             this.radioActive = new System.Windows.Forms.RadioButton();
             this.button6 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Trivia.TDP.Properties.Resources.Logo;
-            this.pictureBox1.Location = new System.Drawing.Point(220, -61);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(234, 123);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 20;
-            this.pictureBox1.TabStop = false;
             // 
             // dataGridView1
             // 
@@ -267,18 +257,6 @@ namespace Trivia.TDP.Vistas
             this.radioActive.UseVisualStyleBackColor = true;
             this.radioActive.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
-            // radioActive
-            // 
-            this.radioActive.AutoSize = true;
-            this.radioActive.Location = new System.Drawing.Point(374, 60);
-            this.radioActive.Name = "radioActive";
-            this.radioActive.Size = new System.Drawing.Size(55, 17);
-            this.radioActive.TabIndex = 26;
-            this.radioActive.TabStop = true;
-            this.radioActive.Text = "Activo";
-            this.radioActive.UseVisualStyleBackColor = true;
-            this.radioActive.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
-            // 
             // button6
             // 
             this.button6.BackColor = System.Drawing.Color.IndianRed;
@@ -291,6 +269,16 @@ namespace Trivia.TDP.Vistas
             this.button6.Text = "X";
             this.button6.UseVisualStyleBackColor = false;
             this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Trivia.TDP.Properties.Resources.Logo;
+            this.pictureBox1.Location = new System.Drawing.Point(220, -61);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(234, 123);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 20;
+            this.pictureBox1.TabStop = false;
             // 
             // pictureBox2
             // 
@@ -325,10 +313,10 @@ namespace Trivia.TDP.Vistas
             this.Name = "ABMuser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "X";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
