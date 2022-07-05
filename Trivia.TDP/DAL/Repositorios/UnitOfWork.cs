@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Trivia.TDP.DAL.Interfaz;
+using Trivia.TDP.DAL.Repositorios;
 
 namespace ProyectoFinalTDP.DAL.Repositorios
 {
@@ -20,6 +21,8 @@ namespace ProyectoFinalTDP.DAL.Repositorios
             this.UsuarioRepositorio = new UsuarioRepositorio(pDbContext);
             this.ConjuntoPreguntasRepositorio = new ConjuntoPreguntasRepositorio(pDbContext);
             this.DificultadRepositorio = new DificultadRepositorio(pDbContext);
+            this.CategoriaRepositorio = new CategoriaRepositorio(pDbContext);
+
         }
 
 
@@ -27,6 +30,8 @@ namespace ProyectoFinalTDP.DAL.Repositorios
 
         public IDificultadRepositorio DificultadRepositorio { get; private set; }
         public IConjuntoPreguntasRepositorio ConjuntoPreguntasRepositorio { get; private set; }
+
+        public ICategoriaRepositorio CategoriaRepositorio { get; private set; }
 
         public void Complete()
         {

@@ -13,6 +13,8 @@ namespace ProyectoFinalTDP.DAL.Interfaz
 
         IDificultadRepositorio DificultadRepositorio { get; }
         IConjuntoPreguntasRepositorio ConjuntoPreguntasRepositorio { get; }
+
+        ICategoriaRepositorio CategoriaRepositorio { get; }
         void Complete();
     }
 }

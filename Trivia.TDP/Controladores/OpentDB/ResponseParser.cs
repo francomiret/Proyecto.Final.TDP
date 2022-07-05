@@ -98,7 +98,7 @@ namespace Trivia.TDP.Controladores.OpentDB
 
                 foreach (var bResponseItem in mResponseJSON.trivia_categories)
                 {
-                    int idCategoria = bResponseItem.id;
+                    string idCategoria = bResponseItem.id.ToString();
                     string nombreCategoria = bResponseItem.name.ToString();
 
                     //Crea la categoria

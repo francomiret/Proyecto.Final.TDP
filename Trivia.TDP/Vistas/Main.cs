@@ -10,16 +10,23 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Trivia.TDP.Controladores;
 using Trivia.TDP.Controladores.Interfaz;
+using Trivia.TDP.Controladores.OpentDB;
 
 namespace Trivia.TDP.Vistas
 {
     public partial class Main : Form
     {
         private IUsuarioControlador iUsuarioControlador;
+        private ICategoriaControlador iCategoriaControlador;
+        private Estrategia estrategia = new Estrategia();
         public Main()
         {
             InitializeComponent();
             this.iUsuarioControlador = new UsuarioControlador();
+            this.iCategoriaControlador = new CategoriaControlador();
+            IList<Categoria> categorias = estrategia.obtenerCategorias();
+            iCategoriaControlador.agregarCategorias(categorias);
+
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

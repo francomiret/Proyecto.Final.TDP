@@ -17,7 +17,15 @@ namespace ProyectoFinalTDP.DAL.Repositorios
 
         public void AgregarConjunto(ConjuntoPreguntas pConjunto)
         {
+            try
+            {
+                var dificultad = this.iDbContext.Dificultades.First(c => c.DificultadId == pConjunto.Dificultad.DificultadId);
+                pConjunto.Dificultad = dificultad;
+            }
+            catch (InvalidOperationException e)
+            {
 
+            }
             iDbContext.ConjuntoPreguntas.Add(pConjunto);
 
         }
