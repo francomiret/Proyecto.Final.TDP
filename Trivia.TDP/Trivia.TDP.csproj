@@ -126,6 +126,18 @@
     <Compile Include="Vistas\AdmQuestions.Designer.cs">
       <DependentUpon>AdmQuestions.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\Ranking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Ranking.Designer.cs">
+      <DependentUpon>Ranking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\RunTrivia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\RunTrivia.Designer.cs">
+      <DependentUpon>RunTrivia.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\QuestionTest.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,6 +201,9 @@
     <EmbeddedResource Include="Vistas\QuestionTest.resx">
       <DependentUpon>QuestionTest.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Ranking.resx">
+      <DependentUpon>Ranking.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vistas\Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
     </EmbeddedResource>
@@ -197,6 +212,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\NewPass.resx">
       <DependentUpon>NewPass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\RunTrivia.resx">
+      <DependentUpon>RunTrivia.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
