@@ -10,9 +10,9 @@ namespace Dominio
         public int Id { get; set; }
         public String Nombre { get; set; }
         public float TiempoEsperadoRespuesta { get; set; }
-        public Dificultad Dificultad { get; set; }
-        public Categoria Categoria { get; set; }
-
+        public virtual Dificultad Dificultad { get; set; }
+        public virtual Categoria Categoria { get; set; }
+        public virtual IEnumerable<Pregunta> Preguntas { get; set; }
         public ConjuntoPreguntas(string pNombre, float pTiempoEsperadoRespuesta, Dificultad pDificultad, Categoria pCategoria)
         {
             this.Nombre = pNombre;
@@ -27,6 +27,11 @@ namespace Dominio
             this.Dificultad = pDificultad;
             this.Categoria = pCategoria;
             this.TiempoEsperadoRespuesta = 20;
+        }
+
+        public void setPreguntas(IEnumerable<Pregunta> pPreguntas)
+        {
+            this.Preguntas = pPreguntas;
         }
     }
 }

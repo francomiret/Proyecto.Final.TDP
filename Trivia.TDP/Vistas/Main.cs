@@ -10,16 +10,20 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Trivia.TDP.Controladores;
 using Trivia.TDP.Controladores.Interfaz;
+using Trivia.TDP.Controladores.OpentDB;
 
 namespace Trivia.TDP.Vistas
 {
     public partial class Main : Form
     {
         private IUsuarioControlador iUsuarioControlador;
+
         public Main()
         {
             InitializeComponent();
             this.iUsuarioControlador = new UsuarioControlador();
+
+
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -58,6 +62,11 @@ namespace Trivia.TDP.Vistas
         {
             Vistas.AdmQuestions admQuestions = new Vistas.AdmQuestions();
             admQuestions.Show();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
