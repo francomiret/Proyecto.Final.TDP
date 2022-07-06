@@ -2,19 +2,14 @@
 using ProyectoFinalTDP.DAL;
 using ProyectoFinalTDP.DAL.Interfaz;
 using ProyectoFinalTDP.DAL.Repositorios;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Trivia.TDP.Controladores.Errores;
 using Trivia.TDP.Controladores.Interfaz;
 
 namespace Trivia.TDP.Controladores
 {
     class ConjuntoPreguntasControlador : IConjuntoPreguntasControlador
     {
-        public void agregarConjunto(ConjuntoPreguntas pConjunto)
+        public void AgregarConjunto(ConjuntoPreguntas pConjunto)
         {
             using (var bDbContext = new PruebaDBContext())
             {
@@ -26,7 +21,7 @@ namespace Trivia.TDP.Controladores
             }
         }
 
-        public List<ConjuntoPreguntas> obtenerConjuntos()
+        public List<ConjuntoPreguntas> ObtenerConjuntos()
         {
             using (var bDbContext = new PruebaDBContext())
             {

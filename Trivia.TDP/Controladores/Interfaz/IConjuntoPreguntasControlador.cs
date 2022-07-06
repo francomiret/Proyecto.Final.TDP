@@ -9,7 +9,7 @@ namespace Trivia.TDP.Controladores.Interfaz
 {
     interface IConjuntoPreguntasControlador
     {
-        void agregarConjunto(ConjuntoPreguntas pConjunto);
-        List<ConjuntoPreguntas> obtenerConjuntos();
+        void AgregarConjunto(ConjuntoPreguntas pConjunto);
+        List<ConjuntoPreguntas> ObtenerConjuntos();
     }
 }

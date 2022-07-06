@@ -4,7 +4,7 @@ namespace Trivia.TDP.Controladores.OpentDB
 {
     class WebRequesterOpentDB
     {
-        public WebResponse PeticionAUrl(string pUrl)
+        public WebResponse CrearConsulta(string pUrl)
         {
             // Establecimiento del protocolo ssl de transporte
             System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;

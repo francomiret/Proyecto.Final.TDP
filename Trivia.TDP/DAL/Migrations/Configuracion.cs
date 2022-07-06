@@ -30,8 +30,8 @@ namespace Trivia.TDP.DAL.Migrations
 
             DificultadSeeder.Seed(pContext);
 
-            IList<Categoria> categorias = estrategia.obtenerCategorias();
-            iCategoriaControlador.agregarCategorias(categorias);
+            IList<Categoria> categorias = estrategia.ObtenerCategorias();
+            iCategoriaControlador.AgregarCategorias(categorias);
 
             base.Seed(pContext);
         }

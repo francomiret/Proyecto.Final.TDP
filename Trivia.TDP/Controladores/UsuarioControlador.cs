@@ -4,9 +4,6 @@ using ProyectoFinalTDP.DAL.Interfaz;
 using ProyectoFinalTDP.DAL.Repositorios;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Trivia.TDP.Controladores.Errores;
 using Trivia.TDP.Controladores.Interfaz;
 
@@ -15,7 +12,7 @@ namespace Trivia.TDP.Controladores
     class UsuarioControlador : IUsuarioControlador
     {
         private static Usuario usuarioAutenticado;
-        public Usuario autenticar(string legajo, string contrasena)
+        public Usuario Autenticar(string legajo, string contrasena)
         {
             using (var bDbContext = new PruebaDBContext())
             {
@@ -34,7 +31,7 @@ namespace Trivia.TDP.Controladores
             }
         }
 
-        public Boolean crearUsuario(Usuario usuario)
+        public Boolean CrearUsuario(Usuario usuario)
         {
             using (var bDbContext = new PruebaDBContext())
             {
@@ -64,7 +61,7 @@ namespace Trivia.TDP.Controladores
             usuarioAutenticado = null;
         }
 
-        public IList<Usuario> buscarUsuario(Usuario usuario)
+        public IList<Usuario> BuscarUsuario(Usuario usuario)
         {
             using (var bDbContext = new PruebaDBContext())
             {
@@ -81,7 +78,7 @@ namespace Trivia.TDP.Controladores
             }
         }
 
-        public void actualizarUsuario(Usuario usuario)
+        public void ActualizarUsuario(Usuario usuario)
         {
             using (var bDbContext = new PruebaDBContext())
             {
@@ -93,7 +90,7 @@ namespace Trivia.TDP.Controladores
             }
         }
 
-        public void eliminarUsuario(String legajo)
+        public void EliminarUsuario(String legajo)
         {
             using (var bDbContext = new PruebaDBContext())
             {

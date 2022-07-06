@@ -52,7 +52,7 @@ namespace Trivia.TDP.Vistas
                 {
                     usuario.active = true;
                 }
-                IList<Usuario> usuarios = this.iUsuarioControlador.buscarUsuario(usuario);
+                IList<Usuario> usuarios = this.iUsuarioControlador.BuscarUsuario(usuario);
                 if (usuarios != null)
                 {
                     dataGridView1.DataSource = usuarios;
@@ -76,7 +76,7 @@ namespace Trivia.TDP.Vistas
             if (usuario.active == false)
             {
                 usuario.active = true;
-                iUsuarioControlador.actualizarUsuario(usuario);
+                iUsuarioControlador.ActualizarUsuario(usuario);
                 MessageBox.Show("Usuario activado.");
             }
             else
@@ -100,7 +100,7 @@ namespace Trivia.TDP.Vistas
                 int selectedrowindex = dataGridView1.SelectedCells[0].RowIndex;
                 DataGridViewRow selectedRow = dataGridView1.Rows[selectedrowindex];
                 string cellValue = Convert.ToString(selectedRow.Cells["legajo"].Value);
-                iUsuarioControlador.eliminarUsuario(cellValue);
+                iUsuarioControlador.EliminarUsuario(cellValue);
                 MessageBox.Show("Usuario eliminado.");
             }
             

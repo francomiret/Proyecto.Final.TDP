@@ -13,7 +13,7 @@ namespace Trivia.TDP.Controladores
 {
     class DificultadControlador : IDificultadControlador
     {
-        public List<Dificultad> obtenerDificultades()
+        public List<Dificultad> ObtenerDificultades()
         {
             using (var bDbContext = new PruebaDBContext())
             {

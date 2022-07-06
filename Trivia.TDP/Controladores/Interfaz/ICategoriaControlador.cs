@@ -9,7 +9,7 @@ namespace Trivia.TDP.Controladores.Interfaz
 {
     interface ICategoriaControlador
     {
-        void agregarCategorias(IList<Categoria> pCategorias);
-        IList<Categoria> obtenerCategorias();
+        void AgregarCategorias(IList<Categoria> pCategorias);
+        IList<Categoria> ObtenerCategorias();
     }
 }

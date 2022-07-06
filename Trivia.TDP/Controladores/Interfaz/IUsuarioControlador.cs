@@ -10,14 +10,14 @@ namespace Trivia.TDP.Controladores.Interfaz
 {
     interface IUsuarioControlador
     {
-        Boolean crearUsuario(Usuario usuario);
-        Usuario autenticar(string legajo, string contrasena);
+        Boolean CrearUsuario(Usuario usuario);
+        Usuario Autenticar(string legajo, string contrasena);
         Usuario ObtenerUsuarioAutenticado();
         void CerrarSesion();
-        IList<Usuario> buscarUsuario(Usuario usuario);
+        IList<Usuario> BuscarUsuario(Usuario usuario);
 
-        void actualizarUsuario(Usuario usuario);
+        void ActualizarUsuario(Usuario usuario);
 
-        void eliminarUsuario(String legajo);
+        void EliminarUsuario(String legajo);
     }
 }

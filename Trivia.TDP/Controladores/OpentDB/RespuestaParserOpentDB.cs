@@ -14,10 +14,9 @@ namespace Trivia.TDP.Controladores.OpentDB
         {
         }
 
-        public IEnumerable<Pregunta> ParseResponse(WebResponse webResponse, ConjuntoPreguntas pConjunto)
+        public IEnumerable<Pregunta> FormatearRespuesta(WebResponse webResponse, ConjuntoPreguntas pConjunto)
         {
             var preguntas = new List<Pregunta>();
-
 
             using (Stream responseStream = webResponse.GetResponseStream())
             {
@@ -35,15 +34,14 @@ namespace Trivia.TDP.Controladores.OpentDB
                     string nombreDificultad = HttpUtility.HtmlDecode(bResponseItem.difficulty.ToString());
                     var respuestas = new List<Respuesta>();
 
-
                     if ((nombreCategoria != pConjunto.Categoria.nombre) || (nombreDificultad != pConjunto.Dificultad.descripcion))
                     {
                         throw new DataNotFound("Categoria o Dificultad no validos.");
                     }
 
-
                     //Obtiene el texto de la respuesta correcta
                     string textorespuestaCorrecta = HttpUtility.HtmlDecode(bResponseItem.correct_answer.ToString());
+                    
                     //Obtiene el texto de las respuestas incorrectas
                     List<string> textoincorrectas = bResponseItem.incorrect_answers.ToObject<List<string>>();
 
@@ -55,7 +53,6 @@ namespace Trivia.TDP.Controladores.OpentDB
 
                     //Añade respuesta correcta a la lista
                     respuestas.Add(respuestaCorrecta);
-
 
                     //Por cada respuesta incorrecta, crea una respuesta y la añade a la lista
                     foreach (string tri in textoincorrectas)

@@ -43,7 +43,7 @@ namespace Trivia.TDP.Vistas
                     user.esAdministrador = false;
                     try
                     {
-                        Boolean created = iUsuarioControlador.crearUsuario(user);
+                        Boolean created = iUsuarioControlador.CrearUsuario(user);
                         if (created)
                             MessageBox.Show("Usuario registrado existosamente.");
                     }

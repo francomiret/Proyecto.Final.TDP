@@ -9,6 +9,6 @@ namespace Trivia.TDP.Controladores.Interfaz
 {
     interface IDificultadControlador
     {
-        List<Dificultad> obtenerDificultades();
+        List<Dificultad> ObtenerDificultades();
     }
 }

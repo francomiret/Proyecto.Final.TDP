@@ -27,7 +27,7 @@ namespace Trivia.TDP.Vistas
             String legajo = textLegajo.Text;
             String contrasena = textContrasena.Text;
             try {
-                Usuario usuario = this.iUsuarioControlador.autenticar(legajo, contrasena);
+                Usuario usuario = this.iUsuarioControlador.Autenticar(legajo, contrasena);
                 if (usuario != null)
                 {
                     
