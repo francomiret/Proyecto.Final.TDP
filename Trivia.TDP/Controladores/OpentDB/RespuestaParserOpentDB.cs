@@ -14,7 +14,7 @@ namespace Trivia.TDP.Controladores.OpentDB
         {
         }
 
-        public IEnumerable<Pregunta> FormatearRespuesta(WebResponse webResponse, ConjuntoPreguntas pConjunto)
+        public IList<Pregunta> FormatearRespuesta(WebResponse webResponse, ConjuntoPreguntas pConjunto)
         {
             var preguntas = new List<Pregunta>();
 
@@ -83,11 +83,15 @@ namespace Trivia.TDP.Controladores.OpentDB
 
                 foreach (var bResponseItem in mResponseJSON.trivia_categories)
                 {
-                    string idCategoria = bResponseItem.id.ToString();
+                    int idCategoria = bResponseItem.id;
                     string nombreCategoria = bResponseItem.name.ToString();
 
                     //Crea la categoria
-                    var categoria = new Categoria(idCategoria, nombreCategoria);
+                    var categoria = new Categoria()
+                    {
+                        providedId = idCategoria, 
+                        nombre = nombreCategoria
+                    };
 
                     categorias.Add(categoria);
                 }

@@ -15,6 +15,8 @@ namespace ProyectoFinalTDP.DAL.Interfaz
         IConjuntoPreguntasRepositorio ConjuntoPreguntasRepositorio { get; }
 
         ICategoriaRepositorio CategoriaRepositorio { get; }
+
+        IPreguntaRepositorio PreguntaRepositorio { get; }
         void Complete();
 
     }

@@ -5,20 +5,20 @@ namespace Dominio
 {
 	public class Pregunta
 	{
-		[Key]
-		public string PreguntaId { get; set; }
 
-		private string descripcion { get; set; }
+		public int PreguntaId { get; set; }
+
+		public string descripcion { get; set; }
 
 		public virtual Examen examen { get; set; }
 
 		public virtual IList<Respuesta> listaRespuestas { get; set; }
 
-        public ConjuntoPreguntas ConjuntoPreguntas { get; set; }
+        public virtual ConjuntoPreguntas ConjuntoPreguntas { get; set; }
 
-        public Pregunta(string pPregunta, ConjuntoPreguntas pConjunto)
+        public Pregunta(string pDescripcion, ConjuntoPreguntas pConjunto)
         {
-            PreguntaId = pPregunta;
+            descripcion = pDescripcion;
             ConjuntoPreguntas = pConjunto;
         }
 

@@ -26,6 +26,15 @@ namespace ProyectoFinalTDP.DAL.Repositorios
             {
 
             }
+            try
+            {
+                var categoria = this.iDbContext.Categorias.First(c => c.CategoriaId == pConjunto.Categoria.CategoriaId);
+                pConjunto.Categoria = categoria;
+            }
+            catch (InvalidOperationException e)
+            {
+
+            }
             iDbContext.ConjuntoPreguntas.Add(pConjunto);
 
         }

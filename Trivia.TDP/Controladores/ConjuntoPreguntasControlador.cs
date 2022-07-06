@@ -30,7 +30,6 @@ namespace Trivia.TDP.Controladores
                     try
                     {
                         List<ConjuntoPreguntas> conuntoPreguntas = bUoW.ConjuntoPreguntasRepositorio.obtenerConjuntos();
-                        bUoW.Complete();
                         return conuntoPreguntas;
                     }
                     catch (DataNotFound e)

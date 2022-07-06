@@ -17,7 +17,7 @@ namespace Trivia.TDP.Controladores.OpentDB
             this.iParser = new RespuestaParserOpentDB();
         }
 
-        public  IEnumerable<Pregunta> ObtenerPreguntas(int pCantidad, ConjuntoPreguntas pConjunto)
+        public  IList<Pregunta> ObtenerPreguntas(int pCantidad, ConjuntoPreguntas pConjunto)
         {
             if ((pConjunto == null) ||
                 (pConjunto.Categoria == null) ||

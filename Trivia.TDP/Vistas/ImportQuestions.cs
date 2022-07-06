@@ -23,11 +23,14 @@ namespace Trivia.TDP.Vistas
         private ICategoriaControlador iCategoriaControlador;
 
         private IConjuntoPreguntasControlador iConjuntoPreguntasControlador;
+
+        private IPreguntaControlador iPreguntaControlador;
         public ImportQuestions()
         {
             this.iConjuntoPreguntasControlador = new ConjuntoPreguntasControlador();
             this.iDificultadControlador = new DificultadControlador();
             this.iCategoriaControlador = new CategoriaControlador();
+            this.iPreguntaControlador = new PreguntaControlador();
             InitializeComponent();
             var dificultades = iDificultadControlador.ObtenerDificultades();
             for (int i = 0; i < dificultades.Count; i++)
@@ -64,8 +67,9 @@ namespace Trivia.TDP.Vistas
             Categoria categoriaSeleccionada = (Categoria)comboBoxCategorias.SelectedItem;
             int cant = Int32.Parse(cantidadPreg.Text);
             ConjuntoPreguntas conjunto = new ConjuntoPreguntas("preg", dificultadSeleccionada, categoriaSeleccionada);
-            IEnumerable<Pregunta> preguntas = estrategia.ObtenerPreguntas(cant, conjunto);
+            IList<Pregunta> preguntas = estrategia.ObtenerPreguntas(cant, conjunto);
             conjunto.setPreguntas(preguntas);
+            this.iPreguntaControlador.agregarPreguntas(preguntas);
             this.iConjuntoPreguntasControlador.AgregarConjunto(conjunto);
         }
 

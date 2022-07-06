@@ -11,13 +11,10 @@ namespace Dominio
     public class Categoria
     {
 
-        public Categoria(string v1, String v2)
-        {
-            this.CategoriaId = v1;
-            this.nombre = v2;
-        }
-
-        public string CategoriaId { get; set; }
+        public int CategoriaId { get; set; }
         public string nombre { get; set; }
+
+        public int providedId { get; set; }
+
     }
 }
