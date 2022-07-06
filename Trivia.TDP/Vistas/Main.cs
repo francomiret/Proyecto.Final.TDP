@@ -17,15 +17,12 @@ namespace Trivia.TDP.Vistas
     public partial class Main : Form
     {
         private IUsuarioControlador iUsuarioControlador;
-        private ICategoriaControlador iCategoriaControlador;
-        private Estrategia estrategia = new Estrategia();
+
         public Main()
         {
             InitializeComponent();
             this.iUsuarioControlador = new UsuarioControlador();
-            this.iCategoriaControlador = new CategoriaControlador();
-            IList<Categoria> categorias = estrategia.obtenerCategorias();
-            iCategoriaControlador.agregarCategorias(categorias);
+
 
         }
 
@@ -65,6 +62,11 @@ namespace Trivia.TDP.Vistas
         {
             Vistas.AdmQuestions admQuestions = new Vistas.AdmQuestions();
             admQuestions.Show();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

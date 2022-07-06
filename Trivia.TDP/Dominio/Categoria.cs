@@ -17,7 +17,6 @@ namespace Dominio
             this.nombre = v2;
         }
 
-        [Key]
         public string CategoriaId { get; set; }
         public string nombre { get; set; }
     }

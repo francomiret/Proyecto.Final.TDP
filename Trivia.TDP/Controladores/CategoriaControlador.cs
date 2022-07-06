@@ -19,7 +19,7 @@ namespace Trivia.TDP.Controladores
             {
                 using (IUnitOfWork bUoW = new UnitOfWork(bDbContext))
                 {
-
+                    bUoW.DropCategorias();
                     bUoW.CategoriaRepositorio.agregarCategorias(pCategorias);;
                     bUoW.Complete();
                 }

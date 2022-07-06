@@ -42,7 +42,5 @@ namespace ProyectoFinalTDP.DAL.Repositorios
         {
             this.pDbContext.Dispose();
         }
-
-
     }
 }

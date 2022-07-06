@@ -19,17 +19,16 @@ namespace Trivia.TDP.DAL.Repositorios
 
         public void agregarCategorias(IList<Categoria> pCategorias)
         {
+
             for (var i = 0; i < pCategorias.Count; i++)
             {
                 try
                 {
-                    var categoria = iDbContext.Categorias.Select(x => x.CategoriaId == pCategorias[i].CategoriaId);
-                    if (categoria == null)
-                        iDbContext.Categorias.Add(pCategorias[i]);
+                    iDbContext.Categorias.Add(pCategorias[i]);
                 }
                 catch (InvalidOperationException e)
                 {
-
+                    throw e;
                 }
                 
                 

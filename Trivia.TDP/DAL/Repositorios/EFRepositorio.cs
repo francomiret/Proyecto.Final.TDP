@@ -55,5 +55,6 @@ namespace ProyectoFinalTDP.DAL.Repositorios
                 return this.iDbContext.Set<TEntity>().ToList<TEntity>();
             }
 
-        }
+
+    }
 }

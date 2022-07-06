@@ -16,5 +16,6 @@ namespace ProyectoFinalTDP.DAL.Interfaz
 
         ICategoriaRepositorio CategoriaRepositorio { get; }
         void Complete();
+
     }
 }
