@@ -16,7 +16,7 @@ namespace Trivia.TDP.Vistas
 {
     public partial class ImportQuestions : Form
     {
-        private Estrategia estrategia = new Estrategia();
+        private ImportadorDataOpentDB estrategia = new ImportadorDataOpentDB();
 
         private IDificultadControlador iDificultadControlador;
 

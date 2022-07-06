@@ -1,5 +1,4 @@
-﻿
-using Dominio;
+﻿using Dominio;
 
 namespace Trivia.TDP.Controladores.OpentDB
 {

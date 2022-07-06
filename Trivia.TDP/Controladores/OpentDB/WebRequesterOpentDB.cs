@@ -1,9 +1,8 @@
-﻿using System.Globalization;
-using System.Net;
+﻿using System.Net;
 
 namespace Trivia.TDP.Controladores.OpentDB
 {
-    class OpentDBWebRequester
+    class WebRequesterOpentDB
     {
         public WebResponse PeticionAUrl(string pUrl)
         {

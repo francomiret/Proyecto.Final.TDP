@@ -5,23 +5,12 @@ using System.Net;
 
 namespace Trivia.TDP.Controladores.OpentDB
 {
-    class Estrategia
+    class ImportadorDataOpentDB
     {
-        ///Clase compuesta por 
-
         private readonly CreadorURLOpentDB iUrlCreador;
-        private readonly OpentDBWebRequester iWebRequester;
-        private readonly ResponseParser iParser;
+        private readonly WebRequesterOpentDB iWebRequester;
+        private readonly RespuestaParserOpentDB iParser;
 
-
-        /// <summary>
-        /// </summary>
-        /// <exception cref="WebException"></exception>
-        /// <exception cref="FormatException"></exception>
-        /// <exception cref="ArgumentNullException"></exception>
-        /// <param name="pCantidad"></param>
-        /// <param name="pConjunto"></param>
-        /// <returns></returns>
         public  IEnumerable<Pregunta> DescargarPreguntas(int pCantidad, ConjuntoPreguntas pConjunto)
         {
             if ((pConjunto == null) ||
@@ -50,11 +39,11 @@ namespace Trivia.TDP.Controladores.OpentDB
             return responseParsed;
         }
 
-        public Estrategia() 
+        public ImportadorDataOpentDB() 
         {
             this.iUrlCreador = new CreadorURLOpentDB();
-            this.iWebRequester = new OpentDBWebRequester();
-            this.iParser = new ResponseParser();
+            this.iWebRequester = new WebRequesterOpentDB();
+            this.iParser = new RespuestaParserOpentDB();
         }
     }
 }

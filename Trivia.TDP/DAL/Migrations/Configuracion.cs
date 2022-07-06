@@ -15,7 +15,7 @@ namespace Trivia.TDP.DAL.Migrations
     internal sealed class Configuracion : DbMigrationsConfiguration<PruebaDBContext>
     {
         private ICategoriaControlador iCategoriaControlador;
-        private Estrategia estrategia = new Estrategia();
+        private ImportadorDataOpentDB estrategia = new ImportadorDataOpentDB();
         public Configuracion()
         {
             AutomaticMigrationsEnabled = true;

@@ -1,29 +1,19 @@
 ﻿using Dominio;
 using Nancy.Helpers;
 using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Text;
-using System.Web;
 
 namespace Trivia.TDP.Controladores.OpentDB
 {
-    class ResponseParser
+    class RespuestaParserOpentDB
     {
-
-        public ResponseParser()
+        public RespuestaParserOpentDB()
         {
         }
 
-        /// <summary>
-        /// Dada una web response y un conjunto, construye las preguntas
-        /// </summary>
-        /// <exception cref="JsonReaderException">Si webResponse no tiene formato adecuado</exception>
-        /// <param name="webResponse"></param>
-        /// <param name="pConjunto"></param>
-        /// <returns>Preguntas construidas</returns>
         public IEnumerable<Pregunta> ParseResponse(WebResponse webResponse, ConjuntoPreguntas pConjunto)
         {
             var preguntas = new List<Pregunta>();
@@ -81,9 +71,7 @@ namespace Trivia.TDP.Controladores.OpentDB
                     preguntas.Add(preg);
                 }
             }
-
             return preguntas;
-
         }
 
         public List<Categoria> ParseResponseCategorias(WebResponse webResponse)
@@ -107,13 +95,7 @@ namespace Trivia.TDP.Controladores.OpentDB
                     categorias.Add(categoria);
                 }
             }
-
             return categorias;
         }
-
-
-
-
-
     }
 }
