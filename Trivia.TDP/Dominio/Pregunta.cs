@@ -12,7 +12,7 @@ namespace Dominio
 
 		public virtual Examen examen { get; set; }
 
-		public virtual IList<Respuesta> listaRespuestas { get; set; }
+		//public virtual IList<Respuesta> listaRespuestas { get; set; }
 
         public virtual ConjuntoPreguntas ConjuntoPreguntas { get; set; }
 

@@ -6,9 +6,8 @@ namespace Dominio
 {
     public class ConjuntoPreguntas
     {
-        [Key]
         public int Id { get; set; }
-        public String Nombre { get; set; }
+        public string Nombre { get; set; }
         public float TiempoEsperadoRespuesta { get; set; }
         public virtual Dificultad Dificultad { get; set; }
         public virtual Categoria Categoria { get; set; }
@@ -28,6 +27,13 @@ namespace Dominio
             this.Categoria = pCategoria;
             this.TiempoEsperadoRespuesta = 20;
         }
+
+        public ConjuntoPreguntas()
+        {
+
+        }
+
+
 
         public void setPreguntas(IEnumerable<Pregunta> pPreguntas)
         {

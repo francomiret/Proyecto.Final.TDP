@@ -11,5 +11,7 @@ namespace Trivia.TDP.DAL.Interfaz
     interface IPreguntaRepositorio : IRepositorio<Pregunta>
     {
         void agregarPreguntas(IList<Pregunta> pPreguntas);
+
+        IList<Pregunta> obtenerPreguntas();
     }
 }

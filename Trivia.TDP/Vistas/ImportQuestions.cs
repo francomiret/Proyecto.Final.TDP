@@ -47,7 +47,18 @@ namespace Trivia.TDP.Vistas
             }
             comboBoxCategorias.DisplayMember = "nombre";
 
+            var conjuntos = iConjuntoPreguntasControlador.ObtenerConjuntos();
+            comboBoxConjuntos.DisplayMember = "Nombre";
 
+            if (conjuntos != null)
+            {
+                foreach (var conjunto in conjuntos)
+                {
+                    comboBoxConjuntos.Items.Add(conjunto);
+                }
+            }
+            
+            
 
         }
 
@@ -63,14 +74,24 @@ namespace Trivia.TDP.Vistas
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Dificultad dificultadSeleccionada = (Dificultad)comboBoxDificultad.SelectedItem;
-            Categoria categoriaSeleccionada = (Categoria)comboBoxCategorias.SelectedItem;
-            int cant = Int32.Parse(cantidadPreg.Text);
-            ConjuntoPreguntas conjunto = new ConjuntoPreguntas("preg", dificultadSeleccionada, categoriaSeleccionada);
-            IList<Pregunta> preguntas = estrategia.ObtenerPreguntas(cant, conjunto);
-            conjunto.setPreguntas(preguntas);
-            this.iPreguntaControlador.agregarPreguntas(preguntas);
-            this.iConjuntoPreguntasControlador.AgregarConjunto(conjunto);
+            IList<Pregunta> preguntas = null;
+            if (comboBoxConjuntos.SelectedItem == null)
+            {
+                Dificultad dificultadSeleccionada = (Dificultad)comboBoxDificultad.SelectedItem;
+                Categoria categoriaSeleccionada = (Categoria)comboBoxCategorias.SelectedItem;
+                int cant = Int32.Parse(cantidadPreg.Text);
+                string nombreConjunto = categoriaSeleccionada.nombre + " - " + dificultadSeleccionada.descripcion;
+                ConjuntoPreguntas conjunto = new ConjuntoPreguntas(nombreConjunto, dificultadSeleccionada, categoriaSeleccionada);
+                preguntas = estrategia.ObtenerPreguntas(cant, conjunto);
+                conjunto.setPreguntas(preguntas);
+                this.iPreguntaControlador.agregarPreguntas(preguntas);
+            } else
+            {
+                preguntas = this.iPreguntaControlador.obtenerPreguntas();
+            }
+            Vistas.AdmQuestions admQuestions = new Vistas.AdmQuestions(preguntas);
+            this.Close();
+            admQuestions.Show();
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)

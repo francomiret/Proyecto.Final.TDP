@@ -10,5 +10,7 @@ namespace Trivia.TDP.Controladores.Interfaz
     interface IPreguntaControlador
     {
         void agregarPreguntas(IList<Pregunta> pPreguntas);
+
+        IList<Pregunta> obtenerPreguntas();
     }
 }

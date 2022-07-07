@@ -21,10 +21,32 @@ namespace Trivia.TDP.DAL.Repositorios
         {
             foreach (var pregunta in pPreguntas)
             {
-                var conjunto = iDbContext.ConjuntoPreguntas.First(z => z.Id == pregunta.ConjuntoPreguntas.Id);
-                pregunta.ConjuntoPreguntas = conjunto;
+                try
+                {
+                    var dificultad = this.iDbContext.Dificultades.First(c => c.DificultadId == pregunta.ConjuntoPreguntas.Dificultad.DificultadId);
+                    pregunta.ConjuntoPreguntas.Dificultad = dificultad;
+                }
+                catch (InvalidOperationException e)
+                {
+
+                }
+                try
+                {
+                    var categoria = this.iDbContext.Categorias.First(c => c.CategoriaId == pregunta.ConjuntoPreguntas.Categoria.CategoriaId);
+                    pregunta.ConjuntoPreguntas.Categoria = categoria;
+                }
+                catch (InvalidOperationException e)
+                {
+
+                }
                 iDbContext.Preguntas.Add(pregunta);
             } 
+        }
+
+        public IList<Pregunta> obtenerPreguntas()
+        {
+            var preguntas = iDbContext.Preguntas.ToList();
+            return preguntas;
         }
     }
 }

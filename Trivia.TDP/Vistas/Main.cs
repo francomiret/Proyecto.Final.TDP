@@ -66,7 +66,14 @@ namespace Trivia.TDP.Vistas
 
         private void button5_Click(object sender, EventArgs e)
         {
+            Vistas.RunTrivia runTrivia = new Vistas.RunTrivia();
+            runTrivia.Show(); 
+        }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Vistas.Ranking ranking = new Vistas.Ranking();
+            ranking.Show();
         }
     }
 }

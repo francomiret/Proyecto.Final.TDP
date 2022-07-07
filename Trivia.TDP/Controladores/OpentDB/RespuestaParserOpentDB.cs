@@ -62,7 +62,7 @@ namespace Trivia.TDP.Controladores.OpentDB
                     }
 
                     // Asocias las respuestas con la pregunta
-                    preg.listaRespuestas = respuestas;
+                    //preg.listaRespuestas = respuestas;
 
                     //se agrega cada una de las preguntas a la lista
                     preguntas.Add(preg);

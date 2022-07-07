@@ -41,7 +41,8 @@ namespace ProyectoFinalTDP.DAL.Repositorios
 
         public List<ConjuntoPreguntas> obtenerConjuntos()
         {
-            return iDbContext.ConjuntoPreguntas.Select(x => x).ToList();
+            var conjuntos = iDbContext.ConjuntoPreguntas.ToList();
+            return conjuntos;
         }
     }
 }

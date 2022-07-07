@@ -33,7 +33,7 @@
             this.button6 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.comboBoxConjuntos = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cantidadPreg = new System.Windows.Forms.DomainUpDown();
@@ -99,14 +99,14 @@
             this.label6.ForeColor = System.Drawing.Color.CornflowerBlue;
             this.label6.Location = new System.Drawing.Point(114, 68);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(321, 37);
+            this.label6.Size = new System.Drawing.Size(403, 46);
             this.label6.TabIndex = 60;
             this.label6.Text = "IMPORTAR PREGUNTAS";
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.Controls.Add(this.comboBox3);
+            this.groupBox1.Controls.Add(this.comboBoxConjuntos);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.groupBox1.Location = new System.Drawing.Point(24, 120);
@@ -116,13 +116,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Seleccione un conjunto";
             // 
-            // comboBox3
+            // comboBoxConjuntos
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(105, 28);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(191, 21);
-            this.comboBox3.TabIndex = 67;
+            this.comboBoxConjuntos.FormattingEnabled = true;
+            this.comboBoxConjuntos.Location = new System.Drawing.Point(105, 28);
+            this.comboBoxConjuntos.Name = "comboBoxConjuntos";
+            this.comboBoxConjuntos.Size = new System.Drawing.Size(191, 24);
+            this.comboBoxConjuntos.TabIndex = 67;
             // 
             // label3
             // 
@@ -130,7 +130,7 @@
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(24, 28);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(73, 17);
+            this.label3.Size = new System.Drawing.Size(93, 23);
             this.label3.TabIndex = 66;
             this.label3.Text = "Conjunto :";
             // 
@@ -155,7 +155,7 @@
             // 
             this.cantidadPreg.Location = new System.Drawing.Point(119, 109);
             this.cantidadPreg.Name = "cantidadPreg";
-            this.cantidadPreg.Size = new System.Drawing.Size(191, 20);
+            this.cantidadPreg.Size = new System.Drawing.Size(191, 22);
             this.cantidadPreg.TabIndex = 73;
             this.cantidadPreg.SelectedItemChanged += new System.EventHandler(this.domainUpDown1_SelectedItemChanged);
             // 
@@ -165,7 +165,7 @@
             this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(30, 107);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 17);
+            this.label4.Size = new System.Drawing.Size(93, 23);
             this.label4.TabIndex = 72;
             this.label4.Text = "Cantidad :";
             // 
@@ -174,7 +174,7 @@
             this.comboBoxDificultad.FormattingEnabled = true;
             this.comboBoxDificultad.Location = new System.Drawing.Point(119, 76);
             this.comboBoxDificultad.Name = "comboBoxDificultad";
-            this.comboBoxDificultad.Size = new System.Drawing.Size(191, 21);
+            this.comboBoxDificultad.Size = new System.Drawing.Size(191, 24);
             this.comboBoxDificultad.TabIndex = 71;
             this.comboBoxDificultad.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
@@ -184,7 +184,7 @@
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(24, 75);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 17);
+            this.label2.Size = new System.Drawing.Size(100, 23);
             this.label2.TabIndex = 70;
             this.label2.Text = "Dificultad :";
             // 
@@ -193,7 +193,7 @@
             this.comboBoxCategorias.FormattingEnabled = true;
             this.comboBoxCategorias.Location = new System.Drawing.Point(119, 41);
             this.comboBoxCategorias.Name = "comboBoxCategorias";
-            this.comboBoxCategorias.Size = new System.Drawing.Size(191, 21);
+            this.comboBoxCategorias.Size = new System.Drawing.Size(191, 24);
             this.comboBoxCategorias.TabIndex = 69;
             this.comboBoxCategorias.SelectedIndexChanged += new System.EventHandler(this.comboBoxCategorias_SelectedIndexChanged);
             // 
@@ -203,7 +203,7 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(24, 41);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 17);
+            this.label1.Size = new System.Drawing.Size(98, 23);
             this.label1.TabIndex = 68;
             this.label1.Text = "Categoría :";
             // 
@@ -250,7 +250,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox comboBoxConjuntos;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DomainUpDown cantidadPreg;

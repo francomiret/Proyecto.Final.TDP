@@ -24,5 +24,24 @@ namespace Trivia.TDP.Controladores
                 }
             }
         }
+
+        public IList<Pregunta> obtenerPreguntas()
+        {
+            using (var bDbContext = new PruebaDBContext())
+            {
+                using (IUnitOfWork bUoW = new UnitOfWork(bDbContext))
+                {
+                    try
+                    {
+                        IList<Pregunta> preguntas = bUoW.PreguntaRepositorio.obtenerPreguntas();
+                        return preguntas;
+                    }
+                    catch (DataNotFound e)
+                    {
+                        throw new DataNotFound();
+                    }
+                }
+            }
+        }
     }
 }
