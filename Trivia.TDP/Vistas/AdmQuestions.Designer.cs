@@ -47,6 +47,7 @@ namespace Trivia.TDP.Vistas
             this.comboBoxCategorias = new System.Windows.Forms.ComboBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button7 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPreguntas)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -73,13 +74,14 @@ namespace Trivia.TDP.Vistas
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(693, 647);
+            this.button1.Location = new System.Drawing.Point(693, 637);
             this.button1.Margin = new System.Windows.Forms.Padding(0);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(173, 32);
             this.button1.TabIndex = 48;
             this.button1.Text = "ELIMINAR PREGUNTA";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -87,7 +89,7 @@ namespace Trivia.TDP.Vistas
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(13, 647);
+            this.button2.Location = new System.Drawing.Point(13, 637);
             this.button2.Margin = new System.Windows.Forms.Padding(0);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(173, 32);
@@ -112,19 +114,20 @@ namespace Trivia.TDP.Vistas
             // dataGridPreguntas
             // 
             this.dataGridPreguntas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridPreguntas.Location = new System.Drawing.Point(13, 320);
+            this.dataGridPreguntas.Location = new System.Drawing.Point(13, 317);
             this.dataGridPreguntas.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridPreguntas.MultiSelect = false;
             this.dataGridPreguntas.Name = "dataGridPreguntas";
             this.dataGridPreguntas.ReadOnly = true;
             this.dataGridPreguntas.RowHeadersWidth = 51;
             this.dataGridPreguntas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridPreguntas.Size = new System.Drawing.Size(855, 322);
+            this.dataGridPreguntas.Size = new System.Drawing.Size(853, 294);
             this.dataGridPreguntas.TabIndex = 46;
             this.dataGridPreguntas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button7);
             this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.comboBoxDificultad);
@@ -145,13 +148,14 @@ namespace Trivia.TDP.Vistas
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button4.Location = new System.Drawing.Point(304, 70);
+            this.button4.Location = new System.Drawing.Point(304, 66);
             this.button4.Margin = new System.Windows.Forms.Padding(0);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(117, 32);
             this.button4.TabIndex = 54;
             this.button4.Text = "BUSCAR";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // label1
             // 
@@ -262,7 +266,7 @@ namespace Trivia.TDP.Vistas
             this.pictureBox2.Location = new System.Drawing.Point(-44, 224);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(957, 462);
+            this.pictureBox2.Size = new System.Drawing.Size(960, 455);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 45;
             this.pictureBox2.TabStop = false;
@@ -278,11 +282,26 @@ namespace Trivia.TDP.Vistas
             this.pictureBox1.TabIndex = 21;
             this.pictureBox1.TabStop = false;
             // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button7.Location = new System.Drawing.Point(304, 105);
+            this.button7.Margin = new System.Windows.Forms.Padding(0);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(117, 32);
+            this.button7.TabIndex = 56;
+            this.button7.Text = "LIMPIAR";
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
             // AdmQuestions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(896, 684);
+            this.ClientSize = new System.Drawing.Size(899, 696);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.comboBoxCategorias);
@@ -331,5 +350,6 @@ namespace Trivia.TDP.Vistas
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBoxCategorias;
+        private System.Windows.Forms.Button button7;
     }
 }

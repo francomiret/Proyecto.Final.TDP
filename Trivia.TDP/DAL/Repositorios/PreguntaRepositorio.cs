@@ -48,5 +48,24 @@ namespace Trivia.TDP.DAL.Repositorios
             var preguntas = iDbContext.Preguntas.ToList();
             return preguntas;
         }
+
+        public IList<Pregunta> obtenerPreguntasPorCategoriaDificultad(int? categoriaId, int? dificultadId, int? conjuntoId)
+        {
+            var preguntas = iDbContext.Preguntas.Where(z => 
+               ((categoriaId != null && z.ConjuntoPreguntas.Categoria.CategoriaId == categoriaId) &&
+               (dificultadId != null && z.ConjuntoPreguntas.Dificultad.DificultadId == dificultadId)) ||
+               z.ConjuntoPreguntas.Id == conjuntoId
+            ).ToList();
+            return preguntas;
+        }
+
+        public void eliminarPregunta(int preguntaId)
+        {
+            var pregunta = iDbContext.Preguntas.SingleOrDefault(z => z.PreguntaId == preguntaId);
+            if (pregunta != null)
+            {
+                iDbContext.Preguntas.Remove(pregunta);
+            }
+        }
     }
 }

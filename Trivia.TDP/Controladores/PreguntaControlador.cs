@@ -43,5 +43,45 @@ namespace Trivia.TDP.Controladores
                 }
             }
         }
+        
+        public IList<Pregunta> ObtenerPreguntasCategoriaDificultad(int? categoria, int? dificultad, int? conjunto)
+        {
+            using (var bDbContext = new PruebaDBContext())
+            {
+                using (IUnitOfWork bUoW = new UnitOfWork(bDbContext))
+                {
+                    try
+                    {
+                        IList<Pregunta> preguntas = bUoW.PreguntaRepositorio.obtenerPreguntasPorCategoriaDificultad(categoria, dificultad, conjunto);
+                        return preguntas;
+                    }
+                    catch (DataNotFound e)
+                    {
+                        throw new DataNotFound();
+                    }
+                }
+            }
+        }
+
+        public void eliminarPregunta(int preguntaId)
+        {
+            using (var bDbContext = new PruebaDBContext())
+            {
+                using (IUnitOfWork bUoW = new UnitOfWork(bDbContext))
+                {
+                    try
+                    {
+                        bUoW.PreguntaRepositorio.eliminarPregunta(preguntaId);
+                        bUoW.Complete();
+                    }
+                    catch (DataNotFound e)
+                    {
+                        throw new DataNotFound();
+                    }
+                }
+            }
+        }
+
+
     }
 }

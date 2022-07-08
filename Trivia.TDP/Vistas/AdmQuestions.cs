@@ -21,6 +21,8 @@ namespace Trivia.TDP.Vistas
         private ICategoriaControlador iCategoriaControlador;
 
         private IConjuntoPreguntasControlador iConjuntoPreguntasControlador;
+
+        private IPreguntaControlador iPreguntaControlador;
         public AdmQuestions(IList<Pregunta> preguntas)
         {
             InitializeComponent();
@@ -57,6 +59,7 @@ namespace Trivia.TDP.Vistas
             this.iConjuntoPreguntasControlador = new ConjuntoPreguntasControlador();
             this.iDificultadControlador = new DificultadControlador();
             this.iCategoriaControlador = new CategoriaControlador();
+            this.iPreguntaControlador = new PreguntaControlador();
             var dificultades = iDificultadControlador.ObtenerDificultades();
             for (int i = 0; i < dificultades.Count; i++)
             {
@@ -155,6 +158,50 @@ namespace Trivia.TDP.Vistas
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            dataGridPreguntas.DataSource = null;
+            IList<Pregunta> preguntas = null;
+            Categoria categoriaSeleccionada = (Categoria)comboBoxCategorias.SelectedItem;
+            Dificultad dificultadSeleccionada = (Dificultad)comboBoxDificultad.SelectedItem;
+            ConjuntoPreguntas conjunto = (ConjuntoPreguntas)conjuntoCombo.SelectedItem;
+            preguntas = iPreguntaControlador.ObtenerPreguntasCategoriaDificultad(categoriaSeleccionada?.CategoriaId, dificultadSeleccionada?.DificultadId, conjunto?.Id);
+            
+
+            dataGridPreguntas.AutoGenerateColumns = false;
+            dataGridPreguntas.AutoSize = true;
+            dataGridPreguntas.DataSource = preguntas;
+
+            DataGridViewColumn columnId = new DataGridViewTextBoxColumn();
+            columnId.DataPropertyName = "PreguntaId";
+            columnId.Name = "Id";
+            dataGridPreguntas.Columns.Add(columnId);
+
+            DataGridViewColumn columnDesc = new DataGridViewTextBoxColumn();
+            columnDesc.DataPropertyName = "descripcion";
+            columnDesc.Name = "Pregunta";
+            dataGridPreguntas.Columns.Add(columnDesc);
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            comboBoxCategorias.Text = null;
+            comboBoxDificultad.Text = null; ;
+            conjuntoCombo.Text = null;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (dataGridPreguntas.SelectedCells.Count > 0)
+            {
+                int selectedrowindex = dataGridPreguntas.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = dataGridPreguntas.Rows[selectedrowindex];
+                string preguntaId = selectedRow.Cells["id"].Value.ToString(); ;
+                iPreguntaControlador.eliminarPregunta(Int32.Parse(preguntaId));
+                MessageBox.Show("Pregunta eliminada.");
+            }
         }
     }
 }

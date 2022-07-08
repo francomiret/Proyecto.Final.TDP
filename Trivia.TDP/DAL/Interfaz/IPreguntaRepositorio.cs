@@ -13,5 +13,9 @@ namespace Trivia.TDP.DAL.Interfaz
         void agregarPreguntas(IList<Pregunta> pPreguntas);
 
         IList<Pregunta> obtenerPreguntas();
+
+        IList<Pregunta> obtenerPreguntasPorCategoriaDificultad(int? categoriaId, int? dificultadId, int? conjunto);
+
+        void eliminarPregunta(int preguntaId);
     }
 }
