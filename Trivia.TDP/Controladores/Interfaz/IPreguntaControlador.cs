@@ -1,20 +1,16 @@
 ﻿using Dominio;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Trivia.TDP.Controladores.Interfaz
 {
     interface IPreguntaControlador
     {
-        void agregarPreguntas(IList<Pregunta> pPreguntas);
+        void AgregarPreguntas( IList<Pregunta> pPreguntas );
 
-        IList<Pregunta> obtenerPreguntasPorCriterio(int? categoria, int? dificultad, int? conjunto);
+        IList<Pregunta> ObtenerPreguntasPorCriterio( int? categoria, int? dificultad, int? conjunto );
 
-        void eliminarPregunta(int preguntaId);
+        void EliminarPregunta( int preguntaId );
 
-        void EliminarPreguntasConjunto(int? pConjuntoId);
+        void EliminarPreguntasConjunto( int? pConjuntoId );
     }
 }

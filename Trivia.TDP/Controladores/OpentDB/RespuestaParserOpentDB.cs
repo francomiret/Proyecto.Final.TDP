@@ -14,7 +14,7 @@ namespace Trivia.TDP.Controladores.OpentDB
         {
         }
 
-        public IList<Pregunta> FormatearRespuesta(WebResponse webResponse, ConjuntoPreguntas pConjunto)
+        public IList<Pregunta> FormatearRespuesta( WebResponse webResponse, ConjuntoPreguntas pConjunto )
         {
             var preguntas = new List<Pregunta>();
 
@@ -41,7 +41,7 @@ namespace Trivia.TDP.Controladores.OpentDB
 
                     //Obtiene el texto de la respuesta correcta
                     string textorespuestaCorrecta = HttpUtility.HtmlDecode(bResponseItem.correct_answer.ToString());
-                    
+
                     //Obtiene el texto de las respuestas incorrectas
                     List<string> textoincorrectas = bResponseItem.incorrect_answers.ToObject<List<string>>();
 
@@ -79,7 +79,7 @@ namespace Trivia.TDP.Controladores.OpentDB
             return preguntas;
         }
 
-        public List<Categoria> ParseResponseCategorias(WebResponse webResponse)
+        public List<Categoria> ParseResponseCategorias( WebResponse webResponse )
         {
             var categorias = new List<Categoria>();
             using (Stream responseStream = webResponse.GetResponseStream())
@@ -97,7 +97,7 @@ namespace Trivia.TDP.Controladores.OpentDB
                     //Crea la categoria
                     var categoria = new Categoria()
                     {
-                        providedId = idCategoria, 
+                        providedId = idCategoria,
                         nombre = nombreCategoria
                     };
 

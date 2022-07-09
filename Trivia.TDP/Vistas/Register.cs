@@ -1,40 +1,34 @@
 ﻿using Dominio;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Trivia.TDP.Controladores;
 using Trivia.TDP.Controladores.Errores;
 using Trivia.TDP.Controladores.Interfaz;
+using Trivia.TDP.DTO;
 
 namespace Trivia.TDP.Vistas
 {
     public partial class Register : Form
     {
-        private IUsuarioControlador iUsuarioControlador;
+        private Fachada fachada;
         public Register()
         {
             InitializeComponent();
-            this.iUsuarioControlador = new UsuarioControlador();
+            this.fachada = new Fachada();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void label1_Click( object sender, EventArgs e )
         {
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click( object sender, EventArgs e )
         {
             if (textLegajo.Text != "" && textContrasena.Text != "" && textNombre.Text != "" && textApellido.Text != "")
             {
                 if (textContrasena.Text == textRepetirContrasena.Text)
                 {
-                    Usuario user = new Usuario();
+                    UsuarioDTO user = new UsuarioDTO();
                     user.nombre = textNombre.Text;
                     user.apellido = textApellido.Text;
                     user.legajo = textLegajo.Text;
@@ -43,7 +37,7 @@ namespace Trivia.TDP.Vistas
                     user.esAdministrador = false;
                     try
                     {
-                        Boolean created = iUsuarioControlador.CrearUsuario(user);
+                        Boolean created = fachada.CrearUsuario(user);
                         if (created)
                             MessageBox.Show("Usuario registrado existosamente.");
                     }
@@ -61,29 +55,29 @@ namespace Trivia.TDP.Vistas
                     MessageBox.Show("Las contraseñas no coinciden.");
                 }
 
-            } 
+            }
             else
             {
                 MessageBox.Show("Completar campos obligatorios.");
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void button3_Click( object sender, EventArgs e )
         {
             Close();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click( object sender, EventArgs e )
         {
             Close();
         }
 
-        private void textContrasena_TextChanged(object sender, EventArgs e)
+        private void textContrasena_TextChanged( object sender, EventArgs e )
         {
 
         }
 
-        private void Register_Load(object sender, EventArgs e)
+        private void Register_Load( object sender, EventArgs e )
         {
 
         }

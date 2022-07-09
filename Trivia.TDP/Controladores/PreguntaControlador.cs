@@ -2,18 +2,14 @@
 using ProyectoFinalTDP.DAL;
 using ProyectoFinalTDP.DAL.Interfaz;
 using ProyectoFinalTDP.DAL.Repositorios;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Trivia.TDP.Controladores.Interfaz;
 
 namespace Trivia.TDP.Controladores
 {
     class PreguntaControlador : IPreguntaControlador
     {
-        public void agregarPreguntas(IList<Pregunta> pPreguntas)
+        public void AgregarPreguntas( IList<Pregunta> pPreguntas )
         {
             using (var bDbContext = new PruebaDBContext())
             {
@@ -24,8 +20,8 @@ namespace Trivia.TDP.Controladores
                 }
             }
         }
-        
-        public IList<Pregunta> obtenerPreguntasPorCriterio(int? categoria, int? dificultad, int? conjunto)
+
+        public IList<Pregunta> ObtenerPreguntasPorCriterio( int? categoria, int? dificultad, int? conjunto )
         {
             using (var bDbContext = new PruebaDBContext())
             {
@@ -44,7 +40,7 @@ namespace Trivia.TDP.Controladores
             }
         }
 
-        public void eliminarPregunta(int preguntaId)
+        public void EliminarPregunta( int preguntaId )
         {
             using (var bDbContext = new PruebaDBContext())
             {
@@ -63,7 +59,7 @@ namespace Trivia.TDP.Controladores
             }
         }
 
-        public void EliminarPreguntasConjunto(int? pConjuntoId)
+        public void EliminarPreguntasConjunto( int? pConjuntoId )
         {
             using (var bDbContext = new PruebaDBContext())
             {

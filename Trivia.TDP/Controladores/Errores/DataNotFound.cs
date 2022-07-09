@@ -10,15 +10,15 @@ namespace Trivia.TDP.Controladores
         {
         }
 
-        public DataNotFound(string message) : base(message)
+        public DataNotFound( string message ) : base(message)
         {
         }
 
-        public DataNotFound(string message, Exception innerException) : base(message, innerException)
+        public DataNotFound( string message, Exception innerException ) : base(message, innerException)
         {
         }
 
-        protected DataNotFound(SerializationInfo info, StreamingContext context) : base(info, context)
+        protected DataNotFound( SerializationInfo info, StreamingContext context ) : base(info, context)
         {
         }
     }

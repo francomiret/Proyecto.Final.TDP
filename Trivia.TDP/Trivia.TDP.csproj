@@ -76,12 +76,14 @@
     <Compile Include="Controladores\Errores\ErrorUsuarioYaExiste.cs" />
     <Compile Include="Controladores\Errores\ErrorUsuarioNoExiste.cs" />
     <Compile Include="Controladores\Errores\ErrorUsuarioNoAutenticado.cs" />
+    <Compile Include="Controladores\Fachada.cs" />
     <Compile Include="Controladores\Interfaz\ICategoriaControlador.cs" />
     <Compile Include="Controladores\Interfaz\IConjuntoPreguntasControlador.cs" />
     <Compile Include="Controladores\Interfaz\IDificultadControlador.cs" />
     <Compile Include="Controladores\Interfaz\IPreguntaControlador.cs" />
     <Compile Include="Controladores\Interfaz\IUsuarioControlador.cs" />
     <Compile Include="Controladores\Errores\DataNotFound.cs" />
+    <Compile Include="Controladores\OpentDB\IImportadorDataOpentDB.cs" />
     <Compile Include="Controladores\OpentDB\ImportadorDataOpentDB.cs" />
     <Compile Include="Controladores\OpentDB\WebRequesterOpentDB.cs" />
     <Compile Include="Controladores\OpentDB\RespuestaParserOpentDB.cs" />
@@ -97,6 +99,7 @@
     <Compile Include="DAL\Repositorios\ConjuntoPreguntasRepositorio.cs" />
     <Compile Include="DAL\Repositorios\DificultadRepositorio.cs" />
     <Compile Include="DAL\Repositorios\PreguntaRepositorio.cs" />
+    <Compile Include="DTO\ConjuntoPreguntasDTO.cs" />
     <Compile Include="Dominio\ConjuntoPreguntas.cs" />
     <Compile Include="Controladores\OpentDB\CreadorURLOpentDB.cs" />
     <Compile Include="Controladores\UsuarioControlador.cs" />

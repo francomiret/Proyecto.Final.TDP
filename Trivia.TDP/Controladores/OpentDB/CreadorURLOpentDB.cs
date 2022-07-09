@@ -4,7 +4,7 @@ namespace Trivia.TDP.Controladores.OpentDB
 {
     class CreadorURLOpentDB
     {
-        public string ConstruirUrl(int pCantidad, ConjuntoPreguntas pConjunto)
+        public string ConstruirUrl( int pCantidad, ConjuntoPreguntas pConjunto )
         {
             var url = string.Format("https://opentdb.com/api.php?amount={0}&category={1}&difficulty={2}&type=multiple",
                                 pCantidad,
@@ -12,6 +12,6 @@ namespace Trivia.TDP.Controladores.OpentDB
                                 pConjunto.Dificultad.descripcion);
             return url;
         }
-        
+
     }
 }

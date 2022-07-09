@@ -1,18 +1,18 @@
-﻿using System;
+﻿using Dominio;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
-namespace Dominio
+namespace Trivia.TDP.DTO
 {
-    public class ConjuntoPreguntas
+    public class ConjuntoPreguntasDTO
     {
         public int Id { get; set; }
         public string Nombre { get; set; }
-        public float TiempoEsperadoRespuesta { get; set; } = 20;
+        public float TiempoEsperadoRespuesta { get; set; }
         public virtual Dificultad Dificultad { get; set; }
         public virtual Categoria Categoria { get; set; }
         public virtual IList<Pregunta> Preguntas { get; set; }
-        public void setPreguntas(IList<Pregunta> pPreguntas)
+       
+        public void SetPreguntas(IList<Pregunta> pPreguntas)
         {
             this.Preguntas = pPreguntas;
         }

@@ -10,20 +10,6 @@ namespace Dominio
 {
     public class Dificultad
     {
-
-        public Dificultad(int v1, string v, int v3)
-        {
-            this.DificultadId= v1;
-            this.descripcion= v;
-            this.peso= v3;
-        }
-
-        public Dificultad()
-        {
- 
-        }
-
-        [Key]
         public int DificultadId { get; set; }
         public string descripcion { get; set; }
         public double peso { get; set; }

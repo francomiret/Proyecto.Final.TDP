@@ -1,19 +1,19 @@
-﻿using Dominio;
+﻿using Trivia.TDP.DTO;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using Trivia.TDP.Controladores;
-using Trivia.TDP.Controladores.Interfaz;
 
 namespace Trivia.TDP.Vistas
 {
     public partial class ABMuser : Form
     {
-        private IUsuarioControlador iUsuarioControlador;
+        private Fachada fachada;
+
         public ABMuser()
         {
             InitializeComponent();
-            this.iUsuarioControlador = new UsuarioControlador();
+            this.fachada = new Fachada();
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -40,7 +40,7 @@ namespace Trivia.TDP.Vistas
         {
             try
             {
-                Usuario usuario = new Usuario();
+                UsuarioDTO usuario = new UsuarioDTO();
                 usuario.legajo = textLegajo.Text;
                 usuario.nombre = textNombre.Text;
                 usuario.apellido = textApellido.Text;            
@@ -52,7 +52,7 @@ namespace Trivia.TDP.Vistas
                 {
                     usuario.active = true;
                 }
-                IList<Usuario> usuarios = this.iUsuarioControlador.BuscarUsuario(usuario);
+                IList<UsuarioDTO> usuarios = this.fachada.BuscarUsuarios(usuario);
                 if (usuarios != null)
                 {
                     dataGridView1.DataSource = usuarios;
@@ -72,17 +72,8 @@ namespace Trivia.TDP.Vistas
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Usuario usuario = (Usuario)dataGridView1.CurrentRow.DataBoundItem;
-            if (usuario.active == false)
-            {
-                usuario.active = true;
-                iUsuarioControlador.ActualizarUsuario(usuario);
-                MessageBox.Show("Usuario activado.");
-            }
-            else
-            {
-                MessageBox.Show("El usuario ya existe en el sistema.");
-            }
+            UsuarioDTO usuario = (UsuarioDTO)dataGridView1.CurrentRow.DataBoundItem;
+            MessageBox.Show(this.fachada.ActivarUsuario(usuario));
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -99,9 +90,7 @@ namespace Trivia.TDP.Vistas
             {
                 int selectedrowindex = dataGridView1.SelectedCells[0].RowIndex;
                 DataGridViewRow selectedRow = dataGridView1.Rows[selectedrowindex];
-                string cellValue = Convert.ToString(selectedRow.Cells["legajo"].Value);
-                iUsuarioControlador.EliminarUsuario(cellValue);
-                MessageBox.Show("Usuario eliminado.");
+                MessageBox.Show(this.fachada.EliminarUsuario(selectedRow));
             }
             
         }

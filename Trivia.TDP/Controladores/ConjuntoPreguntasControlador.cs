@@ -9,7 +9,7 @@ namespace Trivia.TDP.Controladores
 {
     class ConjuntoPreguntasControlador : IConjuntoPreguntasControlador
     {
-        public void AgregarConjunto(ConjuntoPreguntas pConjunto)
+        public void AgregarConjunto( ConjuntoPreguntas pConjunto )
         {
             using (var bDbContext = new PruebaDBContext())
             {
@@ -35,7 +35,7 @@ namespace Trivia.TDP.Controladores
                     catch (DataNotFound e)
                     {
                         throw new DataNotFound();
-                    }              
+                    }
                 }
             }
         }

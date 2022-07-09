@@ -1,45 +1,29 @@
 ﻿using Dominio;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Trivia.TDP.Controladores;
-using Trivia.TDP.Controladores.Interfaz;
-using Trivia.TDP.Controladores.OpentDB;
+using Trivia.TDP.DTO;
 
 namespace Trivia.TDP.Vistas
 {
     public partial class ImportQuestions : Form
     {
-        private ImportadorDataOpentDB estrategia = new ImportadorDataOpentDB();
+        private Fachada fachada;
 
-        private IDificultadControlador iDificultadControlador;
-
-        private ICategoriaControlador iCategoriaControlador;
-
-        private IConjuntoPreguntasControlador iConjuntoPreguntasControlador;
-
-        private IPreguntaControlador iPreguntaControlador;
         public ImportQuestions()
         {
-            this.iConjuntoPreguntasControlador = new ConjuntoPreguntasControlador();
-            this.iDificultadControlador = new DificultadControlador();
-            this.iCategoriaControlador = new CategoriaControlador();
-            this.iPreguntaControlador = new PreguntaControlador();
+            this.fachada = new Fachada();
+
             InitializeComponent();
-            var dificultades = iDificultadControlador.ObtenerDificultades();
+            var dificultades = fachada.ObtenerDificultades();
             for (int i = 0; i < dificultades.Count; i++)
             {
                 comboBoxDificultad.Items.Add(dificultades[i]);
             }
             comboBoxDificultad.DisplayMember = "descripcion";
 
-            var categorias = iCategoriaControlador.ObtenerCategorias();
+            var categorias = fachada.ObtenerCategorias();
 
             for (int i = 0; i < categorias.Count; i++)
             {
@@ -47,7 +31,7 @@ namespace Trivia.TDP.Vistas
             }
             comboBoxCategorias.DisplayMember = "nombre";
 
-            var conjuntos = iConjuntoPreguntasControlador.ObtenerConjuntos();
+            var conjuntos = fachada.ObtenerConjuntoPreguntas();
             comboBoxConjuntos.DisplayMember = "Nombre";
 
             if (conjuntos != null)
@@ -57,59 +41,48 @@ namespace Trivia.TDP.Vistas
                     comboBoxConjuntos.Items.Add(conjunto);
                 }
             }
-            
-            
-
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void button3_Click( object sender, EventArgs e )
         {
             this.Close();
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void button6_Click( object sender, EventArgs e )
         {
             this.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click( object sender, EventArgs e )
         {
-            IList<Pregunta> preguntas = null;
+            IList<PreguntaDTO> preguntas = new List<PreguntaDTO>();
             if (comboBoxConjuntos.SelectedItem == null)
             {
-                Dificultad dificultadSeleccionada = (Dificultad)comboBoxDificultad.SelectedItem;
-                Categoria categoriaSeleccionada = (Categoria)comboBoxCategorias.SelectedItem;
+                DificultadDTO dificultadSeleccionada = (DificultadDTO)comboBoxDificultad.SelectedItem;
+                CategoriaDTO categoriaSeleccionada = (CategoriaDTO)comboBoxCategorias.SelectedItem;
                 int cant = Int32.Parse(cantidadPreg.Text);
-                string nombreConjunto = categoriaSeleccionada.nombre + " - " + dificultadSeleccionada.descripcion;
-                ConjuntoPreguntas conjunto = new ConjuntoPreguntas(nombreConjunto, dificultadSeleccionada, categoriaSeleccionada);
-                preguntas = estrategia.ObtenerPreguntas(cant, conjunto);
-                conjunto.setPreguntas(preguntas);
-                this.iPreguntaControlador.agregarPreguntas(preguntas);
+                preguntas = fachada.AgregarPreguntas(dificultadSeleccionada, categoriaSeleccionada, cant);
             }
             else
             {
-                ConjuntoPreguntas conjunto = (ConjuntoPreguntas)comboBoxConjuntos.SelectedItem;
-                IList<Pregunta> preguntasActuales = iPreguntaControlador.obtenerPreguntasPorCriterio(null, null, conjunto.Id);
-                var cantPreg = preguntasActuales.Count;
-                iPreguntaControlador.EliminarPreguntasConjunto(conjunto.Id);
-                preguntas = estrategia.ObtenerPreguntas(cantPreg, conjunto);
-                this.iPreguntaControlador.agregarPreguntas(preguntas);
+                ConjuntoPreguntasDTO conjunto = (ConjuntoPreguntasDTO)comboBoxConjuntos.SelectedItem;
+                preguntas = fachada.AgregarPreguntas(conjunto);
             }
             Vistas.AdmQuestions admQuestions = new Vistas.AdmQuestions(preguntas);
             admQuestions.Show();
         }
 
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void comboBoxCategorias_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBox2_SelectedIndexChanged( object sender, EventArgs e )
         {
 
         }
 
-        private void domainUpDown1_SelectedItemChanged(object sender, EventArgs e)
+        private void comboBoxCategorias_SelectedIndexChanged( object sender, EventArgs e )
+        {
+
+        }
+
+        private void domainUpDown1_SelectedItemChanged( object sender, EventArgs e )
         {
 
         }

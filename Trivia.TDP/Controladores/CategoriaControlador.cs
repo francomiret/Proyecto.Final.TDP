@@ -9,7 +9,7 @@ namespace Trivia.TDP.Controladores
 {
     class CategoriaControlador : ICategoriaControlador
     {
-        public void AgregarCategorias (IList<Categoria> pCategorias)
+        public void AgregarCategorias( IList<Categoria> pCategorias )
         {
             using (var bDbContext = new PruebaDBContext())
             {
@@ -27,7 +27,7 @@ namespace Trivia.TDP.Controladores
             {
                 using (IUnitOfWork bUoW = new UnitOfWork(bDbContext))
                 {
-                    IList<Categoria>  categorias = bUoW.CategoriaRepositorio.obtenerCategorias();
+                    IList<Categoria> categorias = bUoW.CategoriaRepositorio.obtenerCategorias();
                     return categorias;
                 }
             }
