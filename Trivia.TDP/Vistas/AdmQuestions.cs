@@ -32,9 +32,12 @@ namespace Trivia.TDP.Vistas
             {
                 MessageBox.Show("Preguntas no encontradas.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
 
-
-
+        public AdmQuestions()
+        {
+            InitializeComponent();
+            this.Setup();
         }
 
         private void Setup()
