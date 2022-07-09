@@ -11,7 +11,7 @@ namespace Dominio
         public float TiempoEsperadoRespuesta { get; set; }
         public virtual Dificultad Dificultad { get; set; }
         public virtual Categoria Categoria { get; set; }
-        public virtual IEnumerable<Pregunta> Preguntas { get; set; }
+        public virtual IList<Pregunta> Preguntas { get; set; }
         public ConjuntoPreguntas(string pNombre, float pTiempoEsperadoRespuesta, Dificultad pDificultad, Categoria pCategoria)
         {
             this.Nombre = pNombre;
@@ -35,7 +35,7 @@ namespace Dominio
 
 
 
-        public void setPreguntas(IEnumerable<Pregunta> pPreguntas)
+        public void setPreguntas(IList<Pregunta> pPreguntas)
         {
             this.Preguntas = pPreguntas;
         }

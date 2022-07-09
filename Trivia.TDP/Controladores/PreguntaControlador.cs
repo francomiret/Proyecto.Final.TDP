@@ -24,27 +24,8 @@ namespace Trivia.TDP.Controladores
                 }
             }
         }
-
-        public IList<Pregunta> obtenerPreguntas()
-        {
-            using (var bDbContext = new PruebaDBContext())
-            {
-                using (IUnitOfWork bUoW = new UnitOfWork(bDbContext))
-                {
-                    try
-                    {
-                        IList<Pregunta> preguntas = bUoW.PreguntaRepositorio.obtenerPreguntas();
-                        return preguntas;
-                    }
-                    catch (DataNotFound e)
-                    {
-                        throw new DataNotFound();
-                    }
-                }
-            }
-        }
         
-        public IList<Pregunta> ObtenerPreguntasCategoriaDificultad(int? categoria, int? dificultad, int? conjunto)
+        public IList<Pregunta> obtenerPreguntasPorCriterio(int? categoria, int? dificultad, int? conjunto)
         {
             using (var bDbContext = new PruebaDBContext())
             {
@@ -52,7 +33,7 @@ namespace Trivia.TDP.Controladores
                 {
                     try
                     {
-                        IList<Pregunta> preguntas = bUoW.PreguntaRepositorio.obtenerPreguntasPorCategoriaDificultad(categoria, dificultad, conjunto);
+                        IList<Pregunta> preguntas = bUoW.PreguntaRepositorio.obtenerPreguntasPorCriterio(categoria, dificultad, conjunto);
                         return preguntas;
                     }
                     catch (DataNotFound e)
@@ -78,6 +59,18 @@ namespace Trivia.TDP.Controladores
                     {
                         throw new DataNotFound();
                     }
+                }
+            }
+        }
+
+        public void EliminarPreguntasConjunto(int? pConjuntoId)
+        {
+            using (var bDbContext = new PruebaDBContext())
+            {
+                using (IUnitOfWork bUoW = new UnitOfWork(bDbContext))
+                {
+                    bUoW.PreguntaRepositorio.eliminarPreguntasDeConjunto(pConjuntoId);
+                    bUoW.Complete();
                 }
             }
         }

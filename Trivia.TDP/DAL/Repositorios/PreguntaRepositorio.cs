@@ -23,6 +23,19 @@ namespace Trivia.TDP.DAL.Repositorios
             {
                 try
                 {
+                    var conjunto = this.iDbContext.ConjuntoPreguntas.First(c => c.Id == pregunta.ConjuntoPreguntas.Id);
+                    if (conjunto != null)
+                    {
+                        pregunta.ConjuntoPreguntas = conjunto;
+                    }
+                    
+                }
+                catch (InvalidOperationException e)
+                {
+
+                }
+                try
+                {
                     var dificultad = this.iDbContext.Dificultades.First(c => c.DificultadId == pregunta.ConjuntoPreguntas.Dificultad.DificultadId);
                     pregunta.ConjuntoPreguntas.Dificultad = dificultad;
                 }
@@ -43,17 +56,12 @@ namespace Trivia.TDP.DAL.Repositorios
             } 
         }
 
-        public IList<Pregunta> obtenerPreguntas()
+        public IList<Pregunta> obtenerPreguntasPorCriterio(int? categoriaId, int? dificultadId, int? conjuntoId)
         {
-            var preguntas = iDbContext.Preguntas.ToList();
-            return preguntas;
-        }
-
-        public IList<Pregunta> obtenerPreguntasPorCategoriaDificultad(int? categoriaId, int? dificultadId, int? conjuntoId)
-        {
-            var preguntas = iDbContext.Preguntas.Where(z => 
-               ((categoriaId != null && z.ConjuntoPreguntas.Categoria.CategoriaId == categoriaId) &&
-               (dificultadId != null && z.ConjuntoPreguntas.Dificultad.DificultadId == dificultadId)) ||
+            IList<Pregunta> preguntas = iDbContext.Preguntas.Include("ConjuntoPreguntas").Include("listaRespuestas")
+            .Where(z =>
+            ((categoriaId != null && z.ConjuntoPreguntas.Categoria.CategoriaId == categoriaId) ||
+            (dificultadId != null && z.ConjuntoPreguntas.Dificultad.DificultadId == dificultadId)) ||
                z.ConjuntoPreguntas.Id == conjuntoId
             ).ToList();
             return preguntas;
@@ -65,6 +73,28 @@ namespace Trivia.TDP.DAL.Repositorios
             if (pregunta != null)
             {
                 iDbContext.Preguntas.Remove(pregunta);
+            }
+        }
+
+        public void eliminarPreguntasDeConjunto(int? conjuntoId)
+        {
+            IList<Pregunta> preguntas = iDbContext.Preguntas.Where(z => z.ConjuntoPreguntas.Id == conjuntoId).ToList();
+
+            if (preguntas != null)
+            {
+                foreach (var pregunta in preguntas)
+                {
+                    IList<Respuesta> respuestas = iDbContext.Respuestas.Where(z => z.Pregunta.PreguntaId == pregunta.PreguntaId).ToList();
+                    if (respuestas != null)
+                    {
+                        for (int i = 0; i < respuestas.Count; i++)
+                        {
+                            iDbContext.Respuestas.Remove(respuestas[i]);
+                        }
+                    }
+                    iDbContext.Preguntas.Remove(pregunta);
+                }
+
             }
         }
     }

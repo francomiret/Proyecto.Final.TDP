@@ -12,5 +12,6 @@ namespace ProyectoFinalTDP.DAL.Interfaz
         void AgregarConjunto(ConjuntoPreguntas pConjunto);
 
         List<ConjuntoPreguntas> obtenerConjuntos();
+
     }
 }

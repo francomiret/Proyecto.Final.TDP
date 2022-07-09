@@ -31,10 +31,13 @@ namespace Trivia.TDP.Vistas
         {
             this.label6 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.dataGridPreguntas = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ConjuntoPreguntas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pregunta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button7 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxDificultad = new System.Windows.Forms.ComboBox();
@@ -42,12 +45,14 @@ namespace Trivia.TDP.Vistas
             this.conjuntoCombo = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.comboBoxCategorias = new System.Windows.Forms.ComboBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button7 = new System.Windows.Forms.Button();
+            this.RespuestaCorrecta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RespuestaIncorrecta1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RespuestaIncorrecta2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RespuestaIncorrecta3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPreguntas)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -74,7 +79,7 @@ namespace Trivia.TDP.Vistas
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(693, 637);
+            this.button1.Location = new System.Drawing.Point(822, 633);
             this.button1.Margin = new System.Windows.Forms.Padding(0);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(173, 32);
@@ -83,26 +88,12 @@ namespace Trivia.TDP.Vistas
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(13, 637);
-            this.button2.Margin = new System.Windows.Forms.Padding(0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(173, 32);
-            this.button2.TabIndex = 47;
-            this.button2.Text = "ACTUALIZAR LISTADO";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
             // button6
             // 
             this.button6.BackColor = System.Drawing.Color.IndianRed;
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button6.Location = new System.Drawing.Point(829, 15);
+            this.button6.Location = new System.Drawing.Point(959, 13);
             this.button6.Margin = new System.Windows.Forms.Padding(4);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(36, 28);
@@ -113,7 +104,17 @@ namespace Trivia.TDP.Vistas
             // 
             // dataGridPreguntas
             // 
+            this.dataGridPreguntas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridPreguntas.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridPreguntas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridPreguntas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
+            this.ConjuntoPreguntas,
+            this.Pregunta,
+            this.RespuestaCorrecta,
+            this.RespuestaIncorrecta1,
+            this.RespuestaIncorrecta2,
+            this.RespuestaIncorrecta3});
             this.dataGridPreguntas.Location = new System.Drawing.Point(13, 317);
             this.dataGridPreguntas.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridPreguntas.MultiSelect = false;
@@ -121,9 +122,33 @@ namespace Trivia.TDP.Vistas
             this.dataGridPreguntas.ReadOnly = true;
             this.dataGridPreguntas.RowHeadersWidth = 51;
             this.dataGridPreguntas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridPreguntas.Size = new System.Drawing.Size(853, 294);
+            this.dataGridPreguntas.Size = new System.Drawing.Size(982, 297);
             this.dataGridPreguntas.TabIndex = 46;
             this.dataGridPreguntas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // Id
+            // 
+            this.Id.HeaderText = "Id";
+            this.Id.MinimumWidth = 6;
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Width = 48;
+            // 
+            // ConjuntoPreguntas
+            // 
+            this.ConjuntoPreguntas.HeaderText = "Nombre conjunto";
+            this.ConjuntoPreguntas.MinimumWidth = 6;
+            this.ConjuntoPreguntas.Name = "ConjuntoPreguntas";
+            this.ConjuntoPreguntas.ReadOnly = true;
+            this.ConjuntoPreguntas.Width = 133;
+            // 
+            // Pregunta
+            // 
+            this.Pregunta.HeaderText = "Pregunta";
+            this.Pregunta.MinimumWidth = 6;
+            this.Pregunta.Name = "Pregunta";
+            this.Pregunta.ReadOnly = true;
+            this.Pregunta.Width = 95;
             // 
             // groupBox1
             // 
@@ -141,6 +166,22 @@ namespace Trivia.TDP.Vistas
             this.groupBox1.TabIndex = 51;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button7.Location = new System.Drawing.Point(304, 105);
+            this.button7.Margin = new System.Windows.Forms.Padding(0);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(117, 32);
+            this.button7.TabIndex = 56;
+            this.button7.Text = "LIMPIAR";
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button4
             // 
@@ -201,7 +242,6 @@ namespace Trivia.TDP.Vistas
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.button3);
-            this.groupBox2.Controls.Add(this.button5);
             this.groupBox2.Location = new System.Drawing.Point(461, 143);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
@@ -225,20 +265,6 @@ namespace Trivia.TDP.Vistas
             this.button3.Text = "IMPORTAR CONJUNTO";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button5.Location = new System.Drawing.Point(75, 94);
-            this.button5.Margin = new System.Windows.Forms.Padding(0);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(261, 32);
-            this.button5.TabIndex = 54;
-            this.button5.Text = "ACTUALIZAR CONJUNTO";
-            this.button5.UseVisualStyleBackColor = false;
             // 
             // label3
             // 
@@ -266,7 +292,7 @@ namespace Trivia.TDP.Vistas
             this.pictureBox2.Location = new System.Drawing.Point(-44, 224);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(960, 455);
+            this.pictureBox2.Size = new System.Drawing.Size(1039, 466);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 45;
             this.pictureBox2.TabStop = false;
@@ -282,33 +308,49 @@ namespace Trivia.TDP.Vistas
             this.pictureBox1.TabIndex = 21;
             this.pictureBox1.TabStop = false;
             // 
-            // button7
+            // RespuestaCorrecta
             // 
-            this.button7.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button7.Location = new System.Drawing.Point(304, 105);
-            this.button7.Margin = new System.Windows.Forms.Padding(0);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(117, 32);
-            this.button7.TabIndex = 56;
-            this.button7.Text = "LIMPIAR";
-            this.button7.UseVisualStyleBackColor = false;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.RespuestaCorrecta.HeaderText = "Respuesta Correcta";
+            this.RespuestaCorrecta.MinimumWidth = 6;
+            this.RespuestaCorrecta.Name = "RespuestaCorrecta";
+            this.RespuestaCorrecta.ReadOnly = true;
+            this.RespuestaCorrecta.Width = 149;
+            // 
+            // RespuestaIncorrecta1
+            // 
+            this.RespuestaIncorrecta1.HeaderText = "Respuesta Incorrecta 1";
+            this.RespuestaIncorrecta1.MinimumWidth = 6;
+            this.RespuestaIncorrecta1.Name = "RespuestaIncorrecta1";
+            this.RespuestaIncorrecta1.ReadOnly = true;
+            this.RespuestaIncorrecta1.Width = 168;
+            // 
+            // RespuestaIncorrecta2
+            // 
+            this.RespuestaIncorrecta2.HeaderText = "Respuesta Incorrecta 2";
+            this.RespuestaIncorrecta2.MinimumWidth = 6;
+            this.RespuestaIncorrecta2.Name = "RespuestaIncorrecta2";
+            this.RespuestaIncorrecta2.ReadOnly = true;
+            this.RespuestaIncorrecta2.Width = 168;
+            // 
+            // RespuestaIncorrecta3
+            // 
+            this.RespuestaIncorrecta3.HeaderText = "Respuesta Incorrecta 3";
+            this.RespuestaIncorrecta3.MinimumWidth = 6;
+            this.RespuestaIncorrecta3.Name = "RespuestaIncorrecta3";
+            this.RespuestaIncorrecta3.ReadOnly = true;
+            this.RespuestaIncorrecta3.Width = 168;
             // 
             // AdmQuestions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(899, 696);
+            this.ClientSize = new System.Drawing.Size(1037, 683);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.comboBoxCategorias);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.dataGridPreguntas);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label6);
@@ -336,7 +378,6 @@ namespace Trivia.TDP.Vistas
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.DataGridView dataGridPreguntas;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -347,9 +388,15 @@ namespace Trivia.TDP.Vistas
         private System.Windows.Forms.ComboBox comboBoxDificultad;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBoxCategorias;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ConjuntoPreguntas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Pregunta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RespuestaCorrecta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RespuestaIncorrecta1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RespuestaIncorrecta2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RespuestaIncorrecta3;
     }
 }

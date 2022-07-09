@@ -85,12 +85,17 @@ namespace Trivia.TDP.Vistas
                 preguntas = estrategia.ObtenerPreguntas(cant, conjunto);
                 conjunto.setPreguntas(preguntas);
                 this.iPreguntaControlador.agregarPreguntas(preguntas);
-            } else
+            }
+            else
             {
-                preguntas = this.iPreguntaControlador.obtenerPreguntas();
+                ConjuntoPreguntas conjunto = (ConjuntoPreguntas)comboBoxConjuntos.SelectedItem;
+                IList<Pregunta> preguntasActuales = iPreguntaControlador.obtenerPreguntasPorCriterio(null, null, conjunto.Id);
+                var cantPreg = preguntasActuales.Count;
+                iPreguntaControlador.EliminarPreguntasConjunto(conjunto.Id);
+                preguntas = estrategia.ObtenerPreguntas(cantPreg, conjunto);
+                this.iPreguntaControlador.agregarPreguntas(preguntas);
             }
             Vistas.AdmQuestions admQuestions = new Vistas.AdmQuestions(preguntas);
-            this.Close();
             admQuestions.Show();
         }
 

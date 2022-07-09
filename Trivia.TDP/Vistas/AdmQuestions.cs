@@ -28,24 +28,25 @@ namespace Trivia.TDP.Vistas
             InitializeComponent();
             this.Setup();
 
-            dataGridPreguntas.AutoGenerateColumns = false;
-            dataGridPreguntas.AutoSize = true;
-            dataGridPreguntas.DataSource = preguntas;
+            if (preguntas != null)
+            {
+                foreach (Pregunta pregunta in preguntas)
+                {
+                    dataGridPreguntas.Rows.Add(pregunta.PreguntaId, 
+                        pregunta.ConjuntoPreguntas.Nombre, 
+                        pregunta.descripcion,
+                        pregunta.listaRespuestas[0].descripcion,
+                        pregunta.listaRespuestas[1].descripcion,
+                        pregunta.listaRespuestas[2].descripcion,
+                        pregunta.listaRespuestas[3].descripcion);
+                }
+            } else
+            {
+                MessageBox.Show("Preguntas no encontradas.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            
 
-            DataGridViewColumn columnId = new DataGridViewTextBoxColumn();
-            columnId.DataPropertyName = "PreguntaId";
-            columnId.Name = "Id";
-            dataGridPreguntas.Columns.Add(columnId);
 
-            DataGridViewColumn columnDesc = new DataGridViewTextBoxColumn();
-            columnDesc.DataPropertyName = "descripcion";
-            columnDesc.Name = "Pregunta";
-            dataGridPreguntas.Columns.Add(columnDesc);
-
-            //DataGridViewColumn columnConjunto = new DataGridViewTextBoxColumn();
-            //columnConjunto.DataPropertyName = "ConjuntoPreguntas.Nombre";
-            //columnConjunto.Name = "Nombre Conjunto";
-            //dataGridPreguntas.Columns.Add(columnConjunto);
         }
 
         public AdmQuestions()
@@ -110,50 +111,7 @@ namespace Trivia.TDP.Vistas
 
         }
 
-        //private void dataGridPreguntas_CellFormatting_1(object sender, DataGridViewCellFormattingEventArgs e)
-        //{
-        //    if ((dataGridPreguntas.Rows[e.RowIndex].DataBoundItem != null) &&
-        //        (dataGridPreguntas.Columns[e.ColumnIndex].DataPropertyName.Contains(".")))
-        //    {
-        //        e.Value = BindProperty(dataGridPreguntas.Rows[e.RowIndex].DataBoundItem,
-        //        dataGridPreguntas.Columns[e.ColumnIndex].DataPropertyName);
-        //    }
-        //}
-        private string BindProperty(object property, string propertyName)
-        {
-            string retValue = "";
-
-            if (propertyName.Contains("."))
-            {
-                PropertyInfo[] arrayProperties;
-                string leftPropertyName;
-
-                leftPropertyName = propertyName.Substring(0, propertyName.IndexOf("."));
-                arrayProperties = property.GetType().GetProperties();
-
-                foreach (PropertyInfo propertyInfo in arrayProperties)
-                {
-                    if (propertyInfo.Name == leftPropertyName)
-                    {
-                        retValue = this.BindProperty(
-                          propertyInfo.GetValue(property, null),
-                          propertyName.Substring(propertyName.IndexOf(".") + 1));
-                        break;
-                    }
-                }
-            }
-            else
-            {
-                Type propertyType;
-                PropertyInfo propertyInfo;
-
-                propertyType = property.GetType();
-                propertyInfo = propertyType.GetProperty(propertyName);
-                retValue = propertyInfo.GetValue(property, null).ToString();
-            }
-
-            return retValue;
-        }
+       
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -163,26 +121,31 @@ namespace Trivia.TDP.Vistas
         private void button4_Click(object sender, EventArgs e)
         {
             dataGridPreguntas.DataSource = null;
-            IList<Pregunta> preguntas = null;
             Categoria categoriaSeleccionada = (Categoria)comboBoxCategorias.SelectedItem;
             Dificultad dificultadSeleccionada = (Dificultad)comboBoxDificultad.SelectedItem;
             ConjuntoPreguntas conjunto = (ConjuntoPreguntas)conjuntoCombo.SelectedItem;
-            preguntas = iPreguntaControlador.ObtenerPreguntasCategoriaDificultad(categoriaSeleccionada?.CategoriaId, dificultadSeleccionada?.DificultadId, conjunto?.Id);
-            
+            IList<Pregunta> preguntas = iPreguntaControlador.obtenerPreguntasPorCriterio(categoriaSeleccionada?.CategoriaId, dificultadSeleccionada?.DificultadId, conjunto?.Id);
 
-            dataGridPreguntas.AutoGenerateColumns = false;
-            dataGridPreguntas.AutoSize = true;
-            dataGridPreguntas.DataSource = preguntas;
 
-            DataGridViewColumn columnId = new DataGridViewTextBoxColumn();
-            columnId.DataPropertyName = "PreguntaId";
-            columnId.Name = "Id";
-            dataGridPreguntas.Columns.Add(columnId);
+            if (preguntas != null)
+            {
+                foreach (Pregunta pregunta in preguntas)
+                {
+                    dataGridPreguntas.Rows.Add(pregunta.PreguntaId,
+                        pregunta.ConjuntoPreguntas.Nombre,
+                        pregunta.descripcion,
+                        pregunta.listaRespuestas[0].descripcion,
+                        pregunta.listaRespuestas[1].descripcion,
+                        pregunta.listaRespuestas[2].descripcion,
+                        pregunta.listaRespuestas[3].descripcion);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Preguntas no encontradas.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
 
-            DataGridViewColumn columnDesc = new DataGridViewTextBoxColumn();
-            columnDesc.DataPropertyName = "descripcion";
-            columnDesc.Name = "Pregunta";
-            dataGridPreguntas.Columns.Add(columnDesc);
+
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -202,6 +165,11 @@ namespace Trivia.TDP.Vistas
                 iPreguntaControlador.eliminarPregunta(Int32.Parse(preguntaId));
                 MessageBox.Show("Pregunta eliminada.");
             }
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -11,10 +11,10 @@ namespace Trivia.TDP.Controladores.Interfaz
     {
         void agregarPreguntas(IList<Pregunta> pPreguntas);
 
-        IList<Pregunta> obtenerPreguntas();
-
-        IList<Pregunta> ObtenerPreguntasCategoriaDificultad(int? categoria, int? dificultad, int? conjunto);
+        IList<Pregunta> obtenerPreguntasPorCriterio(int? categoria, int? dificultad, int? conjunto);
 
         void eliminarPregunta(int preguntaId);
+
+        void EliminarPreguntasConjunto(int? pConjuntoId);
     }
 }

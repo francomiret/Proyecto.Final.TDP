@@ -49,7 +49,11 @@ namespace Trivia.TDP.Controladores.OpentDB
                     Pregunta preg = new Pregunta(textoPregunta, pConjunto);
 
                     //Crea la respuesta correcta
-                    Respuesta respuestaCorrecta = new Respuesta(textorespuestaCorrecta, true);
+                    Respuesta respuestaCorrecta = new Respuesta()
+                    {
+                        descripcion = textorespuestaCorrecta,
+                        correcta = true
+                    };
 
                     //Añade respuesta correcta a la lista
                     respuestas.Add(respuestaCorrecta);
@@ -57,12 +61,16 @@ namespace Trivia.TDP.Controladores.OpentDB
                     //Por cada respuesta incorrecta, crea una respuesta y la añade a la lista
                     foreach (string tri in textoincorrectas)
                     {
-                        Respuesta res = new Respuesta(HttpUtility.HtmlDecode(tri), false);
+                        Respuesta res = new Respuesta()
+                        {
+                            descripcion = HttpUtility.HtmlDecode(tri),
+                            correcta = false
+                        };
                         respuestas.Add(res);
                     }
 
                     // Asocias las respuestas con la pregunta
-                    //preg.listaRespuestas = respuestas;
+                    preg.listaRespuestas = respuestas;
 
                     //se agrega cada una de las preguntas a la lista
                     preguntas.Add(preg);

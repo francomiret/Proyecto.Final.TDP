@@ -11,5 +11,6 @@ namespace Trivia.TDP.Controladores.Interfaz
     {
         void AgregarConjunto(ConjuntoPreguntas pConjunto);
         List<ConjuntoPreguntas> ObtenerConjuntos();
+
     }
 }

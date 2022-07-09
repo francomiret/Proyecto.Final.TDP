@@ -41,8 +41,9 @@ namespace ProyectoFinalTDP.DAL.Repositorios
 
         public List<ConjuntoPreguntas> obtenerConjuntos()
         {
-            var conjuntos = iDbContext.ConjuntoPreguntas.ToList();
+            var conjuntos = iDbContext.ConjuntoPreguntas.Include("Dificultad").Include("Categoria").ToList();
             return conjuntos;
         }
+
     }
 }
