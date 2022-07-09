@@ -10,15 +10,15 @@ namespace Trivia.TDP.Controladores
         {
         }
 
-        public ErrorContrasenaIncorrecta(string message) : base(message)
+        public ErrorContrasenaIncorrecta( string message ) : base(message)
         {
         }
 
-        public ErrorContrasenaIncorrecta(string message, Exception innerException) : base(message, innerException)
+        public ErrorContrasenaIncorrecta( string message, Exception innerException ) : base(message, innerException)
         {
         }
 
-        protected ErrorContrasenaIncorrecta(SerializationInfo info, StreamingContext context) : base(info, context)
+        protected ErrorContrasenaIncorrecta( SerializationInfo info, StreamingContext context ) : base(info, context)
         {
         }
     }

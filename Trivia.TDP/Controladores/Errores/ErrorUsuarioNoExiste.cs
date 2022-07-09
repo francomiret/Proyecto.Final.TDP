@@ -10,15 +10,15 @@ namespace Trivia.TDP.Controladores
         {
         }
 
-        public ErrorUsuarioNoExiste(string message) : base(message)
+        public ErrorUsuarioNoExiste( string message ) : base(message)
         {
         }
 
-        public ErrorUsuarioNoExiste(string message, Exception innerException) : base(message, innerException)
+        public ErrorUsuarioNoExiste( string message, Exception innerException ) : base(message, innerException)
         {
         }
 
-        protected ErrorUsuarioNoExiste(SerializationInfo info, StreamingContext context) : base(info, context)
+        protected ErrorUsuarioNoExiste( SerializationInfo info, StreamingContext context ) : base(info, context)
         {
         }
     }

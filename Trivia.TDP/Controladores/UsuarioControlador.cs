@@ -12,7 +12,7 @@ namespace Trivia.TDP.Controladores
     class UsuarioControlador : IUsuarioControlador
     {
         private static Usuario usuarioAutenticado;
-        public Usuario Autenticar(string legajo, string contrasena)
+        public Usuario Autenticar( string legajo, string contrasena )
         {
             using (var bDbContext = new PruebaDBContext())
             {
@@ -31,7 +31,7 @@ namespace Trivia.TDP.Controladores
             }
         }
 
-        public Boolean CrearUsuario(Usuario usuario)
+        public Boolean CrearUsuario( Usuario usuario )
         {
             using (var bDbContext = new PruebaDBContext())
             {
@@ -61,7 +61,7 @@ namespace Trivia.TDP.Controladores
             usuarioAutenticado = null;
         }
 
-        public IList<Usuario> BuscarUsuario(Usuario usuario)
+        public IList<Usuario> BuscarUsuario( Usuario usuario )
         {
             using (var bDbContext = new PruebaDBContext())
             {
@@ -73,12 +73,12 @@ namespace Trivia.TDP.Controladores
                         throw new ErrorUsuarioNoExiste();
                     usuarios.Add(usuario);
                     bUoW.Complete();
-                    return usuarios;                        
+                    return usuarios;
                 }
             }
         }
 
-        public void ActualizarUsuario(Usuario usuario)
+        public void ActualizarUsuario( Usuario usuario )
         {
             using (var bDbContext = new PruebaDBContext())
             {
@@ -90,7 +90,7 @@ namespace Trivia.TDP.Controladores
             }
         }
 
-        public void EliminarUsuario(String legajo)
+        public void EliminarUsuario( String legajo )
         {
             using (var bDbContext = new PruebaDBContext())
             {

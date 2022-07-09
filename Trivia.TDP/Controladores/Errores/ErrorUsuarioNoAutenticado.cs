@@ -10,15 +10,15 @@ namespace Trivia.TDP.Controladores
         {
         }
 
-        public ErrorUsuarioNoAutenticado(string message) : base(message)
+        public ErrorUsuarioNoAutenticado( string message ) : base(message)
         {
         }
 
-        public ErrorUsuarioNoAutenticado(string message, Exception innerException) : base(message, innerException)
+        public ErrorUsuarioNoAutenticado( string message, Exception innerException ) : base(message, innerException)
         {
         }
 
-        protected ErrorUsuarioNoAutenticado(SerializationInfo info, StreamingContext context) : base(info, context)
+        protected ErrorUsuarioNoAutenticado( SerializationInfo info, StreamingContext context ) : base(info, context)
         {
         }
     }

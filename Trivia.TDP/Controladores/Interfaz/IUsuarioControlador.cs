@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Dominio;
-using Trivia.TDP.DTO;
 
 namespace Trivia.TDP.Controladores.Interfaz
 {

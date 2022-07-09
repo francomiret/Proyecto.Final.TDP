@@ -2,11 +2,7 @@
 using ProyectoFinalTDP.DAL;
 using ProyectoFinalTDP.DAL.Interfaz;
 using ProyectoFinalTDP.DAL.Repositorios;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Trivia.TDP.Controladores.Interfaz;
 
 namespace Trivia.TDP.Controladores
@@ -19,7 +15,7 @@ namespace Trivia.TDP.Controladores
             {
                 using (IUnitOfWork bUoW = new UnitOfWork(bDbContext))
                 {
-                    List<Dificultad>  dificultades = bUoW.DificultadRepositorio.obtenerDificultades();
+                    List<Dificultad> dificultades = bUoW.DificultadRepositorio.obtenerDificultades();
                     bUoW.Complete();
                     return dificultades;
                 }
