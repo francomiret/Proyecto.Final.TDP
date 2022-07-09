@@ -85,18 +85,18 @@ namespace Trivia.TDP.Controladores
             ConjuntoPreguntas conjunto = new ConjuntoPreguntas(nombreConjunto, dificultad, categoria);
             IList<Pregunta> preguntas = importador.ObtenerPreguntas(pCant, conjunto);
             conjunto.setPreguntas(preguntas);
-            this.iPreguntaControlador.agregarPreguntas(preguntas);
+            this.iPreguntaControlador.AgregarPreguntas(preguntas);
         }
 
         internal void AgregarPreguntas( ConjuntoPreguntasDTO pConjuntoDTO )
         {
             ConjuntoPreguntas conjunto = new ConjuntoPreguntas(pConjuntoDTO.Nombre, pConjuntoDTO.TiempoEsperadoRespuesta, pConjuntoDTO.Dificultad, pConjuntoDTO.Categoria);
 
-            IList<Pregunta> preguntasActuales = iPreguntaControlador.obtenerPreguntasPorCriterio(null, null, conjunto.Id);
+            IList<Pregunta> preguntasActuales = iPreguntaControlador.ObtenerPreguntasPorCriterio(null, null, conjunto.Id);
             var cantPreg = preguntasActuales.Count;
             iPreguntaControlador.EliminarPreguntasConjunto(conjunto.Id);
             IList<Pregunta> preguntas = importador.ObtenerPreguntas(cantPreg, conjunto);
-            this.iPreguntaControlador.agregarPreguntas(preguntas);
+            this.iPreguntaControlador.AgregarPreguntas(preguntas);
         }
 
         internal void CerrarSesion()
@@ -185,12 +185,12 @@ namespace Trivia.TDP.Controladores
 
         public IList<Pregunta> ObtenerPreguntasPorCriterio( int? pCategoriaId, int? pDificultadId, int? pConjuntoPreguntasId )
         {
-            return iPreguntaControlador.obtenerPreguntasPorCriterio(pCategoriaId, pDificultadId, pConjuntoPreguntasId);
+            return iPreguntaControlador.ObtenerPreguntasPorCriterio(pCategoriaId, pDificultadId, pConjuntoPreguntasId);
         }
 
         internal void EliminarPregunta( string pPreguntaId )
         {
-            iPreguntaControlador.eliminarPregunta(Int32.Parse(pPreguntaId));
+            iPreguntaControlador.EliminarPregunta(Int32.Parse(pPreguntaId));
         }
     }
 }
