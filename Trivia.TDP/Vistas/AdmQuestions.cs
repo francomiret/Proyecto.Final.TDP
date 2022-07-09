@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using Trivia.TDP.Controladores;
+using Trivia.TDP.DTO;
 
 namespace Trivia.TDP.Vistas
 {
@@ -10,14 +11,14 @@ namespace Trivia.TDP.Vistas
     {
         private Fachada fachada;
 
-        public AdmQuestions( IList<Pregunta> preguntas )
+        public AdmQuestions(IList<PreguntaDTO> preguntas)
         {
             InitializeComponent();
             this.Setup();
 
             if (preguntas != null)
             {
-                foreach (Pregunta pregunta in preguntas)
+                foreach (PreguntaDTO pregunta in preguntas)
                 {
                     dataGridPreguntas.Rows.Add(pregunta.PreguntaId,
                         pregunta.ConjuntoPreguntas.Nombre,
@@ -36,7 +37,7 @@ namespace Trivia.TDP.Vistas
 
         public AdmQuestions()
         {
-            InitializeComponent();
+             InitializeComponent();
             this.Setup();
         }
 
@@ -104,9 +105,9 @@ namespace Trivia.TDP.Vistas
         private void button4_Click( object sender, EventArgs e )
         {
             dataGridPreguntas.DataSource = null;
-            Categoria categoriaSeleccionada = (Categoria)comboBoxCategorias.SelectedItem;
-            Dificultad dificultadSeleccionada = (Dificultad)comboBoxDificultad.SelectedItem;
-            ConjuntoPreguntas conjunto = (ConjuntoPreguntas)conjuntoCombo.SelectedItem;
+            CategoriaDTO categoriaSeleccionada = (CategoriaDTO)comboBoxCategorias.SelectedItem;
+            DificultadDTO dificultadSeleccionada = (DificultadDTO)comboBoxDificultad.SelectedItem;
+            ConjuntoPreguntasDTO conjunto = (ConjuntoPreguntasDTO)conjuntoCombo.SelectedItem;
             IList<Pregunta> preguntas = this.fachada.ObtenerPreguntasPorCriterio(categoriaSeleccionada?.CategoriaId, dificultadSeleccionada?.DificultadId, conjunto?.Id);
 
 
@@ -144,7 +145,7 @@ namespace Trivia.TDP.Vistas
             {
                 int selectedrowindex = dataGridPreguntas.SelectedCells[0].RowIndex;
                 DataGridViewRow selectedRow = dataGridPreguntas.Rows[selectedrowindex];
-                string preguntaId = selectedRow.Cells["id"].Value.ToString(); ;
+                string preguntaId = selectedRow.Cells["Id"].Value.ToString(); ;
                 this.fachada.EliminarPregunta(preguntaId);
                 MessageBox.Show("Pregunta eliminada.");
             }

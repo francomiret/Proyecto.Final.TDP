@@ -16,7 +16,6 @@ namespace Trivia.TDP.Controladores
                 using (IUnitOfWork bUoW = new UnitOfWork(bDbContext))
                 {
                     List<Dificultad> dificultades = bUoW.DificultadRepositorio.obtenerDificultades();
-                    bUoW.Complete();
                     return dificultades;
                 }
             }

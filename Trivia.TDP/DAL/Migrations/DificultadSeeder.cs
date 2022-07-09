@@ -17,9 +17,23 @@ namespace Trivia.TDP.DAL.Migrations
 
 
 
-            dificultades.Add(new Dificultad(1,"easy",1));
-            dificultades.Add(new Dificultad(2, "medium", 2));
-            dificultades.Add(new Dificultad(3, "hard", 3));
+            dificultades.Add(new Dificultad() { 
+              DificultadId = 1,
+              descripcion = "easy",
+              peso = 1
+            });
+            dificultades.Add(new Dificultad()
+            {
+                DificultadId = 2,
+                descripcion = "medium",
+                peso = 2
+            });
+            dificultades.Add(new Dificultad()
+            {
+                DificultadId = 3,
+                descripcion = "hard",
+                peso = 3
+            });
 
 
             foreach (Dificultad dificultad in dificultades)

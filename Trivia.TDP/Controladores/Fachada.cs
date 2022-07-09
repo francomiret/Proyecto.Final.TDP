@@ -65,7 +65,7 @@ namespace Trivia.TDP.Controladores
             return iUsuarioControlador.CrearUsuario(usuario);
         }
 
-        internal void AgregarPreguntas( DificultadDTO pDificultadDTO, CategoriaDTO pCategoriaDTO, int pCant )
+        internal IList<PreguntaDTO> AgregarPreguntas( DificultadDTO pDificultadDTO, CategoriaDTO pCategoriaDTO, int pCant )
         {
             Categoria categoria = new Categoria()
             {
@@ -80,23 +80,61 @@ namespace Trivia.TDP.Controladores
                 DificultadId = pDificultadDTO.DificultadId,
                 peso = pDificultadDTO.peso,
             };
-
+            
             string nombreConjunto = categoria.nombre + " - " + dificultad.descripcion;
-            ConjuntoPreguntas conjunto = new ConjuntoPreguntas(nombreConjunto, dificultad, categoria);
+
+            ConjuntoPreguntas conjunto = new ConjuntoPreguntas()
+            {
+                Nombre = nombreConjunto,
+                Dificultad = dificultad,
+                Categoria = categoria
+            };
             IList<Pregunta> preguntas = importador.ObtenerPreguntas(pCant, conjunto);
             conjunto.setPreguntas(preguntas);
+            IList<PreguntaDTO> preguntasParsed = new List<PreguntaDTO>();
+            foreach (Pregunta pregunta in preguntas)
+            {
+                PreguntaDTO preguntaParsed = new PreguntaDTO()
+                {
+                    PreguntaId = pregunta.PreguntaId,
+                    descripcion = pregunta.descripcion,
+                    ConjuntoPreguntas = pregunta.ConjuntoPreguntas,
+                    listaRespuestas = pregunta.listaRespuestas
+                };
+                preguntasParsed.Add(preguntaParsed);
+            }
             this.iPreguntaControlador.AgregarPreguntas(preguntas);
+            return preguntasParsed;
         }
 
-        internal void AgregarPreguntas( ConjuntoPreguntasDTO pConjuntoDTO )
+        internal IList<PreguntaDTO> AgregarPreguntas(ConjuntoPreguntasDTO pConjuntoDTO)
         {
-            ConjuntoPreguntas conjunto = new ConjuntoPreguntas(pConjuntoDTO.Nombre, pConjuntoDTO.TiempoEsperadoRespuesta, pConjuntoDTO.Dificultad, pConjuntoDTO.Categoria);
+            ConjuntoPreguntas conjunto = new ConjuntoPreguntas() {
+                Id = pConjuntoDTO.Id,
+                Nombre = pConjuntoDTO.Nombre,
+                TiempoEsperadoRespuesta = pConjuntoDTO.TiempoEsperadoRespuesta,
+                Dificultad = pConjuntoDTO.Dificultad,
+                Categoria = pConjuntoDTO.Categoria            
+            };
 
             IList<Pregunta> preguntasActuales = iPreguntaControlador.ObtenerPreguntasPorCriterio(null, null, conjunto.Id);
             var cantPreg = preguntasActuales.Count;
             iPreguntaControlador.EliminarPreguntasConjunto(conjunto.Id);
             IList<Pregunta> preguntas = importador.ObtenerPreguntas(cantPreg, conjunto);
+            IList<PreguntaDTO> preguntasParsed = new List<PreguntaDTO>();
+            foreach (Pregunta pregunta in preguntas)
+            {
+                PreguntaDTO preguntaParsed = new PreguntaDTO()
+                {
+                    PreguntaId = pregunta.PreguntaId,
+                    descripcion = pregunta.descripcion,
+                    ConjuntoPreguntas = pregunta.ConjuntoPreguntas,
+                    listaRespuestas = pregunta.listaRespuestas
+                };
+                preguntasParsed.Add(preguntaParsed);
+            }
             this.iPreguntaControlador.AgregarPreguntas(preguntas);
+            return preguntasParsed;
         }
 
         internal void CerrarSesion()
@@ -170,17 +208,57 @@ namespace Trivia.TDP.Controladores
 
         public IList<DificultadDTO> ObtenerDificultades()
         {
-            return (IList<DificultadDTO>)iDificultadControlador.ObtenerDificultades();
+            IList<DificultadDTO> difcultadesParsed = new List<DificultadDTO>();
+            IList<Dificultad> dificultades = iDificultadControlador.ObtenerDificultades();
+
+            foreach (var dificultad in dificultades)
+            {
+                DificultadDTO dificultadParsedDTO = new DificultadDTO()
+                {
+                    DificultadId = dificultad.DificultadId,
+                    descripcion = dificultad.descripcion,
+                    peso = dificultad.peso
+                };
+                difcultadesParsed.Add(dificultadParsedDTO);
+            }
+            return difcultadesParsed;
         }
 
         public IList<CategoriaDTO> ObtenerCategorias()
         {
-            return (IList<CategoriaDTO>)iCategoriaControlador.ObtenerCategorias();
+            IList<CategoriaDTO> categoriasParsed = new List<CategoriaDTO>();
+            IList<Categoria> categorias = iCategoriaControlador.ObtenerCategorias();
+
+            foreach (var categoria in categorias)
+            {
+                CategoriaDTO categoriaParsedDTO = new CategoriaDTO()
+                {
+                    CategoriaId = categoria.CategoriaId,
+                    nombre = categoria.nombre,
+                    providedId = categoria.providedId
+                };
+                categoriasParsed.Add(categoriaParsedDTO);
+            }
+            return categoriasParsed;
         }
 
         public IList<ConjuntoPreguntasDTO> ObtenerConjuntoPreguntas()
         {
-            return (IList<ConjuntoPreguntasDTO>)iConjuntoPreguntasControlador.ObtenerConjuntos();
+            IList<ConjuntoPreguntasDTO> conjuntoPreguntasParsed = new List<ConjuntoPreguntasDTO>();
+            IList<ConjuntoPreguntas> conjuntos = iConjuntoPreguntasControlador.ObtenerConjuntos();
+            foreach (var conjunto in conjuntos)
+            {
+                ConjuntoPreguntasDTO conjuntoPreguntasParsedDTO = new ConjuntoPreguntasDTO()
+                {
+                    Id = conjunto.Id,
+                    Categoria = conjunto.Categoria,
+                    Dificultad = conjunto.Dificultad,
+                    Nombre = conjunto.Nombre,
+                    TiempoEsperadoRespuesta = conjunto.TiempoEsperadoRespuesta                 
+                };
+                conjuntoPreguntasParsed.Add(conjuntoPreguntasParsedDTO);
+            }
+            return conjuntoPreguntasParsed;
         }
 
         public IList<Pregunta> ObtenerPreguntasPorCriterio( int? pCategoriaId, int? pDificultadId, int? pConjuntoPreguntasId )

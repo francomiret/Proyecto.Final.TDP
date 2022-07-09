@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Dominio;
+using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using Trivia.TDP.Controladores;
 using Trivia.TDP.DTO;
@@ -53,19 +55,20 @@ namespace Trivia.TDP.Vistas
 
         private void button1_Click( object sender, EventArgs e )
         {
+            IList<PreguntaDTO> preguntas = new List<PreguntaDTO>();
             if (comboBoxConjuntos.SelectedItem == null)
             {
                 DificultadDTO dificultadSeleccionada = (DificultadDTO)comboBoxDificultad.SelectedItem;
                 CategoriaDTO categoriaSeleccionada = (CategoriaDTO)comboBoxCategorias.SelectedItem;
                 int cant = Int32.Parse(cantidadPreg.Text);
-                fachada.AgregarPreguntas(dificultadSeleccionada, categoriaSeleccionada, cant);
+                preguntas = fachada.AgregarPreguntas(dificultadSeleccionada, categoriaSeleccionada, cant);
             }
             else
             {
                 ConjuntoPreguntasDTO conjunto = (ConjuntoPreguntasDTO)comboBoxConjuntos.SelectedItem;
-                fachada.AgregarPreguntas(conjunto);
+                preguntas = fachada.AgregarPreguntas(conjunto);
             }
-            Vistas.AdmQuestions admQuestions = new Vistas.AdmQuestions(null);
+            Vistas.AdmQuestions admQuestions = new Vistas.AdmQuestions(preguntas);
             admQuestions.Show();
         }
 

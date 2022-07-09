@@ -4,7 +4,7 @@ namespace Trivia.TDP.DTO
 {
     class CategoriaDTO
     {
-        internal int providedId;
+        public int providedId { get; set; }
 
         public int CategoriaId { get; set; }
 

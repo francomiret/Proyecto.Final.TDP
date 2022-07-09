@@ -69,9 +69,17 @@ namespace Trivia.TDP.DAL.Repositorios
 
         public void eliminarPregunta(int preguntaId)
         {
-            var pregunta = iDbContext.Preguntas.SingleOrDefault(z => z.PreguntaId == preguntaId);
+            var pregunta = iDbContext.Preguntas.Include("listaRespuestas").SingleOrDefault(z => z.PreguntaId == preguntaId);
             if (pregunta != null)
             {
+                IList<Respuesta> respuestas = iDbContext.Respuestas.Where(z => z.Pregunta.PreguntaId == preguntaId).ToList();
+                if (respuestas != null)
+                {
+                    for (int i = 0; i < respuestas.Count; i++)
+                    {
+                        iDbContext.Respuestas.Remove(respuestas[i]);
+                    }
+                }
                 iDbContext.Preguntas.Remove(pregunta);
             }
         }
