@@ -16,5 +16,6 @@ namespace Trivia.TDP.Controladores.Interfaz
         void eliminarPregunta(int preguntaId);
 
         void EliminarPreguntasConjunto(int? pConjuntoId);
+        IList<Pregunta> obtenerPreguntasPorCriterio(object categoriaId, object dificultadId, object id);
     }
 }

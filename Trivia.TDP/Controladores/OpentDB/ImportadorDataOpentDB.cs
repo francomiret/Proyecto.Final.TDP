@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Trivia.TDP.Controladores.OpentDB
 {
-    class ImportadorDataOpentDB
+    class ImportadorDataOpentDB : IImportadorDataOpentDB
     {
         private readonly CreadorURLOpentDB iUrlCreador;
         private readonly WebRequesterOpentDB iWebRequester;
@@ -17,7 +17,7 @@ namespace Trivia.TDP.Controladores.OpentDB
             this.iParser = new RespuestaParserOpentDB();
         }
 
-        public  IList<Pregunta> ObtenerPreguntas(int pCantidad, ConjuntoPreguntas pConjunto)
+        public IList<Pregunta> ObtenerPreguntas( int pCantidad, ConjuntoPreguntas pConjunto )
         {
             if ((pConjunto == null) ||
                 (pConjunto.Categoria == null) ||
@@ -37,7 +37,7 @@ namespace Trivia.TDP.Controladores.OpentDB
             return responseParsed;
         }
 
-        public List<Categoria> ObtenerCategorias ()
+        public List<Categoria> ObtenerCategorias()
         {
             var url = "https://opentdb.com/api_category.php";
             var response = iWebRequester.CrearConsulta(url);
