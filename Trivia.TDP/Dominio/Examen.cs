@@ -2,6 +2,8 @@ using Dominio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using Trivia.TDP.Dominio;
+using Trivia.TDP.DTO;
 
 namespace Dominio
 {
@@ -10,19 +12,15 @@ namespace Dominio
 		[Key]
 		public int Examenid { get; set; }
 
-		private TimeSpan fechaInicio { get; set; }
+		public DateTime FechaInicio { get; set; }
 
-		private TimeSpan fechaFin { get; set; }
+		public double TiempoUsado { get; set; }
 
-		private double puntaje { get; set; }
+		public double Puntaje { get; set; }
 
-		private double tiempoDeResolucion { get; set; }
+		public double tiempoDeResolucion { get; set; }
 
-		private int cantPreguntas { get; set; }
-
-		private double factorTiempo { get; set; }
-
-		private int cantRespCorrectas { get; set; }
+		public double CantidadPreguntas { get { return this.sesiones.Count; } }
 
 		public virtual Usuario usuario { get; set; }
 		 
@@ -30,32 +28,66 @@ namespace Dominio
 
 		public virtual Categoria categoria { get; set; }
 
-		public virtual IList<Pregunta> listaPreguntas { get; set; }
+		public virtual IList<SesionPregunta> sesiones { get; set; }
+
 
 		public double getPuntaje(double tfactorTiempo, int cantPreguntas, int cantRespCorrectas, Dificultad dificultad)
 		{
 			return 0;
 		}
 
-		public double setFactorTiempo(System.DateTime tiempoDeResolucion, int cantPreguntas)
+		public double FactorTiempo
 		{
-			return 0;
+			get
+			{
+				double factor = TiempoUsado / CantidadPreguntas;
+
+				if (factor < 5)
+				{
+					return 5;
+				}
+				else if (factor < 20)
+				{
+					return 3;
+				}
+				else return 1;
+			}
 		}
 
-		public void GetPreguntas(string categoria, string dificultad, string tipo)
+		private void CalcularPuntaje(int pCantRespCorrectas, double pFactorDificultad)
 		{
-
+			Puntaje = pCantRespCorrectas / this.CantidadPreguntas * pFactorDificultad * this.FactorTiempo;
 		}
 
-		public void setTiempoDeResolucion(System.DateTime fechaInicio, System.DateTime fechaFin)
+		public void Finalizar(int pCantidadRespuestasCorrectas, double pFactorDificultad)
 		{
-
+			this.TiempoUsado = (DateTime.Now - this.FechaInicio).TotalSeconds;
+			this.CalcularPuntaje(pCantidadRespuestasCorrectas, pFactorDificultad);
 		}
 
-		public void SetCantRespCorrectas()
+		private static IList<SesionPregunta> DTOaSesionPregunta(IList<SesionPreguntaDTO> pSesionPreguntas)
 		{
-
+			var dtos = new List<SesionPregunta>();
+			foreach (var sesionPreg in pSesionPreguntas)
+			{
+				dtos.Add(new SesionPregunta(sesionPreg));
+			}
+			return dtos;
 		}
+
+		public Examen(ExamenDTO examenDTO)
+        {
+			this.FechaInicio = examenDTO.FechaInicio;
+			this.Examenid = examenDTO.Examenid;
+			this.categoria = examenDTO.categoria;
+			this.usuario = examenDTO.usuario;
+			this.dificultad = examenDTO.dificultad;
+			this.TiempoUsado = examenDTO.TiempoUsado;
+			this.tiempoDeResolucion = examenDTO.tiempoDeResolucion;
+			this.Puntaje = examenDTO.Puntaje;
+			this.sesiones = Examen.DTOaSesionPregunta(examenDTO.sesiones);
+		}
+
 
 	}
 

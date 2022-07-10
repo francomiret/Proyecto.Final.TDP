@@ -105,5 +105,11 @@ namespace Trivia.TDP.DAL.Repositorios
 
             }
         }
+
+        public int respuestaCorrecta(int pPreguntaId)
+        {
+            var resp = iDbContext.Respuestas.First(z => z.Pregunta.PreguntaId == pPreguntaId && z.correcta);
+            return resp.RespuestaId;
+        } 
     }
 }

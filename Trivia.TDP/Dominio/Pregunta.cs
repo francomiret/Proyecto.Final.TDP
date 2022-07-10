@@ -10,8 +10,6 @@ namespace Dominio
 
 		public string descripcion { get; set; }
 
-		public virtual Examen examen { get; set; }
-
 		public virtual IList<Respuesta> listaRespuestas { get; set; }
 
         public virtual ConjuntoPreguntas ConjuntoPreguntas { get; set; }
@@ -24,6 +22,7 @@ namespace Dominio
 
         public Pregunta() { }
 	    }
+
 
 
 }

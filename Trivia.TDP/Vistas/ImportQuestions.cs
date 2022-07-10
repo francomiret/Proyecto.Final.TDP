@@ -86,5 +86,10 @@ namespace Trivia.TDP.Vistas
         {
 
         }
+
+        private void ImportQuestions_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

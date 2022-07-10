@@ -22,6 +22,8 @@ namespace Trivia.TDP.Controladores
 
         private IPreguntaControlador iPreguntaControlador;
 
+        private IExamenControlador iExamenControlador;
+
         public Fachada()
         {
             this.importador = new ImportadorDataOpentDB();
@@ -30,6 +32,7 @@ namespace Trivia.TDP.Controladores
             this.iDificultadControlador = new DificultadControlador();
             this.iCategoriaControlador = new CategoriaControlador();
             this.iPreguntaControlador = new PreguntaControlador();
+            this.iExamenControlador = new ExamenControlador();
         }
 
         internal UsuarioDTO ObtenerUsuarioAutenticado()
@@ -261,14 +264,65 @@ namespace Trivia.TDP.Controladores
             return conjuntoPreguntasParsed;
         }
 
-        public IList<Pregunta> ObtenerPreguntasPorCriterio( int? pCategoriaId, int? pDificultadId, int? pConjuntoPreguntasId )
+        public IList<PreguntaDTO> ObtenerPreguntasPorCriterio( int? pCategoriaId, int? pDificultadId, int? pConjuntoPreguntasId)
         {
-            return iPreguntaControlador.ObtenerPreguntasPorCriterio(pCategoriaId, pDificultadId, pConjuntoPreguntasId);
+            IList<Pregunta> preguntas = iPreguntaControlador.ObtenerPreguntasPorCriterio(pCategoriaId, pDificultadId, pConjuntoPreguntasId);
+            IList<PreguntaDTO> preguntasParsed = new List<PreguntaDTO>();
+            foreach (Pregunta pregunta in preguntas)
+            {
+                PreguntaDTO preguntaParsed = new PreguntaDTO()
+                {
+                    PreguntaId = pregunta.PreguntaId,
+                    descripcion = pregunta.descripcion,
+                    ConjuntoPreguntas = pregunta.ConjuntoPreguntas,
+                    listaRespuestas = pregunta.listaRespuestas
+                };
+                preguntasParsed.Add(preguntaParsed);
+            }
+            return preguntasParsed;
         }
 
         internal void EliminarPregunta( string pPreguntaId )
         {
             iPreguntaControlador.EliminarPregunta(Int32.Parse(pPreguntaId));
+        }
+
+        public ExamenDTO iniciarExamen(ConjuntoPreguntasDTO pConjunto, IList<PreguntaDTO> preguntas)
+        {
+            var usuario = iUsuarioControlador.ObtenerUsuarioAutenticado();
+            var tiempoResolucion = preguntas.Count * pConjunto.TiempoEsperadoRespuesta;
+            List<SesionPreguntaDTO> sesiones = new List<SesionPreguntaDTO>();
+            foreach (var pregunta in preguntas)
+            {
+                var sesion = new SesionPreguntaDTO()
+                {
+                    PreguntaID = pregunta.PreguntaId
+                };
+                sesiones.Add(sesion);
+            }
+            ExamenDTO examen = new ExamenDTO()
+            {
+                categoria = pConjunto.Categoria,
+                dificultad = pConjunto.Dificultad,
+                usuario = usuario,
+                FechaInicio = DateTime.Now,
+                tiempoDeResolucion = tiempoResolucion,
+                sesiones = sesiones,
+                CantidadPreguntas = preguntas.Count
+            };
+            return examen;
+        }
+
+        public static ExamenDTO FinalizarExamen(ExamenDTO pExamen)
+        {
+            Examen examen = new Examen(pExamen);
+            int respsCorrectas = ExamenControlador.CantidadRespuestasCorrectas(examen);
+            double factorDificultad = ExamenControlador.GetFactorDificultad(examen);
+            examen.Finalizar(respsCorrectas, factorDificultad);
+            ExamenControlador.GuardarExamen(examen);
+
+
+            return new ExamenDTO(examen);
         }
     }
 }

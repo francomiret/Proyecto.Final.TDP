@@ -17,5 +17,7 @@ namespace Trivia.TDP.DAL.Interfaz
         void eliminarPregunta(int preguntaId);
 
         void eliminarPreguntasDeConjunto(int? conjuntoId);
+
+        int respuestaCorrecta(int pPreguntaId);
     }
 }

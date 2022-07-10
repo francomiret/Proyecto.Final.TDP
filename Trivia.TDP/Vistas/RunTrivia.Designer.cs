@@ -31,7 +31,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.comboBoxConjuntos = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.button6 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -52,7 +52,7 @@
             // 
             this.pictureBox1.Image = global::Trivia.TDP.Properties.Resources.Logo;
             this.pictureBox1.Location = new System.Drawing.Point(188, -75);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(312, 151);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -75,26 +75,26 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.Controls.Add(this.comboBox3);
+            this.groupBox1.Controls.Add(this.comboBoxConjuntos);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.groupBox1.Location = new System.Drawing.Point(21, 139);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(645, 85);
             this.groupBox1.TabIndex = 62;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Seleccione un conjunto";
             // 
-            // comboBox3
+            // comboBoxConjuntos
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(140, 34);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(253, 24);
-            this.comboBox3.TabIndex = 67;
+            this.comboBoxConjuntos.FormattingEnabled = true;
+            this.comboBoxConjuntos.Location = new System.Drawing.Point(140, 34);
+            this.comboBoxConjuntos.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxConjuntos.Name = "comboBoxConjuntos";
+            this.comboBoxConjuntos.Size = new System.Drawing.Size(253, 24);
+            this.comboBoxConjuntos.TabIndex = 67;
             // 
             // label3
             // 
@@ -113,7 +113,7 @@
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button6.Location = new System.Drawing.Point(636, 15);
-            this.button6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button6.Margin = new System.Windows.Forms.Padding(4);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(36, 28);
             this.button6.TabIndex = 68;
@@ -132,9 +132,9 @@
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.groupBox2.Location = new System.Drawing.Point(21, 231);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(645, 175);
             this.groupBox2.TabIndex = 69;
             this.groupBox2.TabStop = false;
@@ -143,7 +143,7 @@
             // cantidadPreg
             // 
             this.cantidadPreg.Location = new System.Drawing.Point(159, 134);
-            this.cantidadPreg.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cantidadPreg.Margin = new System.Windows.Forms.Padding(4);
             this.cantidadPreg.Name = "cantidadPreg";
             this.cantidadPreg.Size = new System.Drawing.Size(255, 22);
             this.cantidadPreg.TabIndex = 73;
@@ -163,7 +163,7 @@
             // 
             this.comboBoxDificultad.FormattingEnabled = true;
             this.comboBoxDificultad.Location = new System.Drawing.Point(159, 94);
-            this.comboBoxDificultad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxDificultad.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxDificultad.Name = "comboBoxDificultad";
             this.comboBoxDificultad.Size = new System.Drawing.Size(253, 24);
             this.comboBoxDificultad.TabIndex = 71;
@@ -183,7 +183,7 @@
             // 
             this.comboBoxCategorias.FormattingEnabled = true;
             this.comboBoxCategorias.Location = new System.Drawing.Point(159, 50);
-            this.comboBoxCategorias.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxCategorias.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxCategorias.Name = "comboBoxCategorias";
             this.comboBoxCategorias.Size = new System.Drawing.Size(253, 24);
             this.comboBoxCategorias.TabIndex = 69;
@@ -242,7 +242,7 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "RunTrivia";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -260,7 +260,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox comboBoxConjuntos;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.GroupBox groupBox2;
