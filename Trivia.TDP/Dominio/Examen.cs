@@ -2,6 +2,8 @@ using Dominio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using Trivia.TDP.Dominio;
+using Trivia.TDP.DTO;
 
 namespace Dominio
 {
@@ -27,7 +29,8 @@ namespace Dominio
 
 		public virtual Categoria categoria { get; set; }
 
-		public virtual IList<Pregunta> listaPreguntas { get; set; }
+		public virtual IList<SesionPregunta> sesiones { get; set; }
+
 
 		public double getPuntaje(double tfactorTiempo, int cantPreguntas, int cantRespCorrectas, Dificultad dificultad)
 		{
@@ -62,6 +65,41 @@ namespace Dominio
 			this.TiempoUsado = (DateTime.Now - this.FechaInicio).TotalSeconds;
 			this.CalcularPuntaje(pCantidadRespuestasCorrectas, pFactorDificultad);
 		}
+
+		private static IList<SesionPregunta> DTOaSesionPregunta(IList<SesionPreguntaDTO> pSesionPreguntas)
+		{
+			var dtos = new List<SesionPregunta>();
+			foreach (var sesionPreg in pSesionPreguntas)
+			{
+				dtos.Add(new SesionPregunta(sesionPreg));
+			}
+			return dtos;
+		}
+
+		private static IList<Pregunta> DTOaPregunta(IList<PreguntaDTO> pPreguntas)
+		{
+			var dtos = new List<Pregunta>();
+			foreach (var preg in pPreguntas)
+			{
+				dtos.Add(new Pregunta(preg));
+			}
+			return dtos;
+		}
+
+		public Examen(ExamenDTO examenDTO)
+        {
+			this.FechaInicio = examenDTO.FechaInicio;
+			this.Examenid = examenDTO.Examenid;
+			this.categoria = examenDTO.categoria;
+			this.usuario = examenDTO.usuario;
+			this.dificultad = examenDTO.dificultad;
+			this.TiempoUsado = examenDTO.TiempoUsado;
+			this.tiempoDeResolucion = examenDTO.tiempoDeResolucion;
+			this.Puntaje = examenDTO.puntaje;
+			this.listaPreguntas = Examen.DTOaPregunta(examenDTO.listaPreguntas);
+			this.sesiones = Examen.DTOaSesionPregunta(examenDTO.sesiones);
+		}
+
 
 	}
 

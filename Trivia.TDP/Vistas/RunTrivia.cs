@@ -56,14 +56,14 @@ namespace Trivia.TDP.Vistas
         private void button1_Click( object sender, EventArgs e )
         {
             ExamenDTO examen = null;
+            IList<PreguntaDTO> preguntas = new List<PreguntaDTO>();
             if (comboBoxConjuntos.SelectedItem != null)
             {
                 ConjuntoPreguntasDTO conjunto = (ConjuntoPreguntasDTO)comboBoxConjuntos.SelectedItem;
+                preguntas = fachada.ObtenerPreguntasPorCriterio(null, null, conjunto.Id);
                 examen = fachada.iniciarExamen(conjunto);
             }
-
-
-            Vistas.QuestionTest exam = new Vistas.QuestionTest(examen);
+            Vistas.QuestionTest exam = new Vistas.QuestionTest(examen, preguntas);
             this.Close();
             exam.Show();
 

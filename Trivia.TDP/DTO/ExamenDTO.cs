@@ -31,8 +31,6 @@ namespace Trivia.TDP.DTO
 
 		public virtual Categoria categoria { get; set; }
 
-		public virtual IList<PreguntaDTO> listaPreguntas { get; set; }
-
 		public virtual IList<SesionPreguntaDTO> sesiones { get; set; }
 	}
 }

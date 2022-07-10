@@ -302,7 +302,6 @@ namespace Trivia.TDP.Controladores
             {
                 categoria = pConjunto.Categoria,
                 dificultad = pConjunto.Dificultad,
-                listaPreguntas = preguntas,
                 usuario = usuario,
                 FechaInicio = DateTime.Now,
                 tiempoDeResolucion = tiempoResolucion,
@@ -318,6 +317,7 @@ namespace Trivia.TDP.Controladores
         //    int n = ControladorExamen.CantidadRespuestasCorrectas(examen);
         //    double factorDificultad = ControladorExamen.GetFactorDificultad(examen);
         //    examen.Finalizar(n, factorDificultad);
+        //    return examen
         //}
     }
 }

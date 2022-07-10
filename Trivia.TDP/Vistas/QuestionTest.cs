@@ -10,11 +10,11 @@ namespace Trivia.TDP.Vistas
         int pregActual = 0;
         IList<PreguntaDTO> listaPreguntas = null;
         ExamenDTO examen = new ExamenDTO();
-        public QuestionTest(ExamenDTO pExamen)
+        public QuestionTest(ExamenDTO pExamen, IList<PreguntaDTO> pPreguntas)
         {
             InitializeComponent();
             examen = pExamen;
-            listaPreguntas = examen.listaPreguntas;
+            listaPreguntas = pPreguntas;
             groupBox1.Text = (pregActual + 1).ToString();
             cantidadPreguntas.Text = listaPreguntas.Count.ToString();
             time.Text = examen.tiempoDeResolucion.ToString();            
