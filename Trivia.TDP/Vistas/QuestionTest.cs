@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using Trivia.TDP.Controladores;
 using Trivia.TDP.DTO;
 
 namespace Trivia.TDP.Vistas
@@ -10,8 +11,10 @@ namespace Trivia.TDP.Vistas
         int pregActual = 0;
         IList<PreguntaDTO> listaPreguntas = null;
         ExamenDTO examen = new ExamenDTO();
+        private Fachada fachada;
         public QuestionTest(ExamenDTO pExamen, IList<PreguntaDTO> pPreguntas)
         {
+            this.fachada = new Fachada();
             InitializeComponent();
             examen = pExamen;
             listaPreguntas = pPreguntas;
@@ -46,10 +49,10 @@ namespace Trivia.TDP.Vistas
             int index = indexSesion(listaPreguntas[pregActual].PreguntaId);
             if (index != -1)
             {
-                int? selectedOp = selectedOption();
-                if (selectedOp != null)
+                int selectedOp = selectedOption();
+                if (selectedOp != -1)
                 {
-                    examen.sesiones[index].RespuestaSeleccionadaId = selectedOp;
+                    examen.sesiones[index].RespuestaSeleccionadaId = listaPreguntas[pregActual].listaRespuestas[selectedOp].RespuestaId;
                 }
             }
 
@@ -80,10 +83,10 @@ namespace Trivia.TDP.Vistas
             int index = indexSesion(listaPreguntas[pregActual].PreguntaId);
             if (index != -1)
             {
-                int? selectedOp = selectedOption();
-                if (selectedOp != null)
+                int selectedOp = selectedOption();
+                if (selectedOp != -1)
                 {
-                    examen.sesiones[index].RespuestaSeleccionadaId = selectedOp;
+                    examen.sesiones[index].RespuestaSeleccionadaId = listaPreguntas[pregActual].listaRespuestas[selectedOp].RespuestaId;
                 }
             }
                         
@@ -101,15 +104,6 @@ namespace Trivia.TDP.Vistas
             }
         }
 
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (radioButton1.Checked == true)
-            {
-
-            }
-            
-            
-        }
 
         public int indexSesion(int preguntaId)
         {
@@ -124,9 +118,9 @@ namespace Trivia.TDP.Vistas
             return res;
         }
 
-        public int? selectedOption()
+        public int selectedOption()
         {
-            int? op = null;
+            int op = -1;
             if (radioButton1.Checked == true)
                 op = 0;
             if (radioButton2.Checked == true)
@@ -140,7 +134,18 @@ namespace Trivia.TDP.Vistas
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // finalizar examen
+            int index = indexSesion(listaPreguntas[pregActual].PreguntaId);
+            if (index != -1)
+            {
+                int selectedOp = selectedOption();
+                if (selectedOp != -1)
+                {
+                    examen.sesiones[index].RespuestaSeleccionadaId = listaPreguntas[pregActual].listaRespuestas[selectedOp].RespuestaId;
+                }
+            }
+            ExamenDTO examesn = Fachada.FinalizarExamen(examen);
+            // Mostrar ventana resultados
+            this.Close();
         }
     }
 }

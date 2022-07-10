@@ -71,6 +71,7 @@
   <ItemGroup>
     <Compile Include="Controladores\CategoriaControlador.cs" />
     <Compile Include="Controladores\ConjuntoPreguntasControlador.cs" />
+    <Compile Include="Controladores\ExamenControlador.cs" />
     <Compile Include="Controladores\DificultadControlador.cs" />
     <Compile Include="Controladores\Errores\ErrorContrasenaIncorrecta.cs" />
     <Compile Include="Controladores\Errores\ErrorUsuarioYaExiste.cs" />
@@ -80,6 +81,7 @@
     <Compile Include="Controladores\Interfaz\ICategoriaControlador.cs" />
     <Compile Include="Controladores\Interfaz\IConjuntoPreguntasControlador.cs" />
     <Compile Include="Controladores\Interfaz\IDificultadControlador.cs" />
+    <Compile Include="Controladores\Interfaz\IExamenControlador.cs" />
     <Compile Include="Controladores\Interfaz\IPreguntaControlador.cs" />
     <Compile Include="Controladores\Interfaz\IUsuarioControlador.cs" />
     <Compile Include="Controladores\Errores\DataNotFound.cs" />
@@ -91,6 +93,7 @@
     <Compile Include="DAL\Interfaz\ICategoriaRepositorio.cs" />
     <Compile Include="DAL\Interfaz\IConjuntoPreguntasRepositorio.cs" />
     <Compile Include="DAL\Interfaz\IDificultadRepositorio.cs" />
+    <Compile Include="DAL\Interfaz\IExamenRepositorio.cs" />
     <Compile Include="DAL\Interfaz\IPreguntaRepositorio.cs" />
     <Compile Include="DAL\Migrations\Configuracion.cs" />
     <Compile Include="DAL\Migrations\DificultadSeeder.cs" />
@@ -98,6 +101,7 @@
     <Compile Include="DAL\Repositorios\CategoriaRepositorio.cs" />
     <Compile Include="DAL\Repositorios\ConjuntoPreguntasRepositorio.cs" />
     <Compile Include="DAL\Repositorios\DificultadRepositorio.cs" />
+    <Compile Include="DAL\Repositorios\ExamenRepositorio.cs" />
     <Compile Include="DAL\Repositorios\PreguntaRepositorio.cs" />
     <Compile Include="Dominio\SesionPregunta.cs" />
     <Compile Include="DTO\ConjuntoPreguntasDTO.cs" />

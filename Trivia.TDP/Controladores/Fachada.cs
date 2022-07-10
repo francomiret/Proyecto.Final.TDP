@@ -22,6 +22,8 @@ namespace Trivia.TDP.Controladores
 
         private IPreguntaControlador iPreguntaControlador;
 
+        private IExamenControlador iExamenControlador;
+
         public Fachada()
         {
             this.importador = new ImportadorDataOpentDB();
@@ -30,6 +32,7 @@ namespace Trivia.TDP.Controladores
             this.iDificultadControlador = new DificultadControlador();
             this.iCategoriaControlador = new CategoriaControlador();
             this.iPreguntaControlador = new PreguntaControlador();
+            this.iExamenControlador = new ExamenControlador();
         }
 
         internal UsuarioDTO ObtenerUsuarioAutenticado()
@@ -284,9 +287,8 @@ namespace Trivia.TDP.Controladores
             iPreguntaControlador.EliminarPregunta(Int32.Parse(pPreguntaId));
         }
 
-        public ExamenDTO iniciarExamen(ConjuntoPreguntasDTO pConjunto)
+        public ExamenDTO iniciarExamen(ConjuntoPreguntasDTO pConjunto, IList<PreguntaDTO> preguntas)
         {
-            var preguntas = this.ObtenerPreguntasPorCriterio(null, null, pConjunto.Id);
             var usuario = iUsuarioControlador.ObtenerUsuarioAutenticado();
             var tiempoResolucion = preguntas.Count * pConjunto.TiempoEsperadoRespuesta;
             List<SesionPreguntaDTO> sesiones = new List<SesionPreguntaDTO>();
@@ -311,13 +313,16 @@ namespace Trivia.TDP.Controladores
             return examen;
         }
 
-        //public static ExamenDTO FinalizarExamen(ExamenDTO pExamen)
-        //{
-        //    Examen examen = new Examen(pExamen);
-        //    int n = ControladorExamen.CantidadRespuestasCorrectas(examen);
-        //    double factorDificultad = ControladorExamen.GetFactorDificultad(examen);
-        //    examen.Finalizar(n, factorDificultad);
-        //    return examen
-        //}
+        public static ExamenDTO FinalizarExamen(ExamenDTO pExamen)
+        {
+            Examen examen = new Examen(pExamen);
+            int respsCorrectas = ExamenControlador.CantidadRespuestasCorrectas(examen);
+            double factorDificultad = ExamenControlador.GetFactorDificultad(examen);
+            examen.Finalizar(respsCorrectas, factorDificultad);
+            ExamenControlador.GuardarExamen(examen);
+
+
+            return new ExamenDTO(examen);
+        }
     }
 }

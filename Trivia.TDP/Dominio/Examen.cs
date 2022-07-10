@@ -20,8 +20,7 @@ namespace Dominio
 
 		public double tiempoDeResolucion { get; set; }
 
-		public int CantidadPreguntas { get; set; }
-		public int cantRespCorrectas { get; set; }
+		public double CantidadPreguntas { get { return this.sesiones.Count; } }
 
 		public virtual Usuario usuario { get; set; }
 		 
@@ -57,7 +56,7 @@ namespace Dominio
 
 		private void CalcularPuntaje(int pCantRespCorrectas, double pFactorDificultad)
 		{
-			this.Puntaje = pCantRespCorrectas / this.CantidadPreguntas * pFactorDificultad * this.FactorTiempo;
+			Puntaje = pCantRespCorrectas / this.CantidadPreguntas * pFactorDificultad * this.FactorTiempo;
 		}
 
 		public void Finalizar(int pCantidadRespuestasCorrectas, double pFactorDificultad)
@@ -76,16 +75,6 @@ namespace Dominio
 			return dtos;
 		}
 
-		private static IList<Pregunta> DTOaPregunta(IList<PreguntaDTO> pPreguntas)
-		{
-			var dtos = new List<Pregunta>();
-			foreach (var preg in pPreguntas)
-			{
-				dtos.Add(new Pregunta(preg));
-			}
-			return dtos;
-		}
-
 		public Examen(ExamenDTO examenDTO)
         {
 			this.FechaInicio = examenDTO.FechaInicio;
@@ -95,8 +84,7 @@ namespace Dominio
 			this.dificultad = examenDTO.dificultad;
 			this.TiempoUsado = examenDTO.TiempoUsado;
 			this.tiempoDeResolucion = examenDTO.tiempoDeResolucion;
-			this.Puntaje = examenDTO.puntaje;
-			this.listaPreguntas = Examen.DTOaPregunta(examenDTO.listaPreguntas);
+			this.Puntaje = examenDTO.Puntaje;
 			this.sesiones = Examen.DTOaSesionPregunta(examenDTO.sesiones);
 		}
 

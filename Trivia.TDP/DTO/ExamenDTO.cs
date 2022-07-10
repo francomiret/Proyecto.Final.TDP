@@ -16,14 +16,12 @@ namespace Trivia.TDP.DTO
 
 		public double TiempoUsado { get; set; }
 
-		public double puntaje { get; set; }
+		public double Puntaje { get; set; }
 
-		public int CantidadPreguntas { get; set; }
+		public double CantidadPreguntas { get; set; }
 		public double tiempoDeResolucion { get; set; }
 
 		public double factorTiempo { get; set; }
-
-		public int cantRespCorrectas { get; set; }
 
 		public virtual Usuario usuario { get; set; }
 
@@ -32,5 +30,34 @@ namespace Trivia.TDP.DTO
 		public virtual Categoria categoria { get; set; }
 
 		public virtual IList<SesionPreguntaDTO> sesiones { get; set; }
+
+		private static IList<SesionPreguntaDTO> SesionPreguntaDTO(IList<SesionPregunta> pSesionesPregunta)
+		{
+			var sesionesPreguntaDTO = new List<SesionPreguntaDTO>();
+
+			foreach (var sesionPregunta in pSesionesPregunta)
+			{
+				sesionesPreguntaDTO.Add(new SesionPreguntaDTO(sesionPregunta));
+			}
+			return sesionesPreguntaDTO;
+		}
+
+		public ExamenDTO(Examen examen)
+		{
+			this.FechaInicio = examen.FechaInicio;
+			this.Examenid = examen.Examenid;
+			this.categoria = examen.categoria;
+			this.usuario = examen.usuario;
+			this.CantidadPreguntas = examen.CantidadPreguntas;
+			this.dificultad = examen.dificultad;
+			this.TiempoUsado = examen.TiempoUsado;
+			this.tiempoDeResolucion = examen.tiempoDeResolucion;
+			this.Puntaje = examen.Puntaje;
+			this.sesiones = ExamenDTO.SesionPreguntaDTO(examen.sesiones);
+		}
+		public ExamenDTO ()
+        {
+
+        }
 	}
 }

@@ -23,6 +23,7 @@ namespace ProyectoFinalTDP.DAL.Repositorios
             this.DificultadRepositorio = new DificultadRepositorio(pDbContext);
             this.CategoriaRepositorio = new CategoriaRepositorio(pDbContext);
             this.PreguntaRepositorio = new PreguntaRepositorio(pDbContext);
+            this.ExamenRepositorio = new ExamenRepositorio(pDbContext);
 
         }
 
@@ -35,6 +36,8 @@ namespace ProyectoFinalTDP.DAL.Repositorios
         public ICategoriaRepositorio CategoriaRepositorio { get; private set; }
 
         public IPreguntaRepositorio PreguntaRepositorio { get; private set; }
+
+        public IExamenRepositorio ExamenRepositorio { get; private set; }
         public void Complete()
         {
             this.pDbContext.SaveChanges();
