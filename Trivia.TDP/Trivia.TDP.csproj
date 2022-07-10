@@ -99,6 +99,7 @@
     <Compile Include="DAL\Repositorios\ConjuntoPreguntasRepositorio.cs" />
     <Compile Include="DAL\Repositorios\DificultadRepositorio.cs" />
     <Compile Include="DAL\Repositorios\PreguntaRepositorio.cs" />
+    <Compile Include="Dominio\SesionPregunta.cs" />
     <Compile Include="DTO\ConjuntoPreguntasDTO.cs" />
     <Compile Include="Dominio\ConjuntoPreguntas.cs" />
     <Compile Include="Controladores\OpentDB\CreadorURLOpentDB.cs" />
@@ -118,8 +119,10 @@
     <Compile Include="Dominio\Usuario.cs" />
     <Compile Include="DTO\CategoriaDTO.cs" />
     <Compile Include="DTO\DificultadDTO.cs" />
+    <Compile Include="DTO\ExamenDTO.cs" />
     <Compile Include="DTO\PreguntaDTO.cs" />
     <Compile Include="DTO\RespuestaDTO.cs" />
+    <Compile Include="DTO\SesionPreguntaDTO.cs" />
     <Compile Include="DTO\UsuarioDTO.cs" />
     <Compile Include="Vistas\ABMuser.cs">
       <SubType>Form</SubType>

@@ -261,14 +261,63 @@ namespace Trivia.TDP.Controladores
             return conjuntoPreguntasParsed;
         }
 
-        public IList<Pregunta> ObtenerPreguntasPorCriterio( int? pCategoriaId, int? pDificultadId, int? pConjuntoPreguntasId )
+        public IList<PreguntaDTO> ObtenerPreguntasPorCriterio( int? pCategoriaId, int? pDificultadId, int? pConjuntoPreguntasId)
         {
-            return iPreguntaControlador.ObtenerPreguntasPorCriterio(pCategoriaId, pDificultadId, pConjuntoPreguntasId);
+            IList<Pregunta> preguntas = iPreguntaControlador.ObtenerPreguntasPorCriterio(pCategoriaId, pDificultadId, pConjuntoPreguntasId);
+            IList<PreguntaDTO> preguntasParsed = new List<PreguntaDTO>();
+            foreach (Pregunta pregunta in preguntas)
+            {
+                PreguntaDTO preguntaParsed = new PreguntaDTO()
+                {
+                    PreguntaId = pregunta.PreguntaId,
+                    descripcion = pregunta.descripcion,
+                    ConjuntoPreguntas = pregunta.ConjuntoPreguntas,
+                    listaRespuestas = pregunta.listaRespuestas
+                };
+                preguntasParsed.Add(preguntaParsed);
+            }
+            return preguntasParsed;
         }
 
         internal void EliminarPregunta( string pPreguntaId )
         {
             iPreguntaControlador.EliminarPregunta(Int32.Parse(pPreguntaId));
         }
+
+        public ExamenDTO iniciarExamen(ConjuntoPreguntasDTO pConjunto)
+        {
+            var preguntas = this.ObtenerPreguntasPorCriterio(null, null, pConjunto.Id);
+            var usuario = iUsuarioControlador.ObtenerUsuarioAutenticado();
+            var tiempoResolucion = preguntas.Count * pConjunto.TiempoEsperadoRespuesta;
+            List<SesionPreguntaDTO> sesiones = new List<SesionPreguntaDTO>();
+            foreach (var pregunta in preguntas)
+            {
+                var sesion = new SesionPreguntaDTO()
+                {
+                    PreguntaID = pregunta.PreguntaId
+                };
+                sesiones.Add(sesion);
+            }
+            ExamenDTO examen = new ExamenDTO()
+            {
+                categoria = pConjunto.Categoria,
+                dificultad = pConjunto.Dificultad,
+                listaPreguntas = preguntas,
+                usuario = usuario,
+                FechaInicio = DateTime.Now,
+                tiempoDeResolucion = tiempoResolucion,
+                sesiones = sesiones,
+                CantidadPreguntas = preguntas.Count
+            };
+            return examen;
+        }
+
+        //public static ExamenDTO FinalizarExamen(ExamenDTO pExamen)
+        //{
+        //    Examen examen = new Examen(pExamen);
+        //    int n = ControladorExamen.CantidadRespuestasCorrectas(examen);
+        //    double factorDificultad = ControladorExamen.GetFactorDificultad(examen);
+        //    examen.Finalizar(n, factorDificultad);
+        //}
     }
 }

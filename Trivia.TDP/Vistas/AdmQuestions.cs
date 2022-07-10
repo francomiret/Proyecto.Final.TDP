@@ -108,12 +108,12 @@ namespace Trivia.TDP.Vistas
             CategoriaDTO categoriaSeleccionada = (CategoriaDTO)comboBoxCategorias.SelectedItem;
             DificultadDTO dificultadSeleccionada = (DificultadDTO)comboBoxDificultad.SelectedItem;
             ConjuntoPreguntasDTO conjunto = (ConjuntoPreguntasDTO)conjuntoCombo.SelectedItem;
-            IList<Pregunta> preguntas = this.fachada.ObtenerPreguntasPorCriterio(categoriaSeleccionada?.CategoriaId, dificultadSeleccionada?.DificultadId, conjunto?.Id);
+            IList<PreguntaDTO> preguntas = this.fachada.ObtenerPreguntasPorCriterio(categoriaSeleccionada?.CategoriaId, dificultadSeleccionada?.DificultadId, conjunto?.Id);
 
 
             if (preguntas != null)
             {
-                foreach (Pregunta pregunta in preguntas)
+                foreach (PreguntaDTO pregunta in preguntas)
                 {
                     dataGridPreguntas.Rows.Add(pregunta.PreguntaId,
                         pregunta.ConjuntoPreguntas.Nombre,

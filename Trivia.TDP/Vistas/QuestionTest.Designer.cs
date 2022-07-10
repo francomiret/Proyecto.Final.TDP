@@ -33,11 +33,11 @@
             this.label5 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.time = new System.Windows.Forms.Label();
+            this.cantidadPreguntas = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.descripcionPregunta = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
@@ -112,39 +112,39 @@
             this.label1.Location = new System.Drawing.Point(16, 11);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 23);
+            this.label1.Size = new System.Drawing.Size(105, 23);
             this.label1.TabIndex = 26;
-            this.label1.Text = "TIEMPO:";
+            this.label1.Text = "TIEMPO (S):";
             this.label1.UseWaitCursor = true;
             // 
-            // label2
+            // time
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(92, 11);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(123, 23);
-            this.label2.TabIndex = 27;
-            this.label2.Text = "120 Segundos";
-            this.label2.UseWaitCursor = true;
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.time.AutoSize = true;
+            this.time.BackColor = System.Drawing.Color.Transparent;
+            this.time.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.time.ForeColor = System.Drawing.Color.Black;
+            this.time.Location = new System.Drawing.Point(122, 11);
+            this.time.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.time.Name = "time";
+            this.time.Size = new System.Drawing.Size(45, 23);
+            this.time.TabIndex = 27;
+            this.time.Text = "120 ";
+            this.time.UseWaitCursor = true;
+            this.time.Click += new System.EventHandler(this.label2_Click);
             // 
-            // label3
+            // cantidadPreguntas
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(119, 34);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(115, 23);
-            this.label3.TabIndex = 29;
-            this.label3.Text = "10 Preguntas";
-            this.label3.UseWaitCursor = true;
+            this.cantidadPreguntas.AutoSize = true;
+            this.cantidadPreguntas.BackColor = System.Drawing.Color.Transparent;
+            this.cantidadPreguntas.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cantidadPreguntas.ForeColor = System.Drawing.Color.Black;
+            this.cantidadPreguntas.Location = new System.Drawing.Point(220, 34);
+            this.cantidadPreguntas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.cantidadPreguntas.Name = "cantidadPreguntas";
+            this.cantidadPreguntas.Size = new System.Drawing.Size(35, 23);
+            this.cantidadPreguntas.TabIndex = 29;
+            this.cantidadPreguntas.Text = "10 ";
+            this.cantidadPreguntas.UseWaitCursor = true;
             // 
             // label4
             // 
@@ -155,15 +155,15 @@
             this.label4.Location = new System.Drawing.Point(16, 34);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(104, 23);
+            this.label4.Size = new System.Drawing.Size(207, 23);
             this.label4.TabIndex = 28;
-            this.label4.Text = "CANTIDAD:";
+            this.label4.Text = "CANTIDAD PREGUNTAS:";
             this.label4.UseWaitCursor = true;
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.descripcionPregunta);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.groupBox1.Location = new System.Drawing.Point(20, 132);
@@ -176,16 +176,16 @@
             this.groupBox1.Text = "PREGUNTA NÚMERO 1";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // label6
+            // descripcionPregunta
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(312, 26);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(246, 23);
-            this.label6.TabIndex = 45;
-            this.label6.Text = "¿DE QUE COLOR ES EL CIELO?";
+            this.descripcionPregunta.AutoSize = true;
+            this.descripcionPregunta.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.descripcionPregunta.Location = new System.Drawing.Point(33, 29);
+            this.descripcionPregunta.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.descripcionPregunta.Name = "descripcionPregunta";
+            this.descripcionPregunta.Size = new System.Drawing.Size(246, 23);
+            this.descripcionPregunta.TabIndex = 45;
+            this.descripcionPregunta.Text = "¿DE QUE COLOR ES EL CIELO?";
             // 
             // groupBox2
             // 
@@ -256,6 +256,7 @@
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "RESPUESTA 1";
             this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // button1
             // 
@@ -270,6 +271,7 @@
             this.button1.TabIndex = 47;
             this.button1.Text = "FINALIZAR";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -284,6 +286,7 @@
             this.button2.TabIndex = 48;
             this.button2.Text = "ANTERIOR PREGUNTA";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button4
             // 
@@ -310,9 +313,9 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.cantidadPreguntas);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.time);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label5);
@@ -340,11 +343,11 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label time;
+        private System.Windows.Forms.Label cantidadPreguntas;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label descripcionPregunta;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.RadioButton radioButton4;
         private System.Windows.Forms.RadioButton radioButton3;

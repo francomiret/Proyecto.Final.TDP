@@ -10,19 +10,16 @@ namespace Dominio
 		[Key]
 		public int Examenid { get; set; }
 
-		private TimeSpan fechaInicio { get; set; }
+		public DateTime FechaInicio { get; set; }
 
-		private TimeSpan fechaFin { get; set; }
+		public double TiempoUsado { get; set; }
 
-		private double puntaje { get; set; }
+		public double Puntaje { get; set; }
 
-		private double tiempoDeResolucion { get; set; }
+		public double tiempoDeResolucion { get; set; }
 
-		private int cantPreguntas { get; set; }
-
-		private double factorTiempo { get; set; }
-
-		private int cantRespCorrectas { get; set; }
+		public int CantidadPreguntas { get; set; }
+		public int cantRespCorrectas { get; set; }
 
 		public virtual Usuario usuario { get; set; }
 		 
@@ -37,24 +34,33 @@ namespace Dominio
 			return 0;
 		}
 
-		public double setFactorTiempo(System.DateTime tiempoDeResolucion, int cantPreguntas)
+		public double FactorTiempo
 		{
-			return 0;
+			get
+			{
+				double factor = TiempoUsado / CantidadPreguntas;
+
+				if (factor < 5)
+				{
+					return 5;
+				}
+				else if (factor < 20)
+				{
+					return 3;
+				}
+				else return 1;
+			}
 		}
 
-		public void GetPreguntas(string categoria, string dificultad, string tipo)
+		private void CalcularPuntaje(int pCantRespCorrectas, double pFactorDificultad)
 		{
-
+			this.Puntaje = pCantRespCorrectas / this.CantidadPreguntas * pFactorDificultad * this.FactorTiempo;
 		}
 
-		public void setTiempoDeResolucion(System.DateTime fechaInicio, System.DateTime fechaFin)
+		public void Finalizar(int pCantidadRespuestasCorrectas, double pFactorDificultad)
 		{
-
-		}
-
-		public void SetCantRespCorrectas()
-		{
-
+			this.TiempoUsado = (DateTime.Now - this.FechaInicio).TotalSeconds;
+			this.CalcularPuntaje(pCantidadRespuestasCorrectas, pFactorDificultad);
 		}
 
 	}
