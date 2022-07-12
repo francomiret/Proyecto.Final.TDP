@@ -87,6 +87,10 @@ namespace Dominio
 			this.Puntaje = examenDTO.Puntaje;
 			this.sesiones = Examen.DTOaSesionPregunta(examenDTO.sesiones);
 		}
+		public Examen ()
+        {
+
+        }
 
 
 	}

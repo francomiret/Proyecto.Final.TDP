@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Timers;
 using System.Windows.Forms;
 using Trivia.TDP.Controladores;
 using Trivia.TDP.DTO;
@@ -12,21 +13,55 @@ namespace Trivia.TDP.Vistas
         IList<PreguntaDTO> listaPreguntas = null;
         ExamenDTO examen = new ExamenDTO();
         private Fachada fachada;
+        DateTime timerEnd;
+        int counter;
+        private System.Windows.Forms.Timer timer1;
+        System.Timers.Timer aTimer = new System.Timers.Timer();
         public QuestionTest(ExamenDTO pExamen, IList<PreguntaDTO> pPreguntas)
         {
             this.fachada = new Fachada();
             InitializeComponent();
             examen = pExamen;
+            counter = (int)(examen.tiempoDeResolucion);
+            SetTimer(examen.tiempoDeResolucion);
+
+            timer1 = new System.Windows.Forms.Timer();
+            timer1.Tick += new EventHandler(GetRemaining);
+            timer1.Interval = 1000; // 1 second
+            timer1.Start();
+
             listaPreguntas = pPreguntas;
             groupBox1.Text = (pregActual + 1).ToString();
             cantidadPreguntas.Text = listaPreguntas.Count.ToString();
-            time.Text = examen.tiempoDeResolucion.ToString();            
+            time.Text = counter.ToString();            
 
             descripcionPregunta.Text = listaPreguntas[pregActual].descripcion;
             radioButton1.Text = listaPreguntas[pregActual].listaRespuestas[0].descripcion;
             radioButton2.Text = listaPreguntas[pregActual].listaRespuestas[1].descripcion;
             radioButton3.Text = listaPreguntas[pregActual].listaRespuestas[2].descripcion;
             radioButton4.Text = listaPreguntas[pregActual].listaRespuestas[3].descripcion;
+        }
+
+        public void OnTime(object source, ElapsedEventArgs e)
+        {
+            aTimer.Stop();
+            ExamenDTO examesn = Fachada.FinalizarExamen(examen);
+            MessageBox.Show("Examen finalizado.", "Tiempo Agotadp", MessageBoxButtons.OK);
+        }
+        public void SetTimer(double tiempoResolucion)
+        {
+            aTimer.Elapsed += new ElapsedEventHandler(OnTime);
+            aTimer.Interval = tiempoResolucion*1000;
+            aTimer.Enabled = true;
+            timerEnd = DateTime.Now.AddMilliseconds(tiempoResolucion);
+        }
+
+        public void GetRemaining(object sender, EventArgs e)
+        {
+            counter--;
+            if (counter == 0)
+                timer1.Stop();
+            time.Text = counter.ToString();
         }
 
         private void label2_Click( object sender, EventArgs e )
@@ -147,5 +182,7 @@ namespace Trivia.TDP.Vistas
             // Mostrar ventana resultados
             this.Close();
         }
+
+    
     }
 }

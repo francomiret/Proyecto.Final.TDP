@@ -29,11 +29,17 @@
         private void InitializeComponent()
         {
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewRanking = new System.Windows.Forms.DataGridView();
             this.button6 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
+            this.Legajo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Puntaje = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CantidadPreguntas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TiempoUsado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dificultad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRanking)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox2
@@ -47,19 +53,26 @@
             this.pictureBox2.TabIndex = 23;
             this.pictureBox2.TabStop = false;
             // 
-            // dataGridView1
+            // dataGridViewRanking
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(16, 62);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(871, 322);
-            this.dataGridView1.TabIndex = 47;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridViewRanking.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewRanking.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Legajo,
+            this.Nombre,
+            this.Puntaje,
+            this.CantidadPreguntas,
+            this.TiempoUsado,
+            this.Dificultad});
+            this.dataGridViewRanking.Location = new System.Drawing.Point(16, 62);
+            this.dataGridViewRanking.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridViewRanking.MultiSelect = false;
+            this.dataGridViewRanking.Name = "dataGridViewRanking";
+            this.dataGridViewRanking.ReadOnly = true;
+            this.dataGridViewRanking.RowHeadersWidth = 51;
+            this.dataGridViewRanking.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewRanking.Size = new System.Drawing.Size(871, 322);
+            this.dataGridViewRanking.TabIndex = 47;
+            this.dataGridViewRanking.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // button6
             // 
@@ -88,6 +101,52 @@
             this.label6.TabIndex = 52;
             this.label6.Text = "RANKING";
             // 
+            // Legajo
+            // 
+            this.Legajo.HeaderText = "Legajo";
+            this.Legajo.MinimumWidth = 6;
+            this.Legajo.Name = "Legajo";
+            this.Legajo.ReadOnly = true;
+            this.Legajo.Width = 80;
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.MinimumWidth = 6;
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            this.Nombre.Width = 80;
+            // 
+            // Puntaje
+            // 
+            this.Puntaje.HeaderText = "Puntaje";
+            this.Puntaje.MinimumWidth = 6;
+            this.Puntaje.Name = "Puntaje";
+            this.Puntaje.ReadOnly = true;
+            this.Puntaje.Width = 60;
+            // 
+            // CantidadPreguntas
+            // 
+            this.CantidadPreguntas.HeaderText = "Cantidad de Preguntas";
+            this.CantidadPreguntas.MinimumWidth = 6;
+            this.CantidadPreguntas.Name = "CantidadPreguntas";
+            this.CantidadPreguntas.ReadOnly = true;
+            this.CantidadPreguntas.Width = 120;
+            // 
+            // TiempoUsado
+            // 
+            this.TiempoUsado.HeaderText = "Tiempo Usado";
+            this.TiempoUsado.MinimumWidth = 6;
+            this.TiempoUsado.Name = "TiempoUsado";
+            this.TiempoUsado.ReadOnly = true;
+            // 
+            // Dificultad
+            // 
+            this.Dificultad.HeaderText = "Dificultad";
+            this.Dificultad.MinimumWidth = 6;
+            this.Dificultad.Name = "Dificultad";
+            this.Dificultad.ReadOnly = true;
+            // 
             // Ranking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -95,14 +154,14 @@
             this.ClientSize = new System.Drawing.Size(903, 412);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.button6);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridViewRanking);
             this.Controls.Add(this.pictureBox2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Ranking";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRanking)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -111,8 +170,14 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewRanking;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Legajo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Puntaje;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CantidadPreguntas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TiempoUsado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Dificultad;
     }
 }

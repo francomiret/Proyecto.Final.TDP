@@ -46,7 +46,11 @@ namespace Trivia.TDP.Controladores.OpentDB
                     List<string> textoincorrectas = bResponseItem.incorrect_answers.ToObject<List<string>>();
 
                     //Crea la pregunta
-                    Pregunta preg = new Pregunta(textoPregunta, pConjunto);
+                    Pregunta preg = new Pregunta()
+                    {
+                        ConjuntoPreguntas = pConjunto,
+                        descripcion = textoPregunta
+                    };
 
                     //Crea la respuesta correcta
                     Respuesta respuestaCorrecta = new Respuesta()

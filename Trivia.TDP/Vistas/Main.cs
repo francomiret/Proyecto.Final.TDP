@@ -9,10 +9,12 @@ namespace Trivia.TDP.Vistas
     {
         private Fachada fachada;
 
+        ExamenDTO examen;
         public Main()
         {
             InitializeComponent();
             this.fachada = new Fachada();
+            
 
 
         }
@@ -31,9 +33,19 @@ namespace Trivia.TDP.Vistas
         {
             UsuarioDTO usuario = fachada.ObtenerUsuarioAutenticado();
             userData.Text = usuario.nombre + " " + usuario.apellido;
-            labelMejorPuntaje.Text = "-";
-            labelCantidad.Text = "-";
-            labelTiempo.Text = "-";
+            examen = fachada.MejorExamenUsuario();
+            if (examen != null)
+            {
+                labelMejorPuntaje.Text = examen.Puntaje.ToString();
+                labelCantidad.Text = examen.CantidadPreguntas.ToString();
+                labelTiempo.Text = examen.TiempoUsado.ToString();
+            } else
+            {
+                labelMejorPuntaje.Text = "-";
+                labelCantidad.Text = "-";
+                labelTiempo.Text = "-";
+            }
+
 
         }
 
@@ -65,6 +77,11 @@ namespace Trivia.TDP.Vistas
         {
             Vistas.Ranking ranking = new Vistas.Ranking();
             ranking.Show();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

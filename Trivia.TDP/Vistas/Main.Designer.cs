@@ -221,10 +221,11 @@
             this.label2.Location = new System.Drawing.Point(47, 102);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 23);
+            this.label2.Size = new System.Drawing.Size(173, 23);
             this.label2.TabIndex = 26;
-            this.label2.Text = "Cantidad :";
+            this.label2.Text = "Cantidad Preguntas:";
             this.label2.UseWaitCursor = true;
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 

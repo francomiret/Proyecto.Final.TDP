@@ -1,6 +1,7 @@
 ﻿using Dominio;
 using System;
 using System.Collections.Generic;
+using System.Timers;
 using System.Windows.Forms;
 using Trivia.TDP.Controladores.Interfaz;
 using Trivia.TDP.Controladores.OpentDB;
@@ -287,6 +288,8 @@ namespace Trivia.TDP.Controladores
             iPreguntaControlador.EliminarPregunta(Int32.Parse(pPreguntaId));
         }
 
+        
+        
         public ExamenDTO iniciarExamen(ConjuntoPreguntasDTO pConjunto, IList<PreguntaDTO> preguntas)
         {
             var usuario = iUsuarioControlador.ObtenerUsuarioAutenticado();
@@ -310,6 +313,7 @@ namespace Trivia.TDP.Controladores
                 sesiones = sesiones,
                 CantidadPreguntas = preguntas.Count
             };
+
             return examen;
         }
 
@@ -323,6 +327,24 @@ namespace Trivia.TDP.Controladores
 
 
             return new ExamenDTO(examen);
+        }
+
+        public ExamenDTO MejorExamenUsuario()
+        {
+            var usuario = iUsuarioControlador.ObtenerUsuarioAutenticado();
+            Examen examen = iExamenControlador.MejorExamen(usuario);
+            return new ExamenDTO(examen);
+        }
+
+        public IList<ExamenDTO> Mejores10Examenes()
+        {
+            IList<Examen> examenes = iExamenControlador.Mejores10Examenes();
+            IList<ExamenDTO> examenesDto = new List<ExamenDTO>();
+            foreach (var examen in examenes)
+            {
+                examenesDto.Add(new ExamenDTO(examen));
+            }
+            return examenesDto;
         }
     }
 }

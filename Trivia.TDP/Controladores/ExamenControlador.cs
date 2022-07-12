@@ -60,5 +60,31 @@ namespace Trivia.TDP.Controladores
                 }
             }
         }
+
+        public Examen MejorExamen(Usuario usuario)
+        {
+            Examen examen;
+            using (var bDbContext = new PruebaDBContext())
+            {
+                using (IUnitOfWork bUoW = new UnitOfWork(bDbContext))
+                {
+                    examen = bUoW.ExamenRepositorio.MejorExamen(usuario);
+                }
+            }
+            return examen;
+        }
+
+        public IList<Examen> Mejores10Examenes()
+        {
+            IList<Examen> examenes;
+            using (var bDbContext = new PruebaDBContext())
+            {
+                using (IUnitOfWork bUoW = new UnitOfWork(bDbContext))
+                {
+                    examenes = bUoW.ExamenRepositorio.Mejores10Examenes();
+                }
+            }
+            return examenes;
+        }
     }
 }

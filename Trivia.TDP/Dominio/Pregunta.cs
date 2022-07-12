@@ -12,18 +12,10 @@ namespace Dominio
 
 		public virtual IList<Respuesta> listaRespuestas { get; set; }
 
-        public virtual ConjuntoPreguntas ConjuntoPreguntas { get; set; }
-
-        public Pregunta(string pDescripcion, ConjuntoPreguntas pConjunto)
-        {
-            descripcion = pDescripcion;
-            ConjuntoPreguntas = pConjunto;
-        }
-
-        public Pregunta() { }
-	    }
+		public virtual ConjuntoPreguntas ConjuntoPreguntas { get; set; }
 
 
 
+	}
 }
 

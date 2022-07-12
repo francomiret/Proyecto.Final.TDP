@@ -61,7 +61,9 @@ namespace Trivia.TDP.Vistas
                 DificultadDTO dificultadSeleccionada = (DificultadDTO)comboBoxDificultad.SelectedItem;
                 CategoriaDTO categoriaSeleccionada = (CategoriaDTO)comboBoxCategorias.SelectedItem;
                 int cant = Int32.Parse(cantidadPreg.Text);
-                preguntas = fachada.AgregarPreguntas(dificultadSeleccionada, categoriaSeleccionada, cant);
+                IList<PreguntaDTO>  preguntasAgregadas = fachada.AgregarPreguntas(dificultadSeleccionada, categoriaSeleccionada, cant);
+                int conjuntoCreado = preguntasAgregadas[0].ConjuntoPreguntas.Id;
+                preguntas = this.fachada.ObtenerPreguntasPorCriterio(categoriaSeleccionada?.CategoriaId, dificultadSeleccionada?.DificultadId, conjuntoCreado);
             }
             else
             {
