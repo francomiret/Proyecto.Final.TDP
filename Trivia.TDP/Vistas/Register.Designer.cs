@@ -56,10 +56,10 @@ namespace Trivia.TDP.Vistas
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.label5.Location = new System.Drawing.Point(272, 74);
+            this.label5.Location = new System.Drawing.Point(321, 74);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(362, 46);
+            this.label5.Size = new System.Drawing.Size(290, 37);
             this.label5.TabIndex = 22;
             this.label5.Text = "REGISTRAR USUARIO";
             // 
@@ -79,7 +79,7 @@ namespace Trivia.TDP.Vistas
             this.textNombre.Location = new System.Drawing.Point(196, 160);
             this.textNombre.Margin = new System.Windows.Forms.Padding(4);
             this.textNombre.Name = "textNombre";
-            this.textNombre.Size = new System.Drawing.Size(244, 22);
+            this.textNombre.Size = new System.Drawing.Size(244, 20);
             this.textNombre.TabIndex = 29;
             // 
             // textLegajo
@@ -87,7 +87,7 @@ namespace Trivia.TDP.Vistas
             this.textLegajo.Location = new System.Drawing.Point(196, 189);
             this.textLegajo.Margin = new System.Windows.Forms.Padding(4);
             this.textLegajo.Name = "textLegajo";
-            this.textLegajo.Size = new System.Drawing.Size(244, 22);
+            this.textLegajo.Size = new System.Drawing.Size(244, 20);
             this.textLegajo.TabIndex = 28;
             // 
             // textApellido
@@ -95,7 +95,7 @@ namespace Trivia.TDP.Vistas
             this.textApellido.Location = new System.Drawing.Point(577, 160);
             this.textApellido.Margin = new System.Windows.Forms.Padding(4);
             this.textApellido.Name = "textApellido";
-            this.textApellido.Size = new System.Drawing.Size(244, 22);
+            this.textApellido.Size = new System.Drawing.Size(244, 20);
             this.textApellido.TabIndex = 27;
             // 
             // label3
@@ -105,7 +105,7 @@ namespace Trivia.TDP.Vistas
             this.label3.Location = new System.Drawing.Point(478, 155);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(91, 23);
+            this.label3.Size = new System.Drawing.Size(70, 17);
             this.label3.TabIndex = 26;
             this.label3.Text = "Apellido *";
             // 
@@ -116,7 +116,7 @@ namespace Trivia.TDP.Vistas
             this.label1.Location = new System.Drawing.Point(93, 155);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 23);
+            this.label1.Size = new System.Drawing.Size(68, 17);
             this.label1.TabIndex = 24;
             this.label1.Text = "Nombre *";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -172,7 +172,7 @@ namespace Trivia.TDP.Vistas
             this.label7.Location = new System.Drawing.Point(106, 188);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(76, 23);
+            this.label7.Size = new System.Drawing.Size(59, 17);
             this.label7.TabIndex = 40;
             this.label7.Text = "Legajo *";
             // 
@@ -181,7 +181,7 @@ namespace Trivia.TDP.Vistas
             this.textContrasena.Location = new System.Drawing.Point(334, 287);
             this.textContrasena.Margin = new System.Windows.Forms.Padding(4);
             this.textContrasena.Name = "textContrasena";
-            this.textContrasena.Size = new System.Drawing.Size(460, 22);
+            this.textContrasena.Size = new System.Drawing.Size(460, 20);
             this.textContrasena.TabIndex = 43;
             this.textContrasena.TextChanged += new System.EventHandler(this.textContrasena_TextChanged);
             // 
@@ -193,7 +193,7 @@ namespace Trivia.TDP.Vistas
             this.label4.Location = new System.Drawing.Point(130, 287);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(112, 23);
+            this.label4.Size = new System.Drawing.Size(87, 17);
             this.label4.TabIndex = 42;
             this.label4.Text = "Contraseña *";
             // 
@@ -202,7 +202,7 @@ namespace Trivia.TDP.Vistas
             this.textRepetirContrasena.Location = new System.Drawing.Point(334, 326);
             this.textRepetirContrasena.Margin = new System.Windows.Forms.Padding(4);
             this.textRepetirContrasena.Name = "textRepetirContrasena";
-            this.textRepetirContrasena.Size = new System.Drawing.Size(460, 22);
+            this.textRepetirContrasena.Size = new System.Drawing.Size(460, 20);
             this.textRepetirContrasena.TabIndex = 45;
             // 
             // label6
@@ -213,7 +213,7 @@ namespace Trivia.TDP.Vistas
             this.label6.Location = new System.Drawing.Point(132, 326);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(176, 23);
+            this.label6.Size = new System.Drawing.Size(135, 17);
             this.label6.TabIndex = 44;
             this.label6.Text = "Repetir Contraseña *";
             // 
