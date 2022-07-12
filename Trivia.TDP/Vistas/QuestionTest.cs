@@ -45,8 +45,7 @@ namespace Trivia.TDP.Vistas
         public void OnTime(object source, ElapsedEventArgs e)
         {
             aTimer.Stop();
-            ExamenDTO examesn = Fachada.FinalizarExamen(examen);
-            MessageBox.Show("Examen finalizado.", "Tiempo Agotadp", MessageBoxButtons.OK);
+            
         }
         public void SetTimer(double tiempoResolucion)
         {
@@ -60,18 +59,15 @@ namespace Trivia.TDP.Vistas
         {
             counter--;
             if (counter == 0)
+            {
                 timer1.Stop();
+                ExamenDTO examenDto = Fachada.FinalizarExamen(examen);
+                Vistas.Result result = new Vistas.Result(examenDto);
+                this.Close();
+                result.Show();
+            }
+                
             time.Text = counter.ToString();
-        }
-
-        private void label2_Click( object sender, EventArgs e )
-        {
-
-        }
-
-        private void groupBox1_Enter( object sender, EventArgs e )
-        {
-
         }
 
         private void button3_Click( object sender, EventArgs e )
@@ -178,9 +174,12 @@ namespace Trivia.TDP.Vistas
                     examen.sesiones[index].RespuestaSeleccionadaId = listaPreguntas[pregActual].listaRespuestas[selectedOp].RespuestaId;
                 }
             }
-            ExamenDTO examesn = Fachada.FinalizarExamen(examen);
-            // Mostrar ventana resultados
+            aTimer.Stop();
+            ExamenDTO examenDto = Fachada.FinalizarExamen(examen);
+            Vistas.Result result = new Vistas.Result(examenDto);
             this.Close();
+            result.Show();
+
         }
 
     

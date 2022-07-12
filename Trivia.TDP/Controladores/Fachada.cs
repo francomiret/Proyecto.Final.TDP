@@ -333,7 +333,14 @@ namespace Trivia.TDP.Controladores
         {
             var usuario = iUsuarioControlador.ObtenerUsuarioAutenticado();
             Examen examen = iExamenControlador.MejorExamen(usuario);
-            return new ExamenDTO(examen);
+            if (examen != null)
+            {
+                return new ExamenDTO(examen);
+            } else
+            {
+                return null;
+            }
+            
         }
 
         public IList<ExamenDTO> Mejores10Examenes()

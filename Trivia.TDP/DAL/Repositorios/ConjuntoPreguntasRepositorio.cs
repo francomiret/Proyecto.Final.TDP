@@ -24,7 +24,7 @@ namespace ProyectoFinalTDP.DAL.Repositorios
             }
             catch (InvalidOperationException e)
             {
-
+                throw e;
             }
             try
             {
@@ -33,7 +33,7 @@ namespace ProyectoFinalTDP.DAL.Repositorios
             }
             catch (InvalidOperationException e)
             {
-
+                throw e;
             }
             iDbContext.ConjuntoPreguntas.Add(pConjunto);
 

@@ -7,19 +7,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Trivia.TDP.DTO;
 
 namespace Trivia.TDP.Vistas
 {
     public partial class Result : Form
     {
-        public Result()
+        public Result(ExamenDTO examen)
         {
             InitializeComponent();
+            labelPuntaje.Text = examen.Puntaje.ToString();
+            labelTiempo.Text = examen.TiempoUsado.ToString();
         }
 
-        private void labelMejorPuntaje_Click(object sender, EventArgs e)
-        {
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -41,7 +41,7 @@ namespace Trivia.TDP.DAL.Repositorios
                 }
                 catch (InvalidOperationException e)
                 {
-
+ 
                 }
                 try
                 {

@@ -21,7 +21,7 @@ namespace Trivia.TDP.Controladores.OpentDB
             }
             catch (WebException e)
             {
-                throw;
+                throw e;
             }
         }
     }

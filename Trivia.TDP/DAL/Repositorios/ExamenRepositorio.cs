@@ -24,12 +24,12 @@ namespace Trivia.TDP.DAL.Repositorios
 
         public Examen MejorExamen(Usuario pUsuario)
         {
-            return iDbContext.Examenes.Include("sesiones").Include("categoria").Include("dificultad").Include("usuario").OrderByDescending(p => p.Puntaje).First(e => e.usuario.legajo == pUsuario.legajo);
+            return iDbContext.Examenes.Include("sesiones").Include("categoria").Include("dificultad").Include("usuario").OrderByDescending(p => p.Puntaje)?.SingleOrDefault(e => e.usuario.legajo == pUsuario.legajo);
         }
 
         public IList<Examen> Mejores10Examenes()
         {
-            return iDbContext.Examenes.Include("sesiones").Include("categoria").Include("dificultad").Include("usuario").OrderByDescending(p => p.Puntaje).Take(10).ToList();
+            return iDbContext.Examenes.Include("sesiones").Include("categoria").Include("dificultad").Include("usuario").OrderByDescending(p => p.Puntaje)?.Take(10).ToList();
         }
 
     }

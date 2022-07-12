@@ -71,6 +71,7 @@ namespace Trivia.TDP.Vistas
                 preguntas = fachada.AgregarPreguntas(conjunto);
             }
             Vistas.AdmQuestions admQuestions = new Vistas.AdmQuestions(preguntas);
+            this.Close();
             admQuestions.Show();
         }
 

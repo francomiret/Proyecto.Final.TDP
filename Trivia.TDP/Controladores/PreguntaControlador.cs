@@ -32,7 +32,7 @@ namespace Trivia.TDP.Controladores
                         IList<Pregunta> preguntas = bUoW.PreguntaRepositorio.obtenerPreguntasPorCriterio(categoria, dificultad, conjunto);
                         return preguntas;
                     }
-                    catch (DataNotFound e)
+                    catch (DataNotFound)
                     {
                         throw new DataNotFound();
                     }
@@ -51,7 +51,7 @@ namespace Trivia.TDP.Controladores
                         bUoW.PreguntaRepositorio.eliminarPregunta(preguntaId);
                         bUoW.Complete();
                     }
-                    catch (DataNotFound e)
+                    catch (DataNotFound)
                     {
                         throw new DataNotFound();
                     }

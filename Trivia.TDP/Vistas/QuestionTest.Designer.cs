@@ -130,7 +130,6 @@
             this.time.TabIndex = 27;
             this.time.Text = "120 ";
             this.time.UseWaitCursor = true;
-            this.time.Click += new System.EventHandler(this.label2_Click);
             // 
             // cantidadPreguntas
             // 
@@ -174,7 +173,6 @@
             this.groupBox1.TabIndex = 42;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "PREGUNTA NÚMERO 1";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // descripcionPregunta
             // 
