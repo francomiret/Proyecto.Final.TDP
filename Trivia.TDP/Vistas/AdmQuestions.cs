@@ -14,9 +14,10 @@ namespace Trivia.TDP.Vistas
         {
             InitializeComponent();
             this.Setup();
-
+            dataGridPreguntas.DataSource = null;
+            dataGridPreguntas.Rows.Clear();
             if (preguntas != null)
-            {
+            {   
                 foreach (PreguntaDTO pregunta in preguntas)
                 {
                     dataGridPreguntas.Rows.Add(pregunta.PreguntaId,
@@ -104,6 +105,7 @@ namespace Trivia.TDP.Vistas
         private void button4_Click( object sender, EventArgs e )
         {
             dataGridPreguntas.DataSource = null;
+            dataGridPreguntas.Rows.Clear();            
             CategoriaDTO categoriaSeleccionada = (CategoriaDTO)comboBoxCategorias.SelectedItem;
             DificultadDTO dificultadSeleccionada = (DificultadDTO)comboBoxDificultad.SelectedItem;
             ConjuntoPreguntasDTO conjunto = (ConjuntoPreguntasDTO)conjuntoCombo.SelectedItem;

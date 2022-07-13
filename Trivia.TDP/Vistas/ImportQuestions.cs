@@ -68,7 +68,8 @@ namespace Trivia.TDP.Vistas
             else
             {
                 ConjuntoPreguntasDTO conjunto = (ConjuntoPreguntasDTO)comboBoxConjuntos.SelectedItem;
-                preguntas = fachada.AgregarPreguntas(conjunto);
+                IList<PreguntaDTO> preguntasAux = fachada.AgregarPreguntas(conjunto);
+                preguntas = this.fachada.ObtenerPreguntasPorCriterio(conjunto.Categoria.CategoriaId, conjunto.Dificultad.DificultadId, preguntasAux.Count);
             }
             Vistas.AdmQuestions admQuestions = new Vistas.AdmQuestions(preguntas);
             this.Close();
