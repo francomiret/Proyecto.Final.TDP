@@ -149,7 +149,7 @@
             this.groupBox2.Size = new System.Drawing.Size(484, 142);
             this.groupBox2.TabIndex = 68;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Configure la sesión";
+            this.groupBox2.Text = "Crear nuevo conjunto";
             // 
             // cantidadPreg
             // 

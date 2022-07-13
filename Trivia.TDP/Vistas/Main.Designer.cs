@@ -66,10 +66,10 @@
             this.button3.BackColor = System.Drawing.Color.CornflowerBlue;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button3.Location = new System.Drawing.Point(1, 183);
+            this.button3.Location = new System.Drawing.Point(13, 188);
             this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(204, 41);
+            this.button3.Size = new System.Drawing.Size(176, 36);
             this.button3.TabIndex = 3;
             this.button3.Text = "SESIONES";
             this.button3.UseVisualStyleBackColor = false;
@@ -80,10 +80,10 @@
             this.button4.BackColor = System.Drawing.Color.Red;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button4.Location = new System.Drawing.Point(4, 362);
+            this.button4.Location = new System.Drawing.Point(17, 363);
             this.button4.Margin = new System.Windows.Forms.Padding(4);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(197, 39);
+            this.button4.Size = new System.Drawing.Size(173, 38);
             this.button4.TabIndex = 4;
             this.button4.Text = "CERRAR SESION";
             this.button4.UseVisualStyleBackColor = false;
@@ -94,10 +94,10 @@
             this.button2.BackColor = System.Drawing.Color.CornflowerBlue;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button2.Location = new System.Drawing.Point(0, 135);
+            this.button2.Location = new System.Drawing.Point(13, 140);
             this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(205, 41);
+            this.button2.Size = new System.Drawing.Size(177, 40);
             this.button2.TabIndex = 2;
             this.button2.Text = "PREGUNTAS";
             this.button2.UseVisualStyleBackColor = false;
@@ -108,10 +108,10 @@
             this.button1.BackColor = System.Drawing.Color.CornflowerBlue;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(0, 87);
+            this.button1.Location = new System.Drawing.Point(13, 92);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(205, 41);
+            this.button1.Size = new System.Drawing.Size(177, 40);
             this.button1.TabIndex = 1;
             this.button1.Text = "USUARIOS";
             this.button1.UseVisualStyleBackColor = false;
@@ -120,7 +120,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Trivia.TDP.Properties.Resources.Logo;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 14);
+            this.pictureBox1.Location = new System.Drawing.Point(23, 15);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(154, 50);
@@ -134,10 +134,10 @@
             this.button5.BackColor = System.Drawing.Color.LimeGreen;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button5.Location = new System.Drawing.Point(629, 351);
+            this.button5.Location = new System.Drawing.Point(640, 361);
             this.button5.Margin = new System.Windows.Forms.Padding(4);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(205, 47);
+            this.button5.Size = new System.Drawing.Size(194, 38);
             this.button5.TabIndex = 5;
             this.button5.Text = "INICIAR EXAMEN";
             this.button5.UseVisualStyleBackColor = false;
@@ -160,7 +160,7 @@
             this.userData.Size = new System.Drawing.Size(553, 223);
             this.userData.TabIndex = 6;
             this.userData.TabStop = false;
-            this.userData.Text = "Rodrigo Mignola";
+            this.userData.Text = "Nombre";
             this.userData.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // labelTiempo
