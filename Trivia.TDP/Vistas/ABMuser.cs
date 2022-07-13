@@ -8,7 +8,7 @@ namespace Trivia.TDP.Vistas
 {
     public partial class ABMuser : Form
     {
-        private Fachada fachada;
+        private IFachada fachada;
 
         public ABMuser()
         {

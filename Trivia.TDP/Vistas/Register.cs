@@ -1,16 +1,14 @@
-﻿using Dominio;
-using System;
+﻿using System;
 using System.Windows.Forms;
 using Trivia.TDP.Controladores;
 using Trivia.TDP.Controladores.Errores;
-using Trivia.TDP.Controladores.Interfaz;
 using Trivia.TDP.DTO;
 
 namespace Trivia.TDP.Vistas
 {
     public partial class Register : Form
     {
-        private Fachada fachada;
+        private IFachada fachada;
         public Register()
         {
             InitializeComponent();

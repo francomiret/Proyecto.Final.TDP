@@ -78,6 +78,7 @@
     <Compile Include="Controladores\Errores\ErrorUsuarioNoExiste.cs" />
     <Compile Include="Controladores\Errores\ErrorUsuarioNoAutenticado.cs" />
     <Compile Include="Controladores\Fachada.cs" />
+    <Compile Include="Controladores\IFachada.cs" />
     <Compile Include="Controladores\Interfaz\ICategoriaControlador.cs" />
     <Compile Include="Controladores\Interfaz\IConjuntoPreguntasControlador.cs" />
     <Compile Include="Controladores\Interfaz\IDificultadControlador.cs" />

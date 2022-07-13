@@ -9,7 +9,7 @@ namespace Trivia.TDP.Vistas
 {
     public partial class ImportQuestions : Form
     {
-        private Fachada fachada;
+        private IFachada fachada;
 
         public ImportQuestions()
         {

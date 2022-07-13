@@ -1,5 +1,4 @@
-﻿using Dominio;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using Trivia.TDP.Controladores;
@@ -9,9 +8,9 @@ namespace Trivia.TDP.Vistas
 {
     public partial class AdmQuestions : Form
     {
-        private Fachada fachada;
+        private IFachada fachada;
 
-        public AdmQuestions(IList<PreguntaDTO> preguntas)
+        public AdmQuestions( IList<PreguntaDTO> preguntas )
         {
             InitializeComponent();
             this.Setup();
@@ -38,7 +37,7 @@ namespace Trivia.TDP.Vistas
 
         public AdmQuestions()
         {
-             InitializeComponent();
+            InitializeComponent();
             this.Setup();
         }
 

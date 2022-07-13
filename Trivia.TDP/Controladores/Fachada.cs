@@ -1,7 +1,6 @@
 ﻿using Dominio;
 using System;
 using System.Collections.Generic;
-using System.Timers;
 using System.Windows.Forms;
 using Trivia.TDP.Controladores.Interfaz;
 using Trivia.TDP.Controladores.OpentDB;
@@ -9,7 +8,7 @@ using Trivia.TDP.DTO;
 
 namespace Trivia.TDP.Controladores
 {
-    class Fachada
+    class Fachada : IFachada
     {
         private IImportadorDataOpentDB importador;
 
@@ -36,7 +35,7 @@ namespace Trivia.TDP.Controladores
             this.iExamenControlador = new ExamenControlador();
         }
 
-        internal UsuarioDTO ObtenerUsuarioAutenticado()
+        public UsuarioDTO ObtenerUsuarioAutenticado()
         {
             Usuario usuario = iUsuarioControlador.ObtenerUsuarioAutenticado();
             UsuarioDTO usuarioDTO = new UsuarioDTO()
@@ -53,7 +52,7 @@ namespace Trivia.TDP.Controladores
             return usuarioDTO;
         }
 
-        internal bool CrearUsuario( UsuarioDTO pUsuarioDTO )
+        public bool CrearUsuario( UsuarioDTO pUsuarioDTO )
         {
             Usuario usuario = new Usuario()
             {
@@ -69,7 +68,7 @@ namespace Trivia.TDP.Controladores
             return iUsuarioControlador.CrearUsuario(usuario);
         }
 
-        internal IList<PreguntaDTO> AgregarPreguntas( DificultadDTO pDificultadDTO, CategoriaDTO pCategoriaDTO, int pCant )
+        public IList<PreguntaDTO> AgregarPreguntas( DificultadDTO pDificultadDTO, CategoriaDTO pCategoriaDTO, int pCant )
         {
             Categoria categoria = new Categoria()
             {
@@ -84,7 +83,7 @@ namespace Trivia.TDP.Controladores
                 DificultadId = pDificultadDTO.DificultadId,
                 peso = pDificultadDTO.peso,
             };
-            
+
             string nombreConjunto = categoria.nombre + " - " + dificultad.descripcion;
 
             ConjuntoPreguntas conjunto = new ConjuntoPreguntas()
@@ -111,14 +110,15 @@ namespace Trivia.TDP.Controladores
             return preguntasParsed;
         }
 
-        internal IList<PreguntaDTO> AgregarPreguntas(ConjuntoPreguntasDTO pConjuntoDTO)
+        public IList<PreguntaDTO> AgregarPreguntas( ConjuntoPreguntasDTO pConjuntoDTO )
         {
-            ConjuntoPreguntas conjunto = new ConjuntoPreguntas() {
+            ConjuntoPreguntas conjunto = new ConjuntoPreguntas()
+            {
                 Id = pConjuntoDTO.Id,
                 Nombre = pConjuntoDTO.Nombre,
                 TiempoEsperadoRespuesta = pConjuntoDTO.TiempoEsperadoRespuesta,
                 Dificultad = pConjuntoDTO.Dificultad,
-                Categoria = pConjuntoDTO.Categoria            
+                Categoria = pConjuntoDTO.Categoria
             };
 
             IList<Pregunta> preguntasActuales = iPreguntaControlador.ObtenerPreguntasPorCriterio(null, null, conjunto.Id);
@@ -141,12 +141,12 @@ namespace Trivia.TDP.Controladores
             return preguntasParsed;
         }
 
-        internal void CerrarSesion()
+        public void CerrarSesion()
         {
             iUsuarioControlador.CerrarSesion();
         }
 
-        internal UsuarioDTO Autenticar( string legajo, string contrasena )
+        public UsuarioDTO Autenticar( string legajo, string contrasena )
         {
             Usuario usuario = iUsuarioControlador.Autenticar(legajo, contrasena);
             UsuarioDTO usuarioDTO = new UsuarioDTO()
@@ -258,14 +258,14 @@ namespace Trivia.TDP.Controladores
                     Categoria = conjunto.Categoria,
                     Dificultad = conjunto.Dificultad,
                     Nombre = conjunto.Nombre,
-                    TiempoEsperadoRespuesta = conjunto.TiempoEsperadoRespuesta                 
+                    TiempoEsperadoRespuesta = conjunto.TiempoEsperadoRespuesta
                 };
                 conjuntoPreguntasParsed.Add(conjuntoPreguntasParsedDTO);
             }
             return conjuntoPreguntasParsed;
         }
 
-        public IList<PreguntaDTO> ObtenerPreguntasPorCriterio( int? pCategoriaId, int? pDificultadId, int? pConjuntoPreguntasId)
+        public IList<PreguntaDTO> ObtenerPreguntasPorCriterio( int? pCategoriaId, int? pDificultadId, int? pConjuntoPreguntasId )
         {
             IList<Pregunta> preguntas = iPreguntaControlador.ObtenerPreguntasPorCriterio(pCategoriaId, pDificultadId, pConjuntoPreguntasId);
             IList<PreguntaDTO> preguntasParsed = new List<PreguntaDTO>();
@@ -283,14 +283,14 @@ namespace Trivia.TDP.Controladores
             return preguntasParsed;
         }
 
-        internal void EliminarPregunta( string pPreguntaId )
+        public void EliminarPregunta( string pPreguntaId )
         {
             iPreguntaControlador.EliminarPregunta(Int32.Parse(pPreguntaId));
         }
 
-        
-        
-        public ExamenDTO iniciarExamen(ConjuntoPreguntasDTO pConjunto, IList<PreguntaDTO> preguntas)
+
+
+        public ExamenDTO iniciarExamen( ConjuntoPreguntasDTO pConjunto, IList<PreguntaDTO> preguntas )
         {
             var usuario = iUsuarioControlador.ObtenerUsuarioAutenticado();
             var tiempoResolucion = preguntas.Count * pConjunto.TiempoEsperadoRespuesta;
@@ -317,7 +317,7 @@ namespace Trivia.TDP.Controladores
             return examen;
         }
 
-        public static ExamenDTO FinalizarExamen(ExamenDTO pExamen)
+        public ExamenDTO FinalizarExamen( ExamenDTO pExamen )
         {
             Examen examen = new Examen(pExamen);
             int respsCorrectas = ExamenControlador.CantidadRespuestasCorrectas(examen);
@@ -336,11 +336,12 @@ namespace Trivia.TDP.Controladores
             if (examen != null)
             {
                 return new ExamenDTO(examen);
-            } else
+            }
+            else
             {
                 return null;
             }
-            
+
         }
 
         public IList<ExamenDTO> Mejores10Examenes()
