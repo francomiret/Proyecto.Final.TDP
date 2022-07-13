@@ -7,7 +7,7 @@ namespace Trivia.TDP.Vistas
 {
     public partial class Main : Form
     {
-        private Fachada fachada;
+        private IFachada fachada;
 
         ExamenDTO examen;
         public Main()

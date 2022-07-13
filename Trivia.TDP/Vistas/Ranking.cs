@@ -8,12 +8,15 @@ namespace Trivia.TDP.Vistas
 {
     public partial class Ranking : Form
     {
-        private Fachada fachada;
+        private IFachada fachada;
         public Ranking()
         {
             InitializeComponent();
-            this.fachada = new Fachada();
+
+            fachada = new Fachada();
+
             IList<ExamenDTO> examenes = fachada.Mejores10Examenes();
+
             if (examenes != null)
             {
                 foreach (ExamenDTO examen in examenes)

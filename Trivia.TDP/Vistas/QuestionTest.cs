@@ -10,16 +10,24 @@ namespace Trivia.TDP.Vistas
     public partial class QuestionTest : Form
     {
         int pregActual = 0;
+
         IList<PreguntaDTO> listaPreguntas = null;
+
         ExamenDTO examen = new ExamenDTO();
-        private Fachada fachada;
+
+        private IFachada fachada;
+
         DateTime timerEnd;
+
         int counter;
+
         private System.Windows.Forms.Timer timer1;
+
         System.Timers.Timer aTimer = new System.Timers.Timer();
-        public QuestionTest(ExamenDTO pExamen, IList<PreguntaDTO> pPreguntas)
+
+        public QuestionTest( ExamenDTO pExamen, IList<PreguntaDTO> pPreguntas )
         {
-            this.fachada = new Fachada();
+            fachada = new Fachada();
             InitializeComponent();
             examen = pExamen;
             counter = (int)(examen.tiempoDeResolucion);
@@ -33,7 +41,7 @@ namespace Trivia.TDP.Vistas
             listaPreguntas = pPreguntas;
             groupBox1.Text = (pregActual + 1).ToString();
             cantidadPreguntas.Text = listaPreguntas.Count.ToString();
-            time.Text = counter.ToString();            
+            time.Text = counter.ToString();
 
             descripcionPregunta.Text = listaPreguntas[pregActual].descripcion;
             radioButton1.Text = listaPreguntas[pregActual].listaRespuestas[0].descripcion;
@@ -42,31 +50,30 @@ namespace Trivia.TDP.Vistas
             radioButton4.Text = listaPreguntas[pregActual].listaRespuestas[3].descripcion;
         }
 
-        public void OnTime(object source, ElapsedEventArgs e)
+        public void OnTime( object source, ElapsedEventArgs e )
         {
             aTimer.Stop();
-            
         }
-        public void SetTimer(double tiempoResolucion)
+        public void SetTimer( double tiempoResolucion )
         {
             aTimer.Elapsed += new ElapsedEventHandler(OnTime);
-            aTimer.Interval = tiempoResolucion*1000;
+            aTimer.Interval = tiempoResolucion * 1000;
             aTimer.Enabled = true;
             timerEnd = DateTime.Now.AddMilliseconds(tiempoResolucion);
         }
 
-        public void GetRemaining(object sender, EventArgs e)
+        public void GetRemaining( object sender, EventArgs e )
         {
             counter--;
             if (counter == 0)
             {
                 timer1.Stop();
-                ExamenDTO examenDto = Fachada.FinalizarExamen(examen);
+                ExamenDTO examenDto = fachada.FinalizarExamen(examen);
                 Vistas.Result result = new Vistas.Result(examenDto);
                 this.Close();
                 result.Show();
             }
-                
+
             time.Text = counter.ToString();
         }
 
@@ -97,7 +104,7 @@ namespace Trivia.TDP.Vistas
                 radioButton2.Text = listaPreguntas[pregActual].listaRespuestas[1].descripcion;
                 radioButton3.Text = listaPreguntas[pregActual].listaRespuestas[2].descripcion;
                 radioButton4.Text = listaPreguntas[pregActual].listaRespuestas[3].descripcion;
-                
+
             }
         }
 
@@ -109,7 +116,7 @@ namespace Trivia.TDP.Vistas
             radioButton4.Checked = false;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click( object sender, EventArgs e )
         {
             int index = indexSesion(listaPreguntas[pregActual].PreguntaId);
             if (index != -1)
@@ -120,7 +127,7 @@ namespace Trivia.TDP.Vistas
                     examen.sesiones[index].RespuestaSeleccionadaId = listaPreguntas[pregActual].listaRespuestas[selectedOp].RespuestaId;
                 }
             }
-                        
+
             if (pregActual > 0)
             {
                 pregActual -= 1;
@@ -131,12 +138,12 @@ namespace Trivia.TDP.Vistas
                 radioButton2.Text = listaPreguntas[pregActual].listaRespuestas[1].descripcion;
                 radioButton3.Text = listaPreguntas[pregActual].listaRespuestas[2].descripcion;
                 radioButton4.Text = listaPreguntas[pregActual].listaRespuestas[3].descripcion;
-            
+
             }
         }
 
 
-        public int indexSesion(int preguntaId)
+        public int indexSesion( int preguntaId )
         {
             int res = -1;
             for (int i = 0; i < examen.sesiones.Count; i++)
@@ -163,7 +170,7 @@ namespace Trivia.TDP.Vistas
             return op;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click( object sender, EventArgs e )
         {
             int index = indexSesion(listaPreguntas[pregActual].PreguntaId);
             if (index != -1)
@@ -175,13 +182,11 @@ namespace Trivia.TDP.Vistas
                 }
             }
             aTimer.Stop();
-            ExamenDTO examenDto = Fachada.FinalizarExamen(examen);
+            ExamenDTO examenDto = fachada.FinalizarExamen(examen);
             Vistas.Result result = new Vistas.Result(examenDto);
             this.Close();
             result.Show();
 
         }
-
-    
     }
 }

@@ -7,7 +7,7 @@ namespace Trivia.TDP.Vistas
 {
     public partial class Login : Form
     {
-        private Fachada fachada;
+        private IFachada fachada;
         public Login()
         {
             InitializeComponent();

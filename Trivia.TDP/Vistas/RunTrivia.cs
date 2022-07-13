@@ -1,7 +1,5 @@
-﻿using Dominio;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Timers;
 using System.Windows.Forms;
 using Trivia.TDP.Controladores;
 using Trivia.TDP.DTO;
@@ -10,12 +8,12 @@ namespace Trivia.TDP.Vistas
 {
     public partial class RunTrivia : Form
     {
-        private Fachada fachada;
+        private IFachada fachada;
         public RunTrivia()
         {
             this.fachada = new Fachada();
 
-            InitializeComponent();       
+            InitializeComponent();
 
             var conjuntos = fachada.ObtenerConjuntoPreguntas();
             comboBoxConjuntos.DisplayMember = "Nombre";
@@ -27,7 +25,6 @@ namespace Trivia.TDP.Vistas
                     comboBoxConjuntos.Items.Add(conjunto);
                 }
             }
-
         }
 
         private void button6_Click( object sender, EventArgs e )
@@ -39,8 +36,6 @@ namespace Trivia.TDP.Vistas
         {
             this.Close();
         }
-
-
 
         private void button1_Click( object sender, EventArgs e )
         {
@@ -55,7 +50,6 @@ namespace Trivia.TDP.Vistas
             Vistas.QuestionTest exam = new Vistas.QuestionTest(examen, preguntas);
             this.Close();
             exam.Show();
-
         }
     }
 }
