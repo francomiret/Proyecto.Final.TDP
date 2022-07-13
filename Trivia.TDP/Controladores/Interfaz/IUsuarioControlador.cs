@@ -19,5 +19,7 @@ namespace Trivia.TDP.Controladores.Interfaz
         void ActualizarUsuario( Usuario usuario );
 
         void EliminarUsuario( String legajo );
+
+        string computeSHA256(string rawData);
     }
 }
