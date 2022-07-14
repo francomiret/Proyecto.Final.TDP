@@ -36,7 +36,7 @@ namespace Trivia.TDP.Vistas
             }
             catch (ErrorContrasenaIncorrecta)
             {
-                MessageBox.Show("Contraseña incorrecta.");
+                MessageBox.Show("Los datos son incorrectos.");
             }
             catch
             {

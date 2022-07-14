@@ -24,6 +24,10 @@ namespace Trivia.TDP.Controladores
 
         private IExamenControlador iExamenControlador;
 
+        /// <summary>
+        /// Obtiene el usuario autenticado
+        /// </summary>
+        /// <returns>El usuario autenticado</returns>
         public UsuarioDTO ObtenerUsuarioAutenticado()
         {
             iUsuarioControlador = new UsuarioControlador();
@@ -43,6 +47,11 @@ namespace Trivia.TDP.Controladores
             return usuarioDTO;
         }
 
+        /// <summary>
+        /// Crea un nuevo usuario
+        /// </summary>
+        /// <param name="pUsuarioDTO">Usuario a agregar</param>
+        /// <returns>Devuelve true si pudo crear el usuario, falso sino</returns>
         public bool CrearUsuario( UsuarioDTO pUsuarioDTO )
         {
             iUsuarioControlador = new UsuarioControlador();
@@ -61,6 +70,13 @@ namespace Trivia.TDP.Controladores
             return iUsuarioControlador.CrearUsuario(usuario);
         }
 
+        /// <summary>
+        /// Agregar una lista de preguntas
+        /// </summary>
+        /// <param name="pDificultadDTO">difucultad de las preguntas</param>
+        /// <param name="pCategoriaDTO">categoria de las preguntas</param>
+        /// <param name="pCant">cantidad de preguntas</param>
+        /// <returns>Lista de preguntas agregada</returns>
         public IList<PreguntaDTO> AgregarPreguntas( DificultadDTO pDificultadDTO, CategoriaDTO pCategoriaDTO, int pCant )
         {
             iPreguntaControlador = new PreguntaControlador();
@@ -105,6 +121,11 @@ namespace Trivia.TDP.Controladores
             return preguntasParsed;
         }
 
+        /// <summary>
+        /// Agrega una lista de pregunas
+        /// </summary>
+        /// <param name="pConjuntoDTO">Conjunto de preguntas</param>
+        /// <returns>Lista de preguntas agregada</returns>
         public IList<PreguntaDTO> AgregarPreguntas( ConjuntoPreguntasDTO pConjuntoDTO )
         {
             iPreguntaControlador = new PreguntaControlador();
@@ -139,12 +160,21 @@ namespace Trivia.TDP.Controladores
             return preguntasParsed;
         }
 
+        /// <summary>
+        /// Cierra la sesion actual
+        /// </summary>
         public void CerrarSesion()
         {
             iUsuarioControlador = new UsuarioControlador();
             iUsuarioControlador.CerrarSesion();
         }
 
+        /// <summary>
+        /// Autentica a un usuario
+        /// </summary>
+        /// <param name="legajo">legajo del usuario</param>
+        /// <param name="contrasena">contraseña del usuario</param>
+        /// <returns>usuario autenticado</returns>
         public UsuarioDTO Autenticar( string legajo, string contrasena )
         {
             iUsuarioControlador = new UsuarioControlador();
@@ -163,6 +193,11 @@ namespace Trivia.TDP.Controladores
             return usuarioDTO;
         }
 
+        /// <summary>
+        /// Activa un usuario que estaba inactivo
+        /// </summary>
+        /// <param name="pUsuarioDTO">usuario a activar</param>
+        /// <returns>Mensaje de usuario activado</returns>
         public string ActivarUsuario( UsuarioDTO pUsuarioDTO )
         {
             iUsuarioControlador = new UsuarioControlador();
@@ -188,6 +223,11 @@ namespace Trivia.TDP.Controladores
             }
         }
 
+        /// <summary>
+        /// Inactiva un usuario del sistema
+        /// </summary>
+        /// <param name="pSelectedRow">usuario seleccionado</param>
+        /// <returns>Menasje de usuario eliminado</returns>
         public string EliminarUsuario( DataGridViewRow pSelectedRow )
         {
             iUsuarioControlador = new UsuarioControlador();
@@ -196,6 +236,11 @@ namespace Trivia.TDP.Controladores
             return "Usuario Eliminado";
         }
 
+        /// <summary>
+        /// Busca usuarios que mas coinciden
+        /// </summary>
+        /// <param name="pUsuarioDTO">Usuario a buscar</param>
+        /// <returns>Lista de usuarios coincidentes</returns>
         public IList<UsuarioDTO> BuscarUsuarios( UsuarioDTO pUsuarioDTO )
         {
             iUsuarioControlador = new UsuarioControlador();
@@ -213,6 +258,10 @@ namespace Trivia.TDP.Controladores
             return (IList<UsuarioDTO>)iUsuarioControlador.BuscarUsuario(usuario);
         }
 
+        /// <summary>
+        /// Obtiene todas las dificutlades
+        /// </summary>
+        /// <returns>Lista de dificultades</returns>
         public IList<DificultadDTO> ObtenerDificultades()
         {
             iDificultadControlador = new DificultadControlador();
@@ -232,6 +281,10 @@ namespace Trivia.TDP.Controladores
             return difcultadesParsed;
         }
 
+        /// <summary>
+        /// Obtiene todas las categorias.
+        /// </summary>
+        /// <returns>Listra de categorias</returns>
         public IList<CategoriaDTO> ObtenerCategorias()
         {
             iCategoriaControlador = new CategoriaControlador();
@@ -251,6 +304,10 @@ namespace Trivia.TDP.Controladores
             return categoriasParsed;
         }
 
+        /// <summary>
+        /// Obtiene todos los conjunto de preguntas
+        /// </summary>
+        /// <returns>Lista de conjunto de preguntas</returns>
         public IList<ConjuntoPreguntasDTO> ObtenerConjuntoPreguntas()
         {
             iConjuntoPreguntasControlador = new ConjuntoPreguntasControlador();
@@ -271,6 +328,14 @@ namespace Trivia.TDP.Controladores
             return conjuntoPreguntasParsed;
         }
 
+        /// <summary>
+        /// Descarga la lista de preguntas segun los parametros.
+        /// Si se pasa el Conjunto de preguntas actualiza las preguntas de dicho conjunto.
+        /// </summary>
+        /// <param name="pCategoriaId">Categoria</param>
+        /// <param name="pDificultadId">Dificultad</param>
+        /// <param name="pConjuntoPreguntasId">Conkunto de preguntas</param>
+        /// <returns>Lista de preguntas</returns>
         public IList<PreguntaDTO> ObtenerPreguntasPorCriterio( int? pCategoriaId, int? pDificultadId, int? pConjuntoPreguntasId )
         {
             iPreguntaControlador = new PreguntaControlador();
@@ -290,6 +355,10 @@ namespace Trivia.TDP.Controladores
             return preguntasParsed;
         }
 
+        /// <summary>
+        /// Elimina una pregunta especifica.
+        /// </summary>
+        /// <param name="pPreguntaId">Id de la pregunta a eliminar</param>
         public void EliminarPregunta( string pPreguntaId )
         {
             iPreguntaControlador = new PreguntaControlador();
@@ -297,7 +366,12 @@ namespace Trivia.TDP.Controladores
         }
 
 
-
+        /// <summary>
+        /// Inicia el examen
+        /// </summary>
+        /// <param name="pConjunto">Conjunto de preguntas seleccionado</param>
+        /// <param name="preguntas">Lista de preguntas</param>
+        /// <returns>Examen creado</returns>
         public ExamenDTO iniciarExamen( ConjuntoPreguntasDTO pConjunto, IList<PreguntaDTO> preguntas )
         {
             iUsuarioControlador = new UsuarioControlador();
@@ -326,6 +400,11 @@ namespace Trivia.TDP.Controladores
             return examen;
         }
 
+        /// <summary>
+        /// Finaliza el examen
+        /// </summary>
+        /// <param name="pExamen">Examen a finalizar</param>
+        /// <returns>Examen finalizado</returns>
         public ExamenDTO FinalizarExamen( ExamenDTO pExamen )
         {
             Examen examen = new Examen(pExamen);
@@ -338,6 +417,10 @@ namespace Trivia.TDP.Controladores
             return new ExamenDTO(examen);
         }
 
+        /// <summary>
+        /// Busca el examen que mayor puntaje tiene para el usuario autenticado.
+        /// </summary>
+        /// <returns>Examen con mayor puntaje</returns>
         public ExamenDTO MejorExamenUsuario()
         {
             iExamenControlador = new ExamenControlador();
@@ -355,6 +438,10 @@ namespace Trivia.TDP.Controladores
 
         }
 
+        /// <summary>
+        /// Obtiene los 10 examenes con mayor puntaje.
+        /// </summary>
+        /// <returns>Lista con 10 examenes</returns>
         public IList<ExamenDTO> Mejores10Examenes()
         {
             iExamenControlador = new ExamenControlador();

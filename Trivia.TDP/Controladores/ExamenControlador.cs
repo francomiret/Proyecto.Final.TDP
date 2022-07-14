@@ -10,6 +10,11 @@ namespace Trivia.TDP.Controladores
 {
     class ExamenControlador : IExamenControlador
     {
+        /// <summary>
+        /// Calcula la cantidad de respuestas correctas
+        /// </summary>
+        /// <param name="examen">Examen</param>
+        /// <returns>Cantidad de respuestas correctas</returns>
         public static int CantidadRespuestasCorrectas( Examen examen )
         {
             int cantidadRespuestasCorrectas = 0;
@@ -17,6 +22,7 @@ namespace Trivia.TDP.Controladores
             {
                 using (IUnitOfWork bUoW = new UnitOfWork(bDbContext))
                 {
+
                     foreach (var sesion in examen.sesiones)
                     {
                         if (sesion.RespuestaSeleccionadaId != null)
@@ -35,6 +41,11 @@ namespace Trivia.TDP.Controladores
             return cantidadRespuestasCorrectas;
         }
 
+        /// <summary>
+        /// Calcular el factor dificultad del examen
+        /// </summary>
+        /// <param name="examen">Examen</param>
+        /// <returns>Factor dificultad</returns>
         public static double GetFactorDificultad( Examen examen )
         {
             using (var bDbContext = new PruebaDBContext())
@@ -46,6 +57,10 @@ namespace Trivia.TDP.Controladores
             }
         }
 
+        /// <summary>
+        /// Guarda una examen
+        /// </summary>
+        /// <param name="examen">Examen a guardar</param>
         public static void GuardarExamen( Examen examen )
         {
             using (var bDbContext = new PruebaDBContext())
@@ -58,6 +73,11 @@ namespace Trivia.TDP.Controladores
             }
         }
 
+        /// <summary>
+        /// Busca el examen con mayor puntaje de un usuario.
+        /// </summary>
+        /// <param name="usuario">Usuario</param>
+        /// <returns>Mejor examen</returns>
         public Examen MejorExamen( Usuario usuario )
         {
             Examen examen;
@@ -71,6 +91,10 @@ namespace Trivia.TDP.Controladores
             return examen;
         }
 
+        /// <summary>
+        /// Busca los 10 examenes con mayor puntaje.
+        /// </summary>
+        /// <returns>Lista de examenes</returns>
         public IList<Examen> Mejores10Examenes()
         {
             IList<Examen> examenes;
