@@ -2,24 +2,27 @@
 using ProyectoFinalTDP.DAL;
 using ProyectoFinalTDP.DAL.Interfaz;
 using ProyectoFinalTDP.DAL.Repositorios;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Trivia.TDP.Controladores.Interfaz;
 
 namespace Trivia.TDP.Controladores
 {
     class ExamenControlador : IExamenControlador
     {
-        public static int CantidadRespuestasCorrectas(Examen examen)
+        /// <summary>
+        /// Calcula la cantidad de respuestas correctas
+        /// </summary>
+        /// <param name="examen">Examen</param>
+        /// <returns>Cantidad de respuestas correctas</returns>
+        public static int CantidadRespuestasCorrectas( Examen examen )
         {
             int cantidadRespuestasCorrectas = 0;
             using (var bDbContext = new PruebaDBContext())
             {
                 using (IUnitOfWork bUoW = new UnitOfWork(bDbContext))
                 {
+
                     foreach (var sesion in examen.sesiones)
                     {
                         if (sesion.RespuestaSeleccionadaId != null)
@@ -31,14 +34,19 @@ namespace Trivia.TDP.Controladores
                             }
 
                         }
-                        
+
                     }
                 }
             }
             return cantidadRespuestasCorrectas;
         }
 
-        public static double GetFactorDificultad(Examen examen)
+        /// <summary>
+        /// Calcular el factor dificultad del examen
+        /// </summary>
+        /// <param name="examen">Examen</param>
+        /// <returns>Factor dificultad</returns>
+        public static double GetFactorDificultad( Examen examen )
         {
             using (var bDbContext = new PruebaDBContext())
             {
@@ -49,7 +57,11 @@ namespace Trivia.TDP.Controladores
             }
         }
 
-        public static void GuardarExamen(Examen examen)
+        /// <summary>
+        /// Guarda una examen
+        /// </summary>
+        /// <param name="examen">Examen a guardar</param>
+        public static void GuardarExamen( Examen examen )
         {
             using (var bDbContext = new PruebaDBContext())
             {
@@ -61,7 +73,12 @@ namespace Trivia.TDP.Controladores
             }
         }
 
-        public Examen MejorExamen(Usuario usuario)
+        /// <summary>
+        /// Busca el examen con mayor puntaje de un usuario.
+        /// </summary>
+        /// <param name="usuario">Usuario</param>
+        /// <returns>Mejor examen</returns>
+        public Examen MejorExamen( Usuario usuario )
         {
             Examen examen;
             using (var bDbContext = new PruebaDBContext())
@@ -74,6 +91,10 @@ namespace Trivia.TDP.Controladores
             return examen;
         }
 
+        /// <summary>
+        /// Busca los 10 examenes con mayor puntaje.
+        /// </summary>
+        /// <returns>Lista de examenes</returns>
         public IList<Examen> Mejores10Examenes()
         {
             IList<Examen> examenes;

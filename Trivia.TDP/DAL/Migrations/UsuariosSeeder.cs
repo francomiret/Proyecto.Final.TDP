@@ -1,10 +1,6 @@
 ﻿using Dominio;
 using ProyectoFinalTDP.DAL;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Trivia.TDP.Controladores;
 using Trivia.TDP.Controladores.Interfaz;
 
@@ -13,7 +9,7 @@ namespace Trivia.TDP.DAL.Migrations
     class UsuariosSeeder
     {
 
-        public static void Seed(PruebaDBContext pContext)
+        public static void Seed( PruebaDBContext pContext )
         {
             IList<Usuario> bDefaultUsers = new List<Usuario>();
 

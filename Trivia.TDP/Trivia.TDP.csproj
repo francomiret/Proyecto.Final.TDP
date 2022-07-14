@@ -89,7 +89,7 @@
     <Compile Include="Controladores\OpentDB\IImportadorDataOpentDB.cs" />
     <Compile Include="Controladores\OpentDB\ImportadorDataOpentDB.cs" />
     <Compile Include="Controladores\OpentDB\WebRequesterOpentDB.cs" />
-    <Compile Include="Controladores\OpentDB\RespuestaParserOpentDB.cs" />
+    <Compile Include="Controladores\OpentDB\ParserOpentDB.cs" />
     <Compile Include="Controladores\PreguntaControlador.cs" />
     <Compile Include="DAL\Interfaz\ICategoriaRepositorio.cs" />
     <Compile Include="DAL\Interfaz\IConjuntoPreguntasRepositorio.cs" />

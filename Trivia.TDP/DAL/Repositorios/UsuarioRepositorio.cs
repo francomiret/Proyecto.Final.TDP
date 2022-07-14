@@ -3,26 +3,24 @@ using ProyectoFinalTDP.DAL.Interfaz;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProyectoFinalTDP.DAL.Repositorios
 {
 
     class UsuarioRepositorio : EFRepositorio<Usuario, PruebaDBContext>, IUsuarioRepositorio
     {
-        public UsuarioRepositorio(PruebaDBContext pContext) : base(pContext)
+        public UsuarioRepositorio( PruebaDBContext pContext ) : base(pContext)
         {
 
         }
 
-        public Usuario buscarPorLegajo (string legajo)
+        public Usuario buscarPorLegajo( string legajo )
         {
             return iDbContext.Usuarios.Where(u => u.legajo == legajo && u.active == true).FirstOrDefault();
         }
 
 
-        public IList<Usuario> buscar(Usuario usuario)
+        public IList<Usuario> buscar( Usuario usuario )
         {
             return iDbContext.Usuarios.Where(u => (
             (usuario.nombre != null && u.nombre == usuario.nombre) ||
@@ -32,7 +30,7 @@ namespace ProyectoFinalTDP.DAL.Repositorios
             ).ToList();
         }
 
-        public void actualizar(Usuario usuario)
+        public void actualizar( Usuario usuario )
         {
             Usuario user = iDbContext.Usuarios.Where(u => u.legajo == usuario.legajo).FirstOrDefault();
             if (user == null)
@@ -42,7 +40,7 @@ namespace ProyectoFinalTDP.DAL.Repositorios
             iDbContext.Entry(user).CurrentValues.SetValues(usuario);
         }
 
-        public void eliminar(String legajo)
+        public void eliminar( String legajo )
         {
             Usuario user = buscarPorLegajo(legajo);
             if (user == null)

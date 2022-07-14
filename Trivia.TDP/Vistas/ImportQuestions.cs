@@ -13,9 +13,9 @@ namespace Trivia.TDP.Vistas
 
         public ImportQuestions()
         {
-            this.fachada = new Fachada();
-
             InitializeComponent();
+            fachada = new Fachada();
+
             var dificultades = fachada.ObtenerDificultades();
             for (int i = 0; i < dificultades.Count; i++)
             {
@@ -55,6 +55,7 @@ namespace Trivia.TDP.Vistas
 
         private void button1_Click( object sender, EventArgs e )
         {
+            fachada = new Fachada();
             IList<PreguntaDTO> preguntas = new List<PreguntaDTO>();
             if (comboBoxConjuntos.SelectedItem == null)
             {

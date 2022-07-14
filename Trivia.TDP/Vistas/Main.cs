@@ -13,10 +13,6 @@ namespace Trivia.TDP.Vistas
         public Main()
         {
             InitializeComponent();
-            this.fachada = new Fachada();
-            
-
-
         }
 
         private void pictureBox1_Click( object sender, EventArgs e )
@@ -31,6 +27,7 @@ namespace Trivia.TDP.Vistas
 
         private void Main_Load( object sender, EventArgs e )
         {
+            fachada = new Fachada();
             UsuarioDTO usuario = fachada.ObtenerUsuarioAutenticado();
             userData.Text = usuario.nombre + " " + usuario.apellido;
             examen = fachada.MejorExamenUsuario();
@@ -45,12 +42,11 @@ namespace Trivia.TDP.Vistas
                 labelCantidad.Text = "-";
                 labelTiempo.Text = "-";
             }
-
-
         }
 
         private void button4_Click( object sender, EventArgs e )
         {
+            fachada = new Fachada();
             this.fachada.CerrarSesion();
             this.Close();
         }

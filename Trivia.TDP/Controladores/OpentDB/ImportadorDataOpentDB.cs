@@ -4,21 +4,18 @@ using System.Collections.Generic;
 
 namespace Trivia.TDP.Controladores.OpentDB
 {
-    class ImportadorDataOpentDB : IImportadorDataOpentDB
+    public class ImportadorDataOpentDB : IImportadorDataOpentDB
     {
-        private readonly CreadorURLOpentDB iUrlCreador;
-        private readonly WebRequesterOpentDB iWebRequester;
-        private readonly RespuestaParserOpentDB iParser;
-
-        public ImportadorDataOpentDB()
-        {
-            this.iUrlCreador = new CreadorURLOpentDB();
-            this.iWebRequester = new WebRequesterOpentDB();
-            this.iParser = new RespuestaParserOpentDB();
-        }
+        private CreadorURLOpentDB iUrlCreador;
+        private WebRequesterOpentDB iWebRequester;
+        private ParserOpentDB iParser;
 
         public IList<Pregunta> ObtenerPreguntas( int pCantidad, ConjuntoPreguntas pConjunto )
         {
+            iUrlCreador = new CreadorURLOpentDB();
+            iWebRequester = new WebRequesterOpentDB();
+            iParser = new ParserOpentDB();
+
             if ((pConjunto == null) ||
                 (pConjunto.Categoria == null) ||
                 (pConjunto.Dificultad == null) ||
@@ -33,15 +30,18 @@ namespace Trivia.TDP.Controladores.OpentDB
             }
             var url = iUrlCreador.ConstruirUrl(pCantidad, pConjunto);
             var response = iWebRequester.CrearConsulta(url);
-            var responseParsed = iParser.FormatearRespuesta(response, pConjunto);
+            var responseParsed = iParser.FormatearPreguntas(response, pConjunto);
             return responseParsed;
         }
 
         public List<Categoria> ObtenerCategorias()
         {
+            iWebRequester = new WebRequesterOpentDB();
+            iParser = new ParserOpentDB();
+
             var url = "https://opentdb.com/api_category.php";
             var response = iWebRequester.CrearConsulta(url);
-            List<Categoria> responseParsed = iParser.ParseResponseCategorias(response);
+            List<Categoria> responseParsed = iParser.FormatearCategorias(response);
             return responseParsed;
         }
     }

@@ -8,13 +8,9 @@ using System.Text;
 
 namespace Trivia.TDP.Controladores.OpentDB
 {
-    class RespuestaParserOpentDB
+    public class ParserOpentDB
     {
-        public RespuestaParserOpentDB()
-        {
-        }
-
-        public IList<Pregunta> FormatearRespuesta( WebResponse webResponse, ConjuntoPreguntas pConjunto )
+        public IList<Pregunta> FormatearPreguntas( WebResponse webResponse, ConjuntoPreguntas pConjunto )
         {
             var preguntas = new List<Pregunta>();
 
@@ -83,7 +79,7 @@ namespace Trivia.TDP.Controladores.OpentDB
             return preguntas;
         }
 
-        public List<Categoria> ParseResponseCategorias( WebResponse webResponse )
+        public List<Categoria> FormatearCategorias( WebResponse webResponse )
         {
             var categorias = new List<Categoria>();
             using (Stream responseStream = webResponse.GetResponseStream())

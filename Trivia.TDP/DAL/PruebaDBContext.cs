@@ -1,13 +1,5 @@
 ﻿using Dominio;
-
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data.Common;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Trivia.TDP.DAL.Migrations;
 
 namespace ProyectoFinalTDP.DAL
@@ -15,7 +7,6 @@ namespace ProyectoFinalTDP.DAL
 
     public class PruebaDBContext : DbContext
     {
-       
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Examen> Examenes { get; set; }
         public DbSet<Pregunta> Preguntas { get; set; }
@@ -26,7 +17,7 @@ namespace ProyectoFinalTDP.DAL
 
         public PruebaDBContext() : base("Trivia")
         {
-           Database.SetInitializer(new MigrateDatabaseToLatestVersion<PruebaDBContext, Configuracion>());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<PruebaDBContext, Configuracion>());
         }
     }
 }
