@@ -11,16 +11,16 @@ namespace Trivia.TDP.Vistas
         public Login()
         {
             InitializeComponent();
-            this.fachada = new Fachada();
         }
 
         private void button1_Click( object sender, EventArgs e )
         {
-            String legajo = textLegajo.Text;
-            String contrasena = textContrasena.Text;
+            fachada = new Fachada();
+            string legajo = textLegajo.Text;
+            string contrasena = textContrasena.Text;
             try
             {
-                UsuarioDTO usuario = this.fachada.Autenticar(legajo, contrasena);
+                UsuarioDTO usuario = fachada.Autenticar(legajo, contrasena);
                 if (usuario != null)
                 {
 
@@ -63,7 +63,6 @@ namespace Trivia.TDP.Vistas
         {
 
         }
-
 
         private void button2_Click_1( object sender, EventArgs e )
         {

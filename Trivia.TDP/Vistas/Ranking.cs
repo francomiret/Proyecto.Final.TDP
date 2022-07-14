@@ -12,9 +12,7 @@ namespace Trivia.TDP.Vistas
         public Ranking()
         {
             InitializeComponent();
-
             fachada = new Fachada();
-
             IList<ExamenDTO> examenes = fachada.Mejores10Examenes();
 
             if (examenes != null)

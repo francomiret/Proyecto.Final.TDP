@@ -17,7 +17,7 @@ namespace Trivia.TDP.Vistas
             dataGridPreguntas.DataSource = null;
             dataGridPreguntas.Rows.Clear();
             if (preguntas != null)
-            {   
+            {
                 foreach (PreguntaDTO pregunta in preguntas)
                 {
                     dataGridPreguntas.Rows.Add(pregunta.PreguntaId,
@@ -43,7 +43,7 @@ namespace Trivia.TDP.Vistas
 
         private void Setup()
         {
-            this.fachada = new Fachada();
+            fachada = new Fachada();
 
             var dificultades = this.fachada.ObtenerDificultades();
             for (int i = 0; i < dificultades.Count; i++)
@@ -72,7 +72,6 @@ namespace Trivia.TDP.Vistas
             }
         }
 
-
         private void button3_Click( object sender, EventArgs e )
         {
             Vistas.ImportQuestions importQuestions = new Vistas.ImportQuestions();
@@ -95,8 +94,6 @@ namespace Trivia.TDP.Vistas
 
         }
 
-
-
         private void comboBox1_SelectedIndexChanged( object sender, EventArgs e )
         {
 
@@ -104,13 +101,13 @@ namespace Trivia.TDP.Vistas
 
         private void button4_Click( object sender, EventArgs e )
         {
+            fachada = new Fachada();
             dataGridPreguntas.DataSource = null;
-            dataGridPreguntas.Rows.Clear();            
+            dataGridPreguntas.Rows.Clear();
             CategoriaDTO categoriaSeleccionada = (CategoriaDTO)comboBoxCategorias.SelectedItem;
             DificultadDTO dificultadSeleccionada = (DificultadDTO)comboBoxDificultad.SelectedItem;
             ConjuntoPreguntasDTO conjunto = (ConjuntoPreguntasDTO)conjuntoCombo.SelectedItem;
             IList<PreguntaDTO> preguntas = this.fachada.ObtenerPreguntasPorCriterio(categoriaSeleccionada?.CategoriaId, dificultadSeleccionada?.DificultadId, conjunto?.Id);
-
 
             if (preguntas != null)
             {
@@ -129,8 +126,6 @@ namespace Trivia.TDP.Vistas
             {
                 MessageBox.Show("Preguntas no encontradas.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
-
         }
 
         private void button7_Click( object sender, EventArgs e )
@@ -142,6 +137,7 @@ namespace Trivia.TDP.Vistas
 
         private void button1_Click( object sender, EventArgs e )
         {
+            fachada = new Fachada();
             if (dataGridPreguntas.SelectedCells.Count > 0)
             {
                 int selectedrowindex = dataGridPreguntas.SelectedCells[0].RowIndex;

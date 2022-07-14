@@ -12,7 +12,6 @@ namespace Trivia.TDP.Vistas
         public Register()
         {
             InitializeComponent();
-            this.fachada = new Fachada();
         }
 
         private void label1_Click( object sender, EventArgs e )
@@ -22,6 +21,7 @@ namespace Trivia.TDP.Vistas
 
         private void button1_Click( object sender, EventArgs e )
         {
+            fachada = new Fachada();
             if (textLegajo.Text != "" && textContrasena.Text != "" && textNombre.Text != "" && textApellido.Text != "")
             {
                 if (textContrasena.Text == textRepetirContrasena.Text)

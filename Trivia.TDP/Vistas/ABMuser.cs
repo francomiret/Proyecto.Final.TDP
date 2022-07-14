@@ -13,7 +13,6 @@ namespace Trivia.TDP.Vistas
         public ABMuser()
         {
             InitializeComponent();
-            this.fachada = new Fachada();
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -38,6 +37,7 @@ namespace Trivia.TDP.Vistas
 
         private void button5_Click(object sender, EventArgs e)
         {
+            fachada = new Fachada();
             try
             {
                 UsuarioDTO usuario = new UsuarioDTO();
@@ -52,7 +52,7 @@ namespace Trivia.TDP.Vistas
                 {
                     usuario.active = true;
                 }
-                IList<UsuarioDTO> usuarios = this.fachada.BuscarUsuarios(usuario);
+                IList<UsuarioDTO> usuarios = fachada.BuscarUsuarios(usuario);
                 if (usuarios != null)
                 {
                     dataGridView1.DataSource = usuarios;
@@ -72,8 +72,9 @@ namespace Trivia.TDP.Vistas
 
         private void button1_Click(object sender, EventArgs e)
         {
+            fachada = new Fachada();
             UsuarioDTO usuario = (UsuarioDTO)dataGridView1.CurrentRow.DataBoundItem;
-            MessageBox.Show(this.fachada.ActivarUsuario(usuario));
+            MessageBox.Show(fachada.ActivarUsuario(usuario));
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -86,11 +87,12 @@ namespace Trivia.TDP.Vistas
 
         private void button3_Click(object sender, EventArgs e)
         {
+            fachada = new Fachada();
             if (dataGridView1.SelectedCells.Count > 0)
             {
                 int selectedrowindex = dataGridView1.SelectedCells[0].RowIndex;
                 DataGridViewRow selectedRow = dataGridView1.Rows[selectedrowindex];
-                MessageBox.Show(this.fachada.EliminarUsuario(selectedRow));
+                MessageBox.Show(fachada.EliminarUsuario(selectedRow));
             }
             
         }

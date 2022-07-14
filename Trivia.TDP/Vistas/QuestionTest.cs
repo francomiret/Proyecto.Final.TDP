@@ -4,6 +4,7 @@ using System.Timers;
 using System.Windows.Forms;
 using Trivia.TDP.Controladores;
 using Trivia.TDP.DTO;
+using Timer = System.Windows.Forms.Timer;
 
 namespace Trivia.TDP.Vistas
 {
@@ -17,17 +18,14 @@ namespace Trivia.TDP.Vistas
 
         private IFachada fachada;
 
-        DateTime timerEnd;
-
         int counter;
 
-        private System.Windows.Forms.Timer timer1;
+        private Timer timer1;
 
         System.Timers.Timer aTimer = new System.Timers.Timer();
 
         public QuestionTest( ExamenDTO pExamen, IList<PreguntaDTO> pPreguntas )
         {
-            fachada = new Fachada();
             InitializeComponent();
             examen = pExamen;
             counter = (int)(examen.tiempoDeResolucion);
@@ -54,16 +52,18 @@ namespace Trivia.TDP.Vistas
         {
             aTimer.Stop();
         }
+
         public void SetTimer( double tiempoResolucion )
         {
             aTimer.Elapsed += new ElapsedEventHandler(OnTime);
             aTimer.Interval = tiempoResolucion * 1000;
             aTimer.Enabled = true;
-            timerEnd = DateTime.Now.AddMilliseconds(tiempoResolucion);
+            DateTime timerEnd = DateTime.Now.AddMilliseconds(tiempoResolucion);
         }
 
         public void GetRemaining( object sender, EventArgs e )
         {
+            fachada = new Fachada();
             counter--;
             if (counter == 0)
             {
@@ -104,7 +104,6 @@ namespace Trivia.TDP.Vistas
                 radioButton2.Text = listaPreguntas[pregActual].listaRespuestas[1].descripcion;
                 radioButton3.Text = listaPreguntas[pregActual].listaRespuestas[2].descripcion;
                 radioButton4.Text = listaPreguntas[pregActual].listaRespuestas[3].descripcion;
-
             }
         }
 
@@ -142,7 +141,6 @@ namespace Trivia.TDP.Vistas
             }
         }
 
-
         public int indexSesion( int preguntaId )
         {
             int res = -1;
@@ -172,6 +170,7 @@ namespace Trivia.TDP.Vistas
 
         private void button1_Click( object sender, EventArgs e )
         {
+            fachada = new Fachada();
             int index = indexSesion(listaPreguntas[pregActual].PreguntaId);
             if (index != -1)
             {
@@ -186,7 +185,6 @@ namespace Trivia.TDP.Vistas
             Vistas.Result result = new Vistas.Result(examenDto);
             this.Close();
             result.Show();
-
         }
     }
 }

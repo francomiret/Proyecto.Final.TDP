@@ -11,9 +11,8 @@ namespace Trivia.TDP.Vistas
         private IFachada fachada;
         public RunTrivia()
         {
-            this.fachada = new Fachada();
-
             InitializeComponent();
+            fachada = new Fachada();
 
             var conjuntos = fachada.ObtenerConjuntoPreguntas();
             comboBoxConjuntos.DisplayMember = "Nombre";
@@ -39,6 +38,8 @@ namespace Trivia.TDP.Vistas
 
         private void button1_Click( object sender, EventArgs e )
         {
+            fachada = new Fachada();
+
             ExamenDTO examen = null;
             IList<PreguntaDTO> preguntas = new List<PreguntaDTO>();
             if (comboBoxConjuntos.SelectedItem != null)
