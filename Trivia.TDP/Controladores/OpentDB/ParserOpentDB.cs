@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Trivia.TDP.Controladores.OpentDB
 {
-    class ParserOpentDB
+    public class ParserOpentDB
     {
         public IList<Pregunta> FormatearPreguntas( WebResponse webResponse, ConjuntoPreguntas pConjunto )
         {
