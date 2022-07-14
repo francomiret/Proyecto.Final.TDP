@@ -1,26 +1,20 @@
 ﻿using Dominio;
 using ProyectoFinalTDP.DAL;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Trivia.TDP.DAL.Migrations
 {
     class DificultadSeeder
     {
-        public static void Seed(PruebaDBContext pContext)
+        public static void Seed( PruebaDBContext pContext )
         {
-
             List<Dificultad> dificultades = new List<Dificultad>();
 
-
-
-            dificultades.Add(new Dificultad() { 
-              DificultadId = 1,
-              descripcion = "easy",
-              peso = 1
+            dificultades.Add(new Dificultad()
+            {
+                DificultadId = 1,
+                descripcion = "easy",
+                peso = 1
             });
             dificultades.Add(new Dificultad()
             {

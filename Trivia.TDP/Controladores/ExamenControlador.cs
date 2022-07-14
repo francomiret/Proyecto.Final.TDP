@@ -2,18 +2,15 @@
 using ProyectoFinalTDP.DAL;
 using ProyectoFinalTDP.DAL.Interfaz;
 using ProyectoFinalTDP.DAL.Repositorios;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Trivia.TDP.Controladores.Interfaz;
 
 namespace Trivia.TDP.Controladores
 {
     class ExamenControlador : IExamenControlador
     {
-        public static int CantidadRespuestasCorrectas(Examen examen)
+        public static int CantidadRespuestasCorrectas( Examen examen )
         {
             int cantidadRespuestasCorrectas = 0;
             using (var bDbContext = new PruebaDBContext())
@@ -31,14 +28,14 @@ namespace Trivia.TDP.Controladores
                             }
 
                         }
-                        
+
                     }
                 }
             }
             return cantidadRespuestasCorrectas;
         }
 
-        public static double GetFactorDificultad(Examen examen)
+        public static double GetFactorDificultad( Examen examen )
         {
             using (var bDbContext = new PruebaDBContext())
             {
@@ -49,7 +46,7 @@ namespace Trivia.TDP.Controladores
             }
         }
 
-        public static void GuardarExamen(Examen examen)
+        public static void GuardarExamen( Examen examen )
         {
             using (var bDbContext = new PruebaDBContext())
             {
@@ -61,7 +58,7 @@ namespace Trivia.TDP.Controladores
             }
         }
 
-        public Examen MejorExamen(Usuario usuario)
+        public Examen MejorExamen( Usuario usuario )
         {
             Examen examen;
             using (var bDbContext = new PruebaDBContext())

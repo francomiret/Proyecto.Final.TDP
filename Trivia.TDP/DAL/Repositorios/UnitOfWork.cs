@@ -1,9 +1,4 @@
 ﻿using ProyectoFinalTDP.DAL.Interfaz;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Trivia.TDP.DAL.Interfaz;
 using Trivia.TDP.DAL.Repositorios;
 
@@ -15,15 +10,15 @@ namespace ProyectoFinalTDP.DAL.Repositorios
         private static volatile UnitOfWork cInstancia = null;
         private static readonly object cPadlock = new object();
 
-        public UnitOfWork(PruebaDBContext pDbContex)
+        public UnitOfWork( PruebaDBContext pDbContex )
         {
-            this.pDbContext = pDbContex;
-            this.UsuarioRepositorio = new UsuarioRepositorio(pDbContext);
-            this.ConjuntoPreguntasRepositorio = new ConjuntoPreguntasRepositorio(pDbContext);
-            this.DificultadRepositorio = new DificultadRepositorio(pDbContext);
-            this.CategoriaRepositorio = new CategoriaRepositorio(pDbContext);
-            this.PreguntaRepositorio = new PreguntaRepositorio(pDbContext);
-            this.ExamenRepositorio = new ExamenRepositorio(pDbContext);
+            pDbContext = pDbContex;
+            UsuarioRepositorio = new UsuarioRepositorio(pDbContext);
+            ConjuntoPreguntasRepositorio = new ConjuntoPreguntasRepositorio(pDbContext);
+            DificultadRepositorio = new DificultadRepositorio(pDbContext);
+            CategoriaRepositorio = new CategoriaRepositorio(pDbContext);
+            PreguntaRepositorio = new PreguntaRepositorio(pDbContext);
+            ExamenRepositorio = new ExamenRepositorio(pDbContext);
 
         }
 

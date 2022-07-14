@@ -1,11 +1,7 @@
 ﻿using Dominio;
 using ProyectoFinalTDP.DAL;
-using System;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Trivia.TDP.Controladores;
 using Trivia.TDP.Controladores.Interfaz;
 using Trivia.TDP.Controladores.OpentDB;
@@ -24,7 +20,7 @@ namespace Trivia.TDP.DAL.Migrations
             this.iCategoriaControlador = new CategoriaControlador();
         }
 
-        protected override void Seed(PruebaDBContext pContext)
+        protected override void Seed( PruebaDBContext pContext )
         {
             UsuariosSeeder.Seed(pContext);
 

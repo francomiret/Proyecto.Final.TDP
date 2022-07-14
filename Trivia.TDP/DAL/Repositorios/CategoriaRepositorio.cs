@@ -4,20 +4,18 @@ using ProyectoFinalTDP.DAL.Repositorios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Trivia.TDP.DAL.Interfaz;
 
 namespace Trivia.TDP.DAL.Repositorios
 {
-    class CategoriaRepositorio: EFRepositorio<Categoria, PruebaDBContext>, ICategoriaRepositorio
+    class CategoriaRepositorio : EFRepositorio<Categoria, PruebaDBContext>, ICategoriaRepositorio
     {
-        public CategoriaRepositorio(PruebaDBContext pContext) : base(pContext)
+        public CategoriaRepositorio( PruebaDBContext pContext ) : base(pContext)
         {
 
         }
 
-        public void agregarCategorias(IList<Categoria> pCategorias)
+        public void agregarCategorias( IList<Categoria> pCategorias )
         {
             var categorias = this.iDbContext.Categorias.Select(z => z.CategoriaId).ToList(); ;
             if (categorias != null)

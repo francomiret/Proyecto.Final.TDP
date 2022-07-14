@@ -10,10 +10,6 @@ namespace Trivia.TDP.Controladores.OpentDB
 {
     class RespuestaParserOpentDB
     {
-        public RespuestaParserOpentDB()
-        {
-        }
-
         public IList<Pregunta> FormatearRespuesta( WebResponse webResponse, ConjuntoPreguntas pConjunto )
         {
             var preguntas = new List<Pregunta>();

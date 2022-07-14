@@ -6,19 +6,16 @@ namespace Trivia.TDP.Controladores.OpentDB
 {
     class ImportadorDataOpentDB : IImportadorDataOpentDB
     {
-        private readonly CreadorURLOpentDB iUrlCreador;
-        private readonly WebRequesterOpentDB iWebRequester;
-        private readonly RespuestaParserOpentDB iParser;
-
-        public ImportadorDataOpentDB()
-        {
-            this.iUrlCreador = new CreadorURLOpentDB();
-            this.iWebRequester = new WebRequesterOpentDB();
-            this.iParser = new RespuestaParserOpentDB();
-        }
+        private CreadorURLOpentDB iUrlCreador;
+        private WebRequesterOpentDB iWebRequester;
+        private RespuestaParserOpentDB iParser;
 
         public IList<Pregunta> ObtenerPreguntas( int pCantidad, ConjuntoPreguntas pConjunto )
         {
+            iUrlCreador = new CreadorURLOpentDB();
+            iWebRequester = new WebRequesterOpentDB();
+            iParser = new RespuestaParserOpentDB();
+
             if ((pConjunto == null) ||
                 (pConjunto.Categoria == null) ||
                 (pConjunto.Dificultad == null) ||
@@ -39,6 +36,9 @@ namespace Trivia.TDP.Controladores.OpentDB
 
         public List<Categoria> ObtenerCategorias()
         {
+            iWebRequester = new WebRequesterOpentDB();
+            iParser = new RespuestaParserOpentDB();
+
             var url = "https://opentdb.com/api_category.php";
             var response = iWebRequester.CrearConsulta(url);
             List<Categoria> responseParsed = iParser.ParseResponseCategorias(response);

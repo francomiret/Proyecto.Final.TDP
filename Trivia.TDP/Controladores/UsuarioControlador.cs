@@ -15,7 +15,7 @@ namespace Trivia.TDP.Controladores
     {
         private static Usuario usuarioAutenticado;
 
-        public Usuario Autenticar(string legajo, string contrasena)
+        public Usuario Autenticar( string legajo, string contrasena )
         {
             using (var bDbContext = new PruebaDBContext())
             {
@@ -35,7 +35,7 @@ namespace Trivia.TDP.Controladores
             }
         }
 
-        public bool CrearUsuario(Usuario usuario)
+        public bool CrearUsuario( Usuario usuario )
         {
             using (var bDbContext = new PruebaDBContext())
             {
@@ -53,7 +53,7 @@ namespace Trivia.TDP.Controladores
             }
         }
 
-        public string computeSHA256(string rawData)
+        public string computeSHA256( string rawData )
         {
             using (SHA256 sha256Hash = SHA256.Create())
             {
@@ -82,7 +82,7 @@ namespace Trivia.TDP.Controladores
             usuarioAutenticado = null;
         }
 
-        public IList<Usuario> BuscarUsuario(Usuario usuario)
+        public IList<Usuario> BuscarUsuario( Usuario usuario )
         {
             using (var bDbContext = new PruebaDBContext())
             {
@@ -99,7 +99,7 @@ namespace Trivia.TDP.Controladores
             }
         }
 
-        public void ActualizarUsuario(Usuario usuario)
+        public void ActualizarUsuario( Usuario usuario )
         {
             using (var bDbContext = new PruebaDBContext())
             {
@@ -111,7 +111,7 @@ namespace Trivia.TDP.Controladores
             }
         }
 
-        public void EliminarUsuario(String legajo)
+        public void EliminarUsuario( String legajo )
         {
             using (var bDbContext = new PruebaDBContext())
             {
