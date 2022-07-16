@@ -27,12 +27,12 @@ namespace Trivia.TDP.Vistas
                 if (textContrasena.Text == textRepetirContrasena.Text)
                 {
                     UsuarioDTO user = new UsuarioDTO();
-                    user.nombre = textNombre.Text;
-                    user.apellido = textApellido.Text;
-                    user.legajo = textLegajo.Text;
-                    user.contrasena = textContrasena.Text;
-                    user.active = true;
-                    user.esAdministrador = false;
+                    user.Nombre = textNombre.Text;
+                    user.Apellido = textApellido.Text;
+                    user.Legajo = textLegajo.Text;
+                    user.Contrasena = textContrasena.Text;
+                    user.Activo = true;
+                    user.EsAdministrador = false;
                     try
                     {
                         Boolean created = fachada.CrearUsuario(user);

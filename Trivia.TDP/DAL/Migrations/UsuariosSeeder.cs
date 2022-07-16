@@ -18,34 +18,34 @@ namespace Trivia.TDP.DAL.Migrations
             bDefaultUsers.Add(new Usuario()
             {
                 UsuarioId = 1,
-                nombre = "Felipe",
-                apellido = "Cestau",
-                legajo = "123",
-                contrasena = usuarioControlador.computeSHA256("123"),
-                esAdministrador = true,
-                active = true
+                Nombre = "Felipe",
+                Apellido = "Cestau",
+                Legajo = "123",
+                Contrasena = usuarioControlador.computeSHA256("123"),
+                EsAdministrador = true,
+                Activo = true
             });
 
             bDefaultUsers.Add(new Usuario()
             {
                 UsuarioId = 2,
-                nombre = "Franco",
-                apellido = "Miret",
-                legajo = "34",
-                contrasena = usuarioControlador.computeSHA256("34"),
-                esAdministrador = true,
-                active = true
+                Nombre = "Franco",
+                Apellido = "Miret",
+                Legajo = "34",
+                Contrasena = usuarioControlador.computeSHA256("34"),
+                EsAdministrador = true,
+                Activo = true
             });
 
             bDefaultUsers.Add(new Usuario()
             {
                 UsuarioId = 3,
-                nombre = "Rodrigo",
-                apellido = "Mignola",
-                legajo = "66",
-                contrasena = usuarioControlador.computeSHA256("66"),
-                esAdministrador = true,
-                active = true
+                Nombre = "Rodrigo",
+                Apellido = "Mignola",
+                Legajo = "66",
+                Contrasena = usuarioControlador.computeSHA256("66"),
+                EsAdministrador = true,
+                Activo = true
             });
 
             foreach (Usuario bUser in bDefaultUsers)

@@ -1,13 +1,9 @@
-﻿using System;
-
-namespace Trivia.TDP.DTO
+﻿namespace Trivia.TDP.DTO
 {
     class CategoriaDTO
     {
-        public int providedId { get; set; }
-
+        public int ProvidedId { get; set; }
         public int CategoriaId { get; set; }
-
-        public String nombre { get; set; }
+        public string Nombre { get; set; }
     }
 }

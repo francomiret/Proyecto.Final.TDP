@@ -1,13 +1,10 @@
-﻿
-namespace Trivia.TDP.DTO
+﻿namespace Trivia.TDP.DTO
 {
     class RespuestaDTO
     {
         public int RespuestaId { get; set; }
-
-        public string descripcion { get; set; }
-
-        public bool correcta { get; set; }
+        public string Descripcion { get; set; }
+        public bool EsCorrecta { get; set; }
     }
 
 }

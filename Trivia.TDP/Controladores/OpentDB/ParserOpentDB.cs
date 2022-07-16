@@ -30,7 +30,7 @@ namespace Trivia.TDP.Controladores.OpentDB
                     string nombreDificultad = HttpUtility.HtmlDecode(bResponseItem.difficulty.ToString());
                     var respuestas = new List<Respuesta>();
 
-                    if ((nombreCategoria != pConjunto.Categoria.nombre) || (nombreDificultad != pConjunto.Dificultad.descripcion))
+                    if ((nombreCategoria != pConjunto.Categoria.Nombre) || (nombreDificultad != pConjunto.Dificultad.Descripcion))
                     {
                         throw new DataNotFound("Categoria o Dificultad no validos.");
                     }
@@ -45,14 +45,14 @@ namespace Trivia.TDP.Controladores.OpentDB
                     Pregunta preg = new Pregunta()
                     {
                         ConjuntoPreguntas = pConjunto,
-                        descripcion = textoPregunta
+                        Descripcion = textoPregunta
                     };
 
                     //Crea la respuesta correcta
                     Respuesta respuestaCorrecta = new Respuesta()
                     {
-                        descripcion = textorespuestaCorrecta,
-                        correcta = true
+                        Descripcion = textorespuestaCorrecta,
+                        EsCorrecta = true
                     };
 
                     //Añade respuesta correcta a la lista
@@ -63,14 +63,14 @@ namespace Trivia.TDP.Controladores.OpentDB
                     {
                         Respuesta res = new Respuesta()
                         {
-                            descripcion = HttpUtility.HtmlDecode(tri),
-                            correcta = false
+                            Descripcion = HttpUtility.HtmlDecode(tri),
+                            EsCorrecta = false
                         };
                         respuestas.Add(res);
                     }
 
                     // Asocias las respuestas con la pregunta
-                    preg.listaRespuestas = respuestas;
+                    preg.ListaRespuestas = respuestas;
 
                     //se agrega cada una de las preguntas a la lista
                     preguntas.Add(preg);
@@ -97,8 +97,8 @@ namespace Trivia.TDP.Controladores.OpentDB
                     //Crea la categoria
                     var categoria = new Categoria()
                     {
-                        providedId = idCategoria,
-                        nombre = nombreCategoria
+                        ProvidedId = idCategoria,
+                        Nombre = nombreCategoria
                     };
 
                     categorias.Add(categoria);

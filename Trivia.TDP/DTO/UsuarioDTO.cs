@@ -1,21 +1,13 @@
-﻿using System;
-
-namespace Trivia.TDP.DTO
+﻿namespace Trivia.TDP.DTO
 {
     class UsuarioDTO
     {
-        public bool esAdministrador;
-
+        public bool EsAdministrador;
         public int UsuarioId { get; set; }
-
-        public String legajo { get; set; }
-
-        public String nombre { get; set; }
-
-        public String apellido { get; set; }
-
-        public String contrasena { get; set; }
-
-        public Boolean? active { get; set; }
+        public string Legajo { get; set; }
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
+        public string Contrasena { get; set; }
+        public bool? Activo { get; set; }
     }
 }

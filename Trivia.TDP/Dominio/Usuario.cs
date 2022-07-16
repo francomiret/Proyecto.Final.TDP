@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Dominio
@@ -8,21 +7,13 @@ namespace Dominio
     {
         [Key]
         public int UsuarioId { get; set; }
-
-        public String legajo { get; set; }
-
-        public String nombre { get; set; }
-
-        public String apellido { get; set; }
-
-        public String contrasena { get; set; }
-
-        public Boolean esAdministrador { get; set; }
-
-        public Boolean? active { get; set; }
-
-        public virtual IList<Examen> listaExamenes { get; set; }
+        public string Legajo { get; set; }
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
+        public string Contrasena { get; set; }
+        public bool EsAdministrador { get; set; }
+        public bool? Activo { get; set; }
+        public virtual IList<Examen> ListaExamenes { get; set; }
     }
-
 }
 

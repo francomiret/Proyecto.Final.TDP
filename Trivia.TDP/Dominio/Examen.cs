@@ -10,27 +10,17 @@ namespace Dominio
     {
         [Key]
         public int Examenid { get; set; }
-
         public DateTime FechaInicio { get; set; }
-
         public double TiempoUsado { get; set; }
-
         public double Puntaje { get; set; }
+        public double TiempoDeResolucion { get; set; }
+        public double CantidadPreguntas { get { return this.Sesiones.Count; } }
+        public virtual Usuario Usuario { get; set; }
+        public virtual Dificultad Dificultad { get; set; }
+        public virtual Categoria Categoria { get; set; }
+        public virtual IList<SesionPregunta> Sesiones { get; set; }
 
-        public double tiempoDeResolucion { get; set; }
-
-        public double CantidadPreguntas { get { return this.sesiones.Count; } }
-
-        public virtual Usuario usuario { get; set; }
-
-        public virtual Dificultad dificultad { get; set; }
-
-        public virtual Categoria categoria { get; set; }
-
-        public virtual IList<SesionPregunta> sesiones { get; set; }
-
-
-        public double getPuntaje( double tfactorTiempo, int cantPreguntas, int cantRespCorrectas, Dificultad dificultad )
+        public double GetPuntaje( double tfactorTiempo, int cantPreguntas, int cantRespCorrectas, Dificultad dificultad )
         {
             return 0;
         }
@@ -78,13 +68,13 @@ namespace Dominio
         {
             this.FechaInicio = examenDTO.FechaInicio;
             this.Examenid = examenDTO.Examenid;
-            this.categoria = examenDTO.categoria;
-            this.usuario = examenDTO.usuario;
-            this.dificultad = examenDTO.dificultad;
+            this.Categoria = examenDTO.Categoria;
+            this.Usuario = examenDTO.Usuario;
+            this.Dificultad = examenDTO.Dificultad;
             this.TiempoUsado = examenDTO.TiempoUsado;
-            this.tiempoDeResolucion = examenDTO.tiempoDeResolucion;
+            this.TiempoDeResolucion = examenDTO.TiempoDeResolucion;
             this.Puntaje = examenDTO.Puntaje;
-            this.sesiones = Examen.DTOaSesionPregunta(examenDTO.sesiones);
+            this.Sesiones = Examen.DTOaSesionPregunta(examenDTO.Sesiones);
         }
         public Examen()
         {

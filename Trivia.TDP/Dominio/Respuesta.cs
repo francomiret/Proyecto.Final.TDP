@@ -6,11 +6,8 @@ namespace Dominio
     {
         [Key]
         public int RespuestaId { get; set; }
-
-        public string descripcion { get; set; }
-
-        public bool correcta { get; set; }
-
+        public string Descripcion { get; set; }
+        public bool EsCorrecta { get; set; }
         public virtual Pregunta Pregunta { get; set; }
     }
 }

@@ -5,11 +5,8 @@ namespace Trivia.TDP.Dominio
     public class SesionPregunta
     {
         public int Id { get; set; }
-
         public virtual int PreguntaId { get; set; }
-
         public virtual int? RespuestaSeleccionadaId { get; set; }
-
         public SesionPregunta( SesionPreguntaDTO pSesionPreguntaDTO )
         {
             this.Id = pSesionPreguntaDTO.Id;

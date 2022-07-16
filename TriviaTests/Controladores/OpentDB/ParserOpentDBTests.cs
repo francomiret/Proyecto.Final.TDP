@@ -18,9 +18,9 @@ namespace Trivia.TDP.Controladores.OpentDB.Tests
             Dificultad dificultad = new Dificultad()
             {
                 DificultadId = 1,
-                descripcion = "easy",
+                Descripcion = "easy",
             };
-            Categoria categoria = new Categoria() { CategoriaId = 1, nombre = "General Knowledge", providedId = 9 };
+            Categoria categoria = new Categoria() { CategoriaId = 1, Nombre = "General Knowledge", ProvidedId = 9 };
             ConjuntoPreguntas conjunto = new ConjuntoPreguntas() { Categoria = categoria, Dificultad = dificultad, Nombre = "easy General Knowledge" };
             string mockURL = "https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple";
             var response = requester.CrearConsulta(mockURL);

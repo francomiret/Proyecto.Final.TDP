@@ -13,20 +13,20 @@ namespace Trivia.TDP.DAL.Migrations
             dificultades.Add(new Dificultad()
             {
                 DificultadId = 1,
-                descripcion = "easy",
-                peso = 1
+                Descripcion = "easy",
+                Peso = 1
             });
             dificultades.Add(new Dificultad()
             {
                 DificultadId = 2,
-                descripcion = "medium",
-                peso = 2
+                Descripcion = "medium",
+                Peso = 2
             });
             dificultades.Add(new Dificultad()
             {
                 DificultadId = 3,
-                descripcion = "hard",
-                peso = 3
+                Descripcion = "hard",
+                Peso = 3
             });
 
 

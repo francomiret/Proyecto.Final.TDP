@@ -16,23 +16,23 @@ namespace ProyectoFinalTDP.DAL.Repositorios
 
         public Usuario buscarPorLegajo( string legajo )
         {
-            return iDbContext.Usuarios.Where(u => u.legajo == legajo && u.active == true).FirstOrDefault();
+            return iDbContext.Usuarios.Where(u => u.Legajo == legajo && u.Activo == true).FirstOrDefault();
         }
 
 
         public IList<Usuario> buscar( Usuario usuario )
         {
-            if (usuario.nombre == "" && usuario.apellido == "" && usuario.legajo == "" && usuario.active == null)
+            if (usuario.Nombre == "" && usuario.Apellido == "" && usuario.Legajo == "" && usuario.Activo == null)
             {
                 return iDbContext.Usuarios.ToList();
 
             } else
             {
                 return iDbContext.Usuarios.Where(u => (
-                (usuario.nombre != null && u.nombre == usuario.nombre) ||
-                (usuario.apellido != null && u.apellido == usuario.apellido) ||
-                (usuario.legajo != null && u.legajo == usuario.legajo) ||
-                (u.active == usuario.active))
+                (usuario.Nombre != null && u.Nombre == usuario.Nombre) ||
+                (usuario.Apellido != null && u.Apellido == usuario.Apellido) ||
+                (usuario.Legajo != null && u.Legajo == usuario.Legajo) ||
+                (u.Activo == usuario.Activo))
                 ).ToList();
             }
 
@@ -40,7 +40,7 @@ namespace ProyectoFinalTDP.DAL.Repositorios
 
         public void actualizar( Usuario usuario )
         {
-            Usuario user = iDbContext.Usuarios.Where(u => u.legajo == usuario.legajo).FirstOrDefault();
+            Usuario user = iDbContext.Usuarios.Where(u => u.Legajo == usuario.Legajo).FirstOrDefault();
             if (user == null)
             {
                 return;
@@ -56,7 +56,7 @@ namespace ProyectoFinalTDP.DAL.Repositorios
                 return;
             }
             Usuario deletedUser = user;
-            deletedUser.active = false;
+            deletedUser.Activo = false;
             iDbContext.Entry(user).CurrentValues.SetValues(deletedUser);
         }
     }

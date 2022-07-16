@@ -41,16 +41,16 @@ namespace Trivia.TDP.Vistas
             try
             {
                 UsuarioDTO usuario = new UsuarioDTO();
-                usuario.legajo = textLegajo.Text;
-                usuario.nombre = textNombre.Text;
-                usuario.apellido = textApellido.Text;            
+                usuario.Legajo = textLegajo.Text;
+                usuario.Nombre = textNombre.Text;
+                usuario.Apellido = textApellido.Text;            
                 if (radioInactive.Checked)
                 {
-                    usuario.active = false;
+                    usuario.Activo = false;
                 }
                 if (radioActive.Checked)
                 {
-                    usuario.active = true;
+                    usuario.Activo = true;
                 }
                 IList<UsuarioDTO> usuarios = fachada.BuscarUsuarios(usuario);
                 if (usuarios != null)

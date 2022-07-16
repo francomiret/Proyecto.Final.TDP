@@ -23,7 +23,7 @@ namespace Trivia.TDP.Controladores
                 using (IUnitOfWork bUoW = new UnitOfWork(bDbContext))
                 {
 
-                    foreach (var sesion in examen.sesiones)
+                    foreach (var sesion in examen.Sesiones)
                     {
                         if (sesion.RespuestaSeleccionadaId != null)
                         {
@@ -52,7 +52,7 @@ namespace Trivia.TDP.Controladores
             {
                 using (IUnitOfWork bUoW = new UnitOfWork(bDbContext))
                 {
-                    return bUoW.PreguntaRepositorio.Get(examen.sesiones.First().PreguntaId).ConjuntoPreguntas.Dificultad.peso;
+                    return bUoW.PreguntaRepositorio.Get(examen.Sesiones.First().PreguntaId).ConjuntoPreguntas.Dificultad.Peso;
                 }
             }
         }

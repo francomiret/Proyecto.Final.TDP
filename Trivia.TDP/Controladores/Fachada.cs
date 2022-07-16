@@ -36,12 +36,12 @@ namespace Trivia.TDP.Controladores
             UsuarioDTO usuarioDTO = new UsuarioDTO()
             {
                 UsuarioId = usuario.UsuarioId,
-                active = usuario.active,
-                apellido = usuario.apellido,
-                contrasena = usuario.contrasena,
-                legajo = usuario.legajo,
-                nombre = usuario.nombre,
-                esAdministrador = usuario.esAdministrador
+                Activo = usuario.Activo,
+                Apellido = usuario.Apellido,
+                Contrasena = usuario.Contrasena,
+                Legajo = usuario.Legajo,
+                Nombre = usuario.Nombre,
+                EsAdministrador = usuario.EsAdministrador
             };
 
             return usuarioDTO;
@@ -59,12 +59,12 @@ namespace Trivia.TDP.Controladores
             Usuario usuario = new Usuario()
             {
                 UsuarioId = pUsuarioDTO.UsuarioId,
-                active = pUsuarioDTO.active,
-                apellido = pUsuarioDTO.apellido,
-                contrasena = pUsuarioDTO.contrasena,
-                legajo = pUsuarioDTO.legajo,
-                nombre = pUsuarioDTO.nombre,
-                esAdministrador = pUsuarioDTO.esAdministrador
+                Activo = pUsuarioDTO.Activo,
+                Apellido = pUsuarioDTO.Apellido,
+                Contrasena = pUsuarioDTO.Contrasena,
+                Legajo = pUsuarioDTO.Legajo,
+                Nombre = pUsuarioDTO.Nombre,
+                EsAdministrador = pUsuarioDTO.EsAdministrador
             };
 
             return iUsuarioControlador.CrearUsuario(usuario);
@@ -84,18 +84,18 @@ namespace Trivia.TDP.Controladores
             Categoria categoria = new Categoria()
             {
                 CategoriaId = pCategoriaDTO.CategoriaId,
-                nombre = pCategoriaDTO.nombre,
-                providedId = pCategoriaDTO.providedId,
+                Nombre = pCategoriaDTO.Nombre,
+                ProvidedId = pCategoriaDTO.ProvidedId,
             };
 
             Dificultad dificultad = new Dificultad()
             {
-                descripcion = pDificultadDTO.descripcion,
+                Descripcion = pDificultadDTO.Descripcion,
                 DificultadId = pDificultadDTO.DificultadId,
-                peso = pDificultadDTO.peso,
+                Peso = pDificultadDTO.Peso,
             };
 
-            string nombreConjunto = categoria.nombre + " - " + dificultad.descripcion;
+            string nombreConjunto = categoria.Nombre + " - " + dificultad.Descripcion;
 
             ConjuntoPreguntas conjunto = new ConjuntoPreguntas()
             {
@@ -111,9 +111,9 @@ namespace Trivia.TDP.Controladores
                 PreguntaDTO preguntaParsed = new PreguntaDTO()
                 {
                     PreguntaId = pregunta.PreguntaId,
-                    descripcion = pregunta.descripcion,
+                    Descripcion = pregunta.Descripcion,
                     ConjuntoPreguntas = pregunta.ConjuntoPreguntas,
-                    listaRespuestas = pregunta.listaRespuestas
+                    ListaRespuestas = pregunta.ListaRespuestas
                 };
                 preguntasParsed.Add(preguntaParsed);
             }
@@ -150,9 +150,9 @@ namespace Trivia.TDP.Controladores
                 PreguntaDTO preguntaParsed = new PreguntaDTO()
                 {
                     PreguntaId = pregunta.PreguntaId,
-                    descripcion = pregunta.descripcion,
+                    Descripcion = pregunta.Descripcion,
                     ConjuntoPreguntas = pregunta.ConjuntoPreguntas,
-                    listaRespuestas = pregunta.listaRespuestas
+                    ListaRespuestas = pregunta.ListaRespuestas
                 };
                 preguntasParsed.Add(preguntaParsed);
             }
@@ -182,12 +182,12 @@ namespace Trivia.TDP.Controladores
             UsuarioDTO usuarioDTO = new UsuarioDTO()
             {
                 UsuarioId = usuario.UsuarioId,
-                active = usuario.active,
-                apellido = usuario.apellido,
-                contrasena = usuario.contrasena,
-                legajo = usuario.legajo,
-                nombre = usuario.nombre,
-                esAdministrador = usuario.esAdministrador
+                Activo = usuario.Activo,
+                Apellido = usuario.Apellido,
+                Contrasena = usuario.Contrasena,
+                Legajo = usuario.Legajo,
+                Nombre = usuario.Nombre,
+                EsAdministrador = usuario.EsAdministrador
             };
 
             return usuarioDTO;
@@ -201,18 +201,18 @@ namespace Trivia.TDP.Controladores
         public string ActivarUsuario( UsuarioDTO pUsuarioDTO )
         {
             iUsuarioControlador = new UsuarioControlador();
-            if (pUsuarioDTO.active == false)
+            if (pUsuarioDTO.Activo == false)
             {
-                pUsuarioDTO.active = true;
+                pUsuarioDTO.Activo = true;
                 Usuario usuario = new Usuario()
                 {
                     UsuarioId = pUsuarioDTO.UsuarioId,
-                    active = pUsuarioDTO.active,
-                    apellido = pUsuarioDTO.apellido,
-                    contrasena = pUsuarioDTO.contrasena,
-                    legajo = pUsuarioDTO.legajo,
-                    nombre = pUsuarioDTO.nombre,
-                    esAdministrador = pUsuarioDTO.esAdministrador
+                    Activo = pUsuarioDTO.Activo,
+                    Apellido = pUsuarioDTO.Apellido,
+                    Contrasena = pUsuarioDTO.Contrasena,
+                    Legajo = pUsuarioDTO.Legajo,
+                    Nombre = pUsuarioDTO.Nombre,
+                    EsAdministrador = pUsuarioDTO.EsAdministrador
                 };
                 iUsuarioControlador.ActualizarUsuario(usuario);
                 return "Usuario activado.";
@@ -247,12 +247,12 @@ namespace Trivia.TDP.Controladores
             Usuario usuario = new Usuario()
             {
                 UsuarioId = pUsuarioDTO.UsuarioId,
-                active = pUsuarioDTO.active,
-                apellido = pUsuarioDTO.apellido,
-                contrasena = pUsuarioDTO.contrasena,
-                legajo = pUsuarioDTO.legajo,
-                nombre = pUsuarioDTO.nombre,
-                esAdministrador = pUsuarioDTO.esAdministrador
+                Activo = pUsuarioDTO.Activo,
+                Apellido = pUsuarioDTO.Apellido,
+                Contrasena = pUsuarioDTO.Contrasena,
+                Legajo = pUsuarioDTO.Legajo,
+                Nombre = pUsuarioDTO.Nombre,
+                EsAdministrador = pUsuarioDTO.EsAdministrador
 
             };
             IList<Usuario> usuarios = iUsuarioControlador.BuscarUsuario(usuario);
@@ -262,11 +262,11 @@ namespace Trivia.TDP.Controladores
                 UsuarioDTO usuarioDto = new UsuarioDTO()
                 {
                     UsuarioId = user.UsuarioId,
-                    active = user.active,
-                    apellido = user.apellido,
-                    legajo = user.legajo,
-                    nombre = user.nombre,
-                    esAdministrador = user.esAdministrador
+                    Activo = user.Activo,
+                    Apellido = user.Apellido,
+                    Legajo = user.Legajo,
+                    Nombre = user.Nombre,
+                    EsAdministrador = user.EsAdministrador
 
                 };
                 usuariosDto.Add(usuarioDto);
@@ -289,8 +289,8 @@ namespace Trivia.TDP.Controladores
                 DificultadDTO dificultadParsedDTO = new DificultadDTO()
                 {
                     DificultadId = dificultad.DificultadId,
-                    descripcion = dificultad.descripcion,
-                    peso = dificultad.peso
+                    Descripcion = dificultad.Descripcion,
+                    Peso = dificultad.Peso
                 };
                 difcultadesParsed.Add(dificultadParsedDTO);
             }
@@ -312,8 +312,8 @@ namespace Trivia.TDP.Controladores
                 CategoriaDTO categoriaParsedDTO = new CategoriaDTO()
                 {
                     CategoriaId = categoria.CategoriaId,
-                    nombre = categoria.nombre,
-                    providedId = categoria.providedId
+                    Nombre = categoria.Nombre,
+                    ProvidedId = categoria.ProvidedId
                 };
                 categoriasParsed.Add(categoriaParsedDTO);
             }
@@ -362,9 +362,9 @@ namespace Trivia.TDP.Controladores
                 PreguntaDTO preguntaParsed = new PreguntaDTO()
                 {
                     PreguntaId = pregunta.PreguntaId,
-                    descripcion = pregunta.descripcion,
+                    Descripcion = pregunta.Descripcion,
                     ConjuntoPreguntas = pregunta.ConjuntoPreguntas,
-                    listaRespuestas = pregunta.listaRespuestas
+                    ListaRespuestas = pregunta.ListaRespuestas
                 };
                 preguntasParsed.Add(preguntaParsed);
             }
@@ -404,12 +404,12 @@ namespace Trivia.TDP.Controladores
             }
             ExamenDTO examen = new ExamenDTO()
             {
-                categoria = pConjunto.Categoria,
-                dificultad = pConjunto.Dificultad,
-                usuario = usuario,
+                Categoria = pConjunto.Categoria,
+                Dificultad = pConjunto.Dificultad,
+                Usuario = usuario,
                 FechaInicio = DateTime.Now,
-                tiempoDeResolucion = tiempoResolucion,
-                sesiones = sesiones,
+                TiempoDeResolucion = tiempoResolucion,
+                Sesiones = sesiones,
                 CantidadPreguntas = preguntas.Count
             };
 

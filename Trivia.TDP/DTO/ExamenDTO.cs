@@ -1,9 +1,6 @@
 ﻿using Dominio;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Trivia.TDP.Dominio;
 
 namespace Trivia.TDP.DTO
@@ -11,26 +8,16 @@ namespace Trivia.TDP.DTO
     public class ExamenDTO
     {
 		public int Examenid { get; set; }
-
 		public DateTime FechaInicio { get; set; }
-
 		public double TiempoUsado { get; set; }
-
 		public double Puntaje { get; set; }
-
 		public double CantidadPreguntas { get; set; }
-		public double tiempoDeResolucion { get; set; }
-
-		public double factorTiempo { get; set; }
-
-		public virtual Usuario usuario { get; set; }
-
-		public virtual Dificultad dificultad { get; set; }
-
-		public virtual Categoria categoria { get; set; }
-
-		public virtual IList<SesionPreguntaDTO> sesiones { get; set; }
-
+		public double TiempoDeResolucion { get; set; }
+		public double FactorTiempo { get; set; }
+		public virtual Usuario Usuario { get; set; }
+		public virtual Dificultad Dificultad { get; set; }
+		public virtual Categoria Categoria { get; set; }
+		public virtual IList<SesionPreguntaDTO> Sesiones { get; set; }
 		private static IList<SesionPreguntaDTO> SesionPreguntaDTO(IList<SesionPregunta> pSesionesPregunta)
 		{
 			var sesionesPreguntaDTO = new List<SesionPreguntaDTO>();
@@ -46,14 +33,14 @@ namespace Trivia.TDP.DTO
 		{
 			this.FechaInicio = examen.FechaInicio;
 			this.Examenid = examen.Examenid;
-			this.categoria = examen.categoria;
-			this.usuario = examen.usuario;
+			this.Categoria = examen.Categoria;
+			this.Usuario = examen.Usuario;
 			this.CantidadPreguntas = examen.CantidadPreguntas;
-			this.dificultad = examen.dificultad;
+			this.Dificultad = examen.Dificultad;
 			this.TiempoUsado = examen.TiempoUsado;
-			this.tiempoDeResolucion = examen.tiempoDeResolucion;
+			this.TiempoDeResolucion = examen.TiempoDeResolucion;
 			this.Puntaje = examen.Puntaje;
-			this.sesiones = ExamenDTO.SesionPreguntaDTO(examen.sesiones);
+			this.Sesiones = ExamenDTO.SesionPreguntaDTO(examen.Sesiones);
 		}
 		public ExamenDTO ()
         {

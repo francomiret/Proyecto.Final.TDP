@@ -28,8 +28,8 @@ namespace Trivia.TDP.Vistas
         {
             InitializeComponent();
             examen = pExamen;
-            counter = (int)(examen.tiempoDeResolucion);
-            SetTimer(examen.tiempoDeResolucion);
+            counter = (int)(examen.TiempoDeResolucion);
+            SetTimer(examen.TiempoDeResolucion);
 
             timer1 = new System.Windows.Forms.Timer();
             timer1.Tick += new EventHandler(GetRemaining);
@@ -41,11 +41,11 @@ namespace Trivia.TDP.Vistas
             cantidadPreguntas.Text = listaPreguntas.Count.ToString();
             time.Text = counter.ToString();
 
-            descripcionPregunta.Text = listaPreguntas[pregActual].descripcion;
-            radioButton1.Text = listaPreguntas[pregActual].listaRespuestas[0].descripcion;
-            radioButton2.Text = listaPreguntas[pregActual].listaRespuestas[1].descripcion;
-            radioButton3.Text = listaPreguntas[pregActual].listaRespuestas[2].descripcion;
-            radioButton4.Text = listaPreguntas[pregActual].listaRespuestas[3].descripcion;
+            descripcionPregunta.Text = listaPreguntas[pregActual].Descripcion;
+            radioButton1.Text = listaPreguntas[pregActual].ListaRespuestas[0].Descripcion;
+            radioButton2.Text = listaPreguntas[pregActual].ListaRespuestas[1].Descripcion;
+            radioButton3.Text = listaPreguntas[pregActual].ListaRespuestas[2].Descripcion;
+            radioButton4.Text = listaPreguntas[pregActual].ListaRespuestas[3].Descripcion;
         }
 
         public void OnTime( object source, ElapsedEventArgs e )
@@ -90,7 +90,7 @@ namespace Trivia.TDP.Vistas
                 int selectedOp = selectedOption();
                 if (selectedOp != -1)
                 {
-                    examen.sesiones[index].RespuestaSeleccionadaId = listaPreguntas[pregActual].listaRespuestas[selectedOp].RespuestaId;
+                    examen.Sesiones[index].RespuestaSeleccionadaId = listaPreguntas[pregActual].ListaRespuestas[selectedOp].RespuestaId;
                 }
             }
 
@@ -99,11 +99,11 @@ namespace Trivia.TDP.Vistas
                 pregActual += 1;
                 groupBox1.Text = (pregActual + 1).ToString();
                 this.clearFields();
-                descripcionPregunta.Text = listaPreguntas[pregActual].descripcion;
-                radioButton1.Text = listaPreguntas[pregActual].listaRespuestas[0].descripcion;
-                radioButton2.Text = listaPreguntas[pregActual].listaRespuestas[1].descripcion;
-                radioButton3.Text = listaPreguntas[pregActual].listaRespuestas[2].descripcion;
-                radioButton4.Text = listaPreguntas[pregActual].listaRespuestas[3].descripcion;
+                descripcionPregunta.Text = listaPreguntas[pregActual].Descripcion;
+                radioButton1.Text = listaPreguntas[pregActual].ListaRespuestas[0].Descripcion;
+                radioButton2.Text = listaPreguntas[pregActual].ListaRespuestas[1].Descripcion;
+                radioButton3.Text = listaPreguntas[pregActual].ListaRespuestas[2].Descripcion;
+                radioButton4.Text = listaPreguntas[pregActual].ListaRespuestas[3].Descripcion;
             }
         }
 
@@ -123,7 +123,7 @@ namespace Trivia.TDP.Vistas
                 int selectedOp = selectedOption();
                 if (selectedOp != -1)
                 {
-                    examen.sesiones[index].RespuestaSeleccionadaId = listaPreguntas[pregActual].listaRespuestas[selectedOp].RespuestaId;
+                    examen.Sesiones[index].RespuestaSeleccionadaId = listaPreguntas[pregActual].ListaRespuestas[selectedOp].RespuestaId;
                 }
             }
 
@@ -132,11 +132,11 @@ namespace Trivia.TDP.Vistas
                 pregActual -= 1;
                 groupBox1.Text = (pregActual + 1).ToString();
                 this.clearFields();
-                descripcionPregunta.Text = listaPreguntas[pregActual].descripcion;
-                radioButton1.Text = listaPreguntas[pregActual].listaRespuestas[0].descripcion;
-                radioButton2.Text = listaPreguntas[pregActual].listaRespuestas[1].descripcion;
-                radioButton3.Text = listaPreguntas[pregActual].listaRespuestas[2].descripcion;
-                radioButton4.Text = listaPreguntas[pregActual].listaRespuestas[3].descripcion;
+                descripcionPregunta.Text = listaPreguntas[pregActual].Descripcion;
+                radioButton1.Text = listaPreguntas[pregActual].ListaRespuestas[0].Descripcion;
+                radioButton2.Text = listaPreguntas[pregActual].ListaRespuestas[1].Descripcion;
+                radioButton3.Text = listaPreguntas[pregActual].ListaRespuestas[2].Descripcion;
+                radioButton4.Text = listaPreguntas[pregActual].ListaRespuestas[3].Descripcion;
 
             }
         }
@@ -144,9 +144,9 @@ namespace Trivia.TDP.Vistas
         public int indexSesion( int preguntaId )
         {
             int res = -1;
-            for (int i = 0; i < examen.sesiones.Count; i++)
+            for (int i = 0; i < examen.Sesiones.Count; i++)
             {
-                if (examen.sesiones[i].PreguntaID == preguntaId)
+                if (examen.Sesiones[i].PreguntaID == preguntaId)
                 {
                     res = i;
                 }
@@ -177,7 +177,7 @@ namespace Trivia.TDP.Vistas
                 int selectedOp = selectedOption();
                 if (selectedOp != -1)
                 {
-                    examen.sesiones[index].RespuestaSeleccionadaId = listaPreguntas[pregActual].listaRespuestas[selectedOp].RespuestaId;
+                    examen.Sesiones[index].RespuestaSeleccionadaId = listaPreguntas[pregActual].ListaRespuestas[selectedOp].RespuestaId;
                 }
             }
             aTimer.Stop();

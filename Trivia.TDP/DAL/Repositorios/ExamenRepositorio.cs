@@ -25,11 +25,11 @@ namespace Trivia.TDP.DAL.Repositorios
             var examenes = iDbContext.Examenes?.Include("sesiones")?.Include("categoria")?.Include("dificultad")?.Include("usuario").ToList();
             if (examenes.Count != 0)
             {
-                return examenes.OrderByDescending(p => p.Puntaje)?.First(e => e.usuario.legajo == pUsuario.legajo);
+                return examenes.OrderByDescending(p => p.Puntaje)?.First(e => e.Usuario.Legajo == pUsuario.Legajo);
             }
             else
             {
-                return new Examen() { sesiones =new List<SesionPregunta>() };
+                return new Examen() { Sesiones =new List<SesionPregunta>() };
             }
         }
 

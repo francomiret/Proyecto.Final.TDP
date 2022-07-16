@@ -26,7 +26,7 @@ namespace Trivia.TDP.Controladores
 
                     if (usuario == null)
                         throw new ErrorUsuarioNoExiste();
-                    if (usuario.contrasena != computeSHA256(contrasena))
+                    if (usuario.Contrasena != computeSHA256(contrasena))
                         throw new ErrorContrasenaIncorrecta();
 
                     UsuarioActivo usuarioActivo = new UsuarioActivo()
@@ -48,10 +48,10 @@ namespace Trivia.TDP.Controladores
             {
                 using (IUnitOfWork bUoW = new UnitOfWork(bDbContext))
                 {
-                    if (bUoW.UsuarioRepositorio.buscarPorLegajo(usuario.legajo) != null)
+                    if (bUoW.UsuarioRepositorio.buscarPorLegajo(usuario.Legajo) != null)
                         throw new ErrorUsuarioYaExiste();
 
-                    usuario.contrasena = computeSHA256(usuario.contrasena);
+                    usuario.Contrasena = computeSHA256(usuario.Contrasena);
                     bUoW.UsuarioRepositorio.Add(usuario);
 
                     bUoW.Complete();

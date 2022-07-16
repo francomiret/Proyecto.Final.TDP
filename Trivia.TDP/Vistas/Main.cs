@@ -29,7 +29,7 @@ namespace Trivia.TDP.Vistas
         {
             fachada = new Fachada();
             UsuarioDTO usuario = fachada.ObtenerUsuarioAutenticado();
-            userData.Text = usuario.nombre + " " + usuario.apellido;
+            userData.Text = usuario.Nombre + " " + usuario.Apellido;
             examen = fachada.MejorExamenUsuario();
             if (examen != null)
             {

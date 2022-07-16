@@ -22,11 +22,11 @@ namespace Trivia.TDP.Vistas
                 {
                     dataGridPreguntas.Rows.Add(pregunta.PreguntaId,
                         pregunta.ConjuntoPreguntas.Nombre,
-                        pregunta.descripcion,
-                        pregunta.listaRespuestas[0].descripcion,
-                        pregunta.listaRespuestas[1].descripcion,
-                        pregunta.listaRespuestas[2].descripcion,
-                        pregunta.listaRespuestas[3].descripcion);
+                        pregunta.Descripcion,
+                        pregunta.ListaRespuestas[0].Descripcion,
+                        pregunta.ListaRespuestas[1].Descripcion,
+                        pregunta.ListaRespuestas[2].Descripcion,
+                        pregunta.ListaRespuestas[3].Descripcion);
                 }
             }
             else
@@ -115,11 +115,11 @@ namespace Trivia.TDP.Vistas
                 {
                     dataGridPreguntas.Rows.Add(pregunta.PreguntaId,
                         pregunta.ConjuntoPreguntas.Nombre,
-                        pregunta.descripcion,
-                        pregunta.listaRespuestas[0].descripcion,
-                        pregunta.listaRespuestas[1].descripcion,
-                        pregunta.listaRespuestas[2].descripcion,
-                        pregunta.listaRespuestas[3].descripcion);
+                        pregunta.Descripcion,
+                        pregunta.ListaRespuestas[0].Descripcion,
+                        pregunta.ListaRespuestas[1].Descripcion,
+                        pregunta.ListaRespuestas[2].Descripcion,
+                        pregunta.ListaRespuestas[3].Descripcion);
                 }
             }
             else

@@ -106,7 +106,7 @@ namespace Trivia.TDP.DAL.Repositorios
 
         public int respuestaCorrecta( int pPreguntaId )
         {
-            var resp = iDbContext.Respuestas.First(z => z.Pregunta.PreguntaId == pPreguntaId && z.correcta);
+            var resp = iDbContext.Respuestas.First(z => z.Pregunta.PreguntaId == pPreguntaId && z.EsCorrecta);
             return resp.RespuestaId;
         }
     }

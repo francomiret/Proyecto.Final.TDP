@@ -20,12 +20,12 @@ namespace Trivia.TDP.Vistas
                 foreach (ExamenDTO examen in examenes)
                 {
                     dataGridViewRanking.Rows.Add(
-                        examen.usuario.legajo,
-                        examen.usuario.nombre,
+                        examen.Usuario.Legajo,
+                        examen.Usuario.Nombre,
                         examen.Puntaje,
                         examen.CantidadPreguntas,
                         examen.TiempoUsado,
-                        examen.dificultad.descripcion);
+                        examen.Dificultad.Descripcion);
                 }
             }
         }
