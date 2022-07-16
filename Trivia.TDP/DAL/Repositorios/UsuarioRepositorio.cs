@@ -22,12 +22,20 @@ namespace ProyectoFinalTDP.DAL.Repositorios
 
         public IList<Usuario> buscar( Usuario usuario )
         {
-            return iDbContext.Usuarios.Where(u => (
-            (usuario.nombre != null && u.nombre == usuario.nombre) ||
-            (usuario.apellido != null && u.apellido == usuario.apellido) ||
-            (usuario.legajo != null && u.legajo == usuario.legajo) ||
-            (u.active == usuario.active))
-            ).ToList();
+            if (usuario.nombre == "" && usuario.apellido == "" && usuario.legajo == "" && usuario.active == null)
+            {
+                return iDbContext.Usuarios.ToList();
+
+            } else
+            {
+                return iDbContext.Usuarios.Where(u => (
+                (usuario.nombre != null && u.nombre == usuario.nombre) ||
+                (usuario.apellido != null && u.apellido == usuario.apellido) ||
+                (usuario.legajo != null && u.legajo == usuario.legajo) ||
+                (u.active == usuario.active))
+                ).ToList();
+            }
+
         }
 
         public void actualizar( Usuario usuario )

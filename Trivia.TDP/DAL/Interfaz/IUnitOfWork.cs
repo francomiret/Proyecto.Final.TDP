@@ -7,6 +7,7 @@ namespace ProyectoFinalTDP.DAL.Interfaz
     {
         IUsuarioRepositorio UsuarioRepositorio { get; }
 
+        IUsuarioActivoRepositorio UsuarioActivoRepositorio { get; }
         IDificultadRepositorio DificultadRepositorio { get; }
         IConjuntoPreguntasRepositorio ConjuntoPreguntasRepositorio { get; }
 

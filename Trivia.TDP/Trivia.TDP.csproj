@@ -96,6 +96,7 @@
     <Compile Include="DAL\Interfaz\IDificultadRepositorio.cs" />
     <Compile Include="DAL\Interfaz\IExamenRepositorio.cs" />
     <Compile Include="DAL\Interfaz\IPreguntaRepositorio.cs" />
+    <Compile Include="DAL\Interfaz\IUsuarioActivoRepositorio.cs" />
     <Compile Include="DAL\Migrations\Configuracion.cs" />
     <Compile Include="DAL\Migrations\DificultadSeeder.cs" />
     <Compile Include="DAL\Migrations\UsuariosSeeder.cs" />
@@ -104,6 +105,8 @@
     <Compile Include="DAL\Repositorios\DificultadRepositorio.cs" />
     <Compile Include="DAL\Repositorios\ExamenRepositorio.cs" />
     <Compile Include="DAL\Repositorios\PreguntaRepositorio.cs" />
+    <Compile Include="DAL\Repositorios\UsuarioActivoRepositorio.cs" />
+    <Compile Include="Dominio\UsuarioActivo.cs" />
     <Compile Include="Dominio\SesionPregunta.cs" />
     <Compile Include="DTO\ConjuntoPreguntasDTO.cs" />
     <Compile Include="Dominio\ConjuntoPreguntas.cs" />
@@ -129,6 +132,7 @@
     <Compile Include="DTO\RespuestaDTO.cs" />
     <Compile Include="DTO\SesionPreguntaDTO.cs" />
     <Compile Include="DTO\UsuarioDTO.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Vistas\ABMuser.cs">
       <SubType>Form</SubType>
     </Compile>

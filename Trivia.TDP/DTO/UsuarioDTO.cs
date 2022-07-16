@@ -16,6 +16,6 @@ namespace Trivia.TDP.DTO
 
         public String contrasena { get; set; }
 
-        public Boolean active { get; set; }
+        public Boolean? active { get; set; }
     }
 }

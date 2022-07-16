@@ -14,6 +14,7 @@ namespace ProyectoFinalTDP.DAL.Repositorios
         {
             pDbContext = pDbContex;
             UsuarioRepositorio = new UsuarioRepositorio(pDbContext);
+            UsuarioActivoRepositorio = new UsuarioActivoRepositorio(pDbContext);
             ConjuntoPreguntasRepositorio = new ConjuntoPreguntasRepositorio(pDbContext);
             DificultadRepositorio = new DificultadRepositorio(pDbContext);
             CategoriaRepositorio = new CategoriaRepositorio(pDbContext);
@@ -24,6 +25,8 @@ namespace ProyectoFinalTDP.DAL.Repositorios
 
 
         public IUsuarioRepositorio UsuarioRepositorio { get; private set; }
+
+        public IUsuarioActivoRepositorio UsuarioActivoRepositorio { get; private set; }
 
         public IDificultadRepositorio DificultadRepositorio { get; private set; }
         public IConjuntoPreguntasRepositorio ConjuntoPreguntasRepositorio { get; private set; }

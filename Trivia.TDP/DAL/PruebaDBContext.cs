@@ -1,6 +1,7 @@
 ﻿using Dominio;
 using System.Data.Entity;
 using Trivia.TDP.DAL.Migrations;
+using Trivia.TDP.Dominio;
 
 namespace ProyectoFinalTDP.DAL
 {
@@ -8,6 +9,8 @@ namespace ProyectoFinalTDP.DAL
     public class PruebaDBContext : DbContext
     {
         public DbSet<Usuario> Usuarios { get; set; }
+
+        public DbSet<UsuarioActivo> UsuariosActivos { get; set; }
         public DbSet<Examen> Examenes { get; set; }
         public DbSet<Pregunta> Preguntas { get; set; }
         public DbSet<ConjuntoPreguntas> ConjuntoPreguntas { get; set; }

@@ -56,7 +56,6 @@ namespace Trivia.TDP.Vistas
                 if (usuarios != null)
                 {
                     dataGridView1.DataSource = usuarios;
-                    dataGridView1.Columns.Remove("listaExamenes");
                     dataGridView1.Columns.Remove("UsuarioId");
                     dataGridView1.Columns.Remove("contrasena");
                 } else

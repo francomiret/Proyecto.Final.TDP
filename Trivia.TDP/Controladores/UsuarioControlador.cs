@@ -8,12 +8,12 @@ using System.Security.Cryptography;
 using System.Text;
 using Trivia.TDP.Controladores.Errores;
 using Trivia.TDP.Controladores.Interfaz;
+using Trivia.TDP.Dominio;
 
 namespace Trivia.TDP.Controladores
 {
     class UsuarioControlador : IUsuarioControlador
     {
-        private static Usuario usuarioAutenticado;
 
         public Usuario Autenticar( string legajo, string contrasena )
         {
@@ -29,8 +29,15 @@ namespace Trivia.TDP.Controladores
                     if (usuario.contrasena != computeSHA256(contrasena))
                         throw new ErrorContrasenaIncorrecta();
 
-                    usuarioAutenticado = usuario;
-                    return usuarioAutenticado;
+                    UsuarioActivo usuarioActivo = new UsuarioActivo()
+                    {
+                        UsuarioId = usuario.UsuarioId
+                    };
+
+                    bUoW.UsuarioActivoRepositorio.Add(usuarioActivo);
+                    bUoW.Complete();
+                    Usuario aux = this.ObtenerUsuarioAutenticado();
+                    return aux;
                 }
             }
         }
@@ -71,15 +78,26 @@ namespace Trivia.TDP.Controladores
 
         public Usuario ObtenerUsuarioAutenticado()
         {
-            if (usuarioAutenticado == null)
-                throw new ErrorUsuarioNoAutenticado();
 
-            return usuarioAutenticado;
+            using (var bDbContext = new PruebaDBContext())
+            {
+                using (IUnitOfWork bUoW = new UnitOfWork(bDbContext))
+                {
+                    return bUoW.UsuarioActivoRepositorio.obtenerUsuario();
+                }
+            }
         }
 
         public void CerrarSesion()
         {
-            usuarioAutenticado = null;
+            using (var bDbContext = new PruebaDBContext())
+            {
+                using (IUnitOfWork bUoW = new UnitOfWork(bDbContext))
+                {
+                    bUoW.UsuarioActivoRepositorio.eliminar();
+                    bUoW.Complete();
+                }
+            }
         }
 
         public IList<Usuario> BuscarUsuario( Usuario usuario )
@@ -90,10 +108,9 @@ namespace Trivia.TDP.Controladores
                 {
                     IList<Usuario> usuarios = new List<Usuario>();
                     usuarios = bUoW.UsuarioRepositorio.buscar(usuario);
-                    if (usuario == null)
+                    if (usuarios.Count == 0)
                         throw new ErrorUsuarioNoExiste();
                     usuarios.Add(usuario);
-                    bUoW.Complete();
                     return usuarios;
                 }
             }

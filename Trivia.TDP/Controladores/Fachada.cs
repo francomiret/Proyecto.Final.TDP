@@ -255,7 +255,23 @@ namespace Trivia.TDP.Controladores
                 esAdministrador = pUsuarioDTO.esAdministrador
 
             };
-            return (IList<UsuarioDTO>)iUsuarioControlador.BuscarUsuario(usuario);
+            IList<Usuario> usuarios = iUsuarioControlador.BuscarUsuario(usuario);
+            IList<UsuarioDTO> usuariosDto = new List<UsuarioDTO>();
+            foreach (var user in usuarios)
+            {
+                UsuarioDTO usuarioDto = new UsuarioDTO()
+                {
+                    UsuarioId = user.UsuarioId,
+                    active = user.active,
+                    apellido = user.apellido,
+                    legajo = user.legajo,
+                    nombre = user.nombre,
+                    esAdministrador = user.esAdministrador
+
+                };
+                usuariosDto.Add(usuarioDto);
+            }
+            return usuariosDto;
         }
 
         /// <summary>
