@@ -388,7 +388,7 @@ namespace Trivia.TDP.Controladores
         /// <param name="pConjunto">Conjunto de preguntas seleccionado</param>
         /// <param name="preguntas">Lista de preguntas</param>
         /// <returns>Examen creado</returns>
-        public ExamenDTO iniciarExamen( ConjuntoPreguntasDTO pConjunto, IList<PreguntaDTO> preguntas )
+        public ExamenDTO IniciarExamen( ConjuntoPreguntasDTO pConjunto, IList<PreguntaDTO> preguntas )
         {
             iUsuarioControlador = new UsuarioControlador();
             var usuario = iUsuarioControlador.ObtenerUsuarioAutenticado();

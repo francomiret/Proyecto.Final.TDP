@@ -23,7 +23,6 @@ namespace ProyectoFinalTDP.DAL.Repositorios
 
         }
 
-
         public IUsuarioRepositorio UsuarioRepositorio { get; private set; }
 
         public IUsuarioActivoRepositorio UsuarioActivoRepositorio { get; private set; }

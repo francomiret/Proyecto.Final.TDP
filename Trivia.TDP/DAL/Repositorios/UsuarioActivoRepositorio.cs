@@ -18,7 +18,7 @@ namespace Trivia.TDP.DAL.Repositorios
 
         }
 
-        public Usuario obtenerUsuario()
+        public Usuario ObtenerUsuario()
         {
             UsuarioActivo user = iDbContext.UsuariosActivos.First();
             Usuario usuario = null;
@@ -29,7 +29,7 @@ namespace Trivia.TDP.DAL.Repositorios
             return usuario;
         }
 
-        public void eliminar()
+        public void Eliminar()
         {
             iDbContext.UsuariosActivos.RemoveRange(iDbContext.UsuariosActivos);
         }

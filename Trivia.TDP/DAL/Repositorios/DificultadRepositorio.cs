@@ -12,7 +12,7 @@ namespace ProyectoFinalTDP.DAL.Repositorios
 
         }
 
-        public List<Dificultad> obtenerDificultades()
+        public List<Dificultad> ObtenerDificultades()
         {
             return iDbContext.Dificultades.ToList();
         }

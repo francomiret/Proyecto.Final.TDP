@@ -15,7 +15,7 @@ namespace Trivia.TDP.DAL.Repositorios
 
         }
 
-        public void agregarCategorias( IList<Categoria> pCategorias )
+        public void AgregarCategorias( IList<Categoria> pCategorias )
         {
             var categorias = this.iDbContext.Categorias.Select(z => z.CategoriaId).ToList(); ;
             if (categorias != null)
@@ -34,7 +34,7 @@ namespace Trivia.TDP.DAL.Repositorios
             }
         }
 
-        public IList<Categoria> obtenerCategorias()
+        public IList<Categoria> ObtenerCategorias()
         {
             IList<Categoria> categorias = iDbContext.Categorias.ToList();
             return categorias;

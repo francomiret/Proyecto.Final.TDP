@@ -46,7 +46,7 @@ namespace Trivia.TDP.Vistas
             {
                 ConjuntoPreguntasDTO conjunto = (ConjuntoPreguntasDTO)comboBoxConjuntos.SelectedItem;
                 preguntas = fachada.ObtenerPreguntasPorCriterio(null, null, conjunto.Id);
-                examen = fachada.iniciarExamen(conjunto, preguntas);
+                examen = fachada.IniciarExamen(conjunto, preguntas);
             }
             Vistas.QuestionTest exam = new Vistas.QuestionTest(examen, preguntas);
             this.Close();

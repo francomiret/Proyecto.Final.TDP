@@ -15,7 +15,7 @@ namespace Trivia.TDP.DAL.Repositorios
 
         }
 
-        public void agregarPreguntas( IList<Pregunta> pPreguntas )
+        public void AgregarPreguntas( IList<Pregunta> pPreguntas )
         {
             foreach (var pregunta in pPreguntas)
             {
@@ -54,7 +54,7 @@ namespace Trivia.TDP.DAL.Repositorios
             }
         }
 
-        public IList<Pregunta> obtenerPreguntasPorCriterio( int? categoriaId, int? dificultadId, int? conjuntoId )
+        public IList<Pregunta> ObtenerPreguntasPorCriterio( int? categoriaId, int? dificultadId, int? conjuntoId )
         {
             IList<Pregunta> preguntas = iDbContext.Preguntas.Include("ConjuntoPreguntas").Include("listaRespuestas")
             .Where(z =>
@@ -65,7 +65,7 @@ namespace Trivia.TDP.DAL.Repositorios
             return preguntas;
         }
 
-        public void eliminarPregunta( int preguntaId )
+        public void EliminarPregunta( int preguntaId )
         {
             var pregunta = iDbContext.Preguntas.Include("listaRespuestas").SingleOrDefault(z => z.PreguntaId == preguntaId);
             if (pregunta != null)
@@ -82,7 +82,7 @@ namespace Trivia.TDP.DAL.Repositorios
             }
         }
 
-        public void eliminarPreguntasDeConjunto( int? conjuntoId )
+        public void EliminarPreguntasDeConjunto( int? conjuntoId )
         {
             IList<Pregunta> preguntas = iDbContext.Preguntas.Where(z => z.ConjuntoPreguntas.Id == conjuntoId).ToList();
 
@@ -104,7 +104,7 @@ namespace Trivia.TDP.DAL.Repositorios
             }
         }
 
-        public int respuestaCorrecta( int pPreguntaId )
+        public int RespuestaCorrecta( int pPreguntaId )
         {
             var resp = iDbContext.Respuestas.First(z => z.Pregunta.PreguntaId == pPreguntaId && z.EsCorrecta);
             return resp.RespuestaId;

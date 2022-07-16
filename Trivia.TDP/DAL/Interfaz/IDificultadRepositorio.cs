@@ -5,6 +5,6 @@ namespace Trivia.TDP.DAL.Interfaz
 {
     interface IDificultadRepositorio
     {
-        List<Dificultad> obtenerDificultades();
+        List<Dificultad> ObtenerDificultades();
     }
 }

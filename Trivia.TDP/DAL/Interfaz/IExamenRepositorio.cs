@@ -7,9 +7,7 @@ namespace Trivia.TDP.DAL.Interfaz
     interface IExamenRepositorio : IRepositorio<Examen>
     {
         void AgregarExamen( Examen pExamen );
-
         Examen MejorExamen( Usuario pUsuario );
-
         IList<Examen> Mejores10Examenes();
     }
 }

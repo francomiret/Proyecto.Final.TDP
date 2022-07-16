@@ -22,7 +22,7 @@ namespace Trivia.TDP.Controladores
                 using (IUnitOfWork bUoW = new UnitOfWork(bDbContext))
                 {
 
-                    Usuario usuario = bUoW.UsuarioRepositorio.buscarPorLegajo(legajo);
+                    Usuario usuario = bUoW.UsuarioRepositorio.BuscarPorLegajo(legajo);
 
                     if (usuario == null)
                         throw new ErrorUsuarioNoExiste();
@@ -48,7 +48,7 @@ namespace Trivia.TDP.Controladores
             {
                 using (IUnitOfWork bUoW = new UnitOfWork(bDbContext))
                 {
-                    if (bUoW.UsuarioRepositorio.buscarPorLegajo(usuario.Legajo) != null)
+                    if (bUoW.UsuarioRepositorio.BuscarPorLegajo(usuario.Legajo) != null)
                         throw new ErrorUsuarioYaExiste();
 
                     usuario.Contrasena = computeSHA256(usuario.Contrasena);
@@ -83,7 +83,7 @@ namespace Trivia.TDP.Controladores
             {
                 using (IUnitOfWork bUoW = new UnitOfWork(bDbContext))
                 {
-                    return bUoW.UsuarioActivoRepositorio.obtenerUsuario();
+                    return bUoW.UsuarioActivoRepositorio.ObtenerUsuario();
                 }
             }
         }
@@ -94,7 +94,7 @@ namespace Trivia.TDP.Controladores
             {
                 using (IUnitOfWork bUoW = new UnitOfWork(bDbContext))
                 {
-                    bUoW.UsuarioActivoRepositorio.eliminar();
+                    bUoW.UsuarioActivoRepositorio.Eliminar();
                     bUoW.Complete();
                 }
             }
@@ -107,7 +107,7 @@ namespace Trivia.TDP.Controladores
                 using (IUnitOfWork bUoW = new UnitOfWork(bDbContext))
                 {
                     IList<Usuario> usuarios = new List<Usuario>();
-                    usuarios = bUoW.UsuarioRepositorio.buscar(usuario);
+                    usuarios = bUoW.UsuarioRepositorio.Buscar(usuario);
                     if (usuarios.Count == 0)
                         throw new ErrorUsuarioNoExiste();
                     usuarios.Add(usuario);
@@ -122,7 +122,7 @@ namespace Trivia.TDP.Controladores
             {
                 using (IUnitOfWork bUoW = new UnitOfWork(bDbContext))
                 {
-                    bUoW.UsuarioRepositorio.actualizar(usuario);
+                    bUoW.UsuarioRepositorio.Actualizar(usuario);
                     bUoW.Complete();
                 }
             }
@@ -134,7 +134,7 @@ namespace Trivia.TDP.Controladores
             {
                 using (IUnitOfWork bUoW = new UnitOfWork(bDbContext))
                 {
-                    bUoW.UsuarioRepositorio.eliminar(legajo);
+                    bUoW.UsuarioRepositorio.Eliminar(legajo);
                     bUoW.Complete();
                 }
             }

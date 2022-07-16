@@ -12,7 +12,6 @@ namespace Trivia.TDP.DAL.Repositorios
     {
         public ExamenRepositorio( PruebaDBContext pContext ) : base(pContext)
         {
-
         }
 
         public void AgregarExamen( Examen pExamen )
@@ -37,6 +36,5 @@ namespace Trivia.TDP.DAL.Repositorios
         {
             return iDbContext.Examenes?.Include("sesiones").Include("categoria").Include("dificultad").Include("usuario").OrderByDescending(p => p.Puntaje)?.Take(10).ToList();
         }
-
     }
 }

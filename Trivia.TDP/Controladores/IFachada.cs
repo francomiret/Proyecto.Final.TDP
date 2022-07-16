@@ -15,7 +15,7 @@ namespace Trivia.TDP.Controladores
         bool CrearUsuario( UsuarioDTO pUsuarioDTO );
         void EliminarPregunta( string pPreguntaId );
         string EliminarUsuario( DataGridViewRow pSelectedRow );
-        ExamenDTO iniciarExamen( ConjuntoPreguntasDTO pConjunto, IList<PreguntaDTO> preguntas );
+        ExamenDTO IniciarExamen( ConjuntoPreguntasDTO pConjunto, IList<PreguntaDTO> preguntas );
         IList<ExamenDTO> Mejores10Examenes();
         ExamenDTO MejorExamenUsuario();
         IList<CategoriaDTO> ObtenerCategorias();

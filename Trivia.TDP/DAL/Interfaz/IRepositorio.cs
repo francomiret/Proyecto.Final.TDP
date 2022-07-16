@@ -8,6 +8,5 @@ namespace ProyectoFinalTDP.DAL.Interfaz
         void Remove( TEntity pEntity );
         TEntity Get( int pId );
         IEnumerable<TEntity> GetAll();
-
     }
 }

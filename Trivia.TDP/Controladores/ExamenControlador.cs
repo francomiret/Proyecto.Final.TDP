@@ -27,7 +27,7 @@ namespace Trivia.TDP.Controladores
                     {
                         if (sesion.RespuestaSeleccionadaId != null)
                         {
-                            int respuestaCorrectaId = bUoW.PreguntaRepositorio.respuestaCorrecta(sesion.PreguntaId);
+                            int respuestaCorrectaId = bUoW.PreguntaRepositorio.RespuestaCorrecta(sesion.PreguntaId);
                             if (respuestaCorrectaId == sesion.RespuestaSeleccionadaId)
                             {
                                 cantidadRespuestasCorrectas += 1;

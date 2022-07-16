@@ -15,7 +15,7 @@ namespace Trivia.TDP.Controladores
             {
                 using (IUnitOfWork bUoW = new UnitOfWork(bDbContext))
                 {
-                    bUoW.PreguntaRepositorio.agregarPreguntas(pPreguntas);
+                    bUoW.PreguntaRepositorio.AgregarPreguntas(pPreguntas);
                     bUoW.Complete();
                 }
             }
@@ -29,7 +29,7 @@ namespace Trivia.TDP.Controladores
                 {
                     try
                     {
-                        IList<Pregunta> preguntas = bUoW.PreguntaRepositorio.obtenerPreguntasPorCriterio(categoria, dificultad, conjunto);
+                        IList<Pregunta> preguntas = bUoW.PreguntaRepositorio.ObtenerPreguntasPorCriterio(categoria, dificultad, conjunto);
                         return preguntas;
                     }
                     catch (DataNotFound)
@@ -48,7 +48,7 @@ namespace Trivia.TDP.Controladores
                 {
                     try
                     {
-                        bUoW.PreguntaRepositorio.eliminarPregunta(preguntaId);
+                        bUoW.PreguntaRepositorio.EliminarPregunta(preguntaId);
                         bUoW.Complete();
                     }
                     catch (DataNotFound)
@@ -65,7 +65,7 @@ namespace Trivia.TDP.Controladores
             {
                 using (IUnitOfWork bUoW = new UnitOfWork(bDbContext))
                 {
-                    bUoW.PreguntaRepositorio.eliminarPreguntasDeConjunto(pConjuntoId);
+                    bUoW.PreguntaRepositorio.EliminarPreguntasDeConjunto(pConjuntoId);
                     bUoW.Complete();
                 }
             }

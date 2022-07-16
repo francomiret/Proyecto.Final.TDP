@@ -6,14 +6,10 @@ namespace Trivia.TDP.DAL.Interfaz
 {
     interface IPreguntaRepositorio : IRepositorio<Pregunta>
     {
-        void agregarPreguntas( IList<Pregunta> pPreguntas );
-
-        IList<Pregunta> obtenerPreguntasPorCriterio( int? categoriaId, int? dificultadId, int? conjunto );
-
-        void eliminarPregunta( int preguntaId );
-
-        void eliminarPreguntasDeConjunto( int? conjuntoId );
-
-        int respuestaCorrecta( int pPreguntaId );
+        void AgregarPreguntas( IList<Pregunta> pPreguntas );
+        IList<Pregunta> ObtenerPreguntasPorCriterio( int? categoriaId, int? dificultadId, int? conjunto );
+        void EliminarPregunta( int preguntaId );
+        void EliminarPreguntasDeConjunto( int? conjuntoId );
+        int RespuestaCorrecta( int pPreguntaId );
     }
 }
