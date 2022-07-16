@@ -132,7 +132,6 @@
     <Compile Include="DTO\RespuestaDTO.cs" />
     <Compile Include="DTO\SesionPreguntaDTO.cs" />
     <Compile Include="DTO\UsuarioDTO.cs" />
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Vistas\ABMuser.cs">
       <SubType>Form</SubType>
     </Compile>

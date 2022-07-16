@@ -2,7 +2,7 @@
 
 namespace Trivia.TDP.Controladores.OpentDB
 {
-    class WebRequesterOpentDB
+    public class WebRequesterOpentDB
     {
         public WebResponse CrearConsulta( string pUrl )
         {
