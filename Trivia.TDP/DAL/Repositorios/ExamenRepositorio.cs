@@ -21,10 +21,10 @@ namespace Trivia.TDP.DAL.Repositorios
 
         public Examen MejorExamen( Usuario pUsuario )
         {
-            var examenes = iDbContext.Examenes?.Include("sesiones")?.Include("categoria")?.Include("dificultad")?.Include("usuario").ToList();
+            var examenes = iDbContext.Examenes?.Include("sesiones")?.Include("categoria")?.Include("dificultad")?.Include("usuario").Where(e => e.Usuario.Legajo == pUsuario.Legajo).ToList();
             if (examenes.Count != 0)
             {
-                return examenes.OrderByDescending(p => p.Puntaje)?.First(e => e.Usuario.Legajo == pUsuario.Legajo);
+                return examenes.OrderByDescending(p => p.Puntaje)?.First();
             }
             else
             {
