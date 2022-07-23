@@ -34,7 +34,7 @@ namespace Trivia.TDP.Controladores
                     }
                     catch (DataNotFound)
                     {
-                        throw;
+                        throw new DataNotFound();
                     }
                 }
             }
@@ -53,7 +53,7 @@ namespace Trivia.TDP.Controladores
                     }
                     catch (DataNotFound)
                     {
-                        throw;
+                        throw new DataNotFound();
                     }
                 }
             }

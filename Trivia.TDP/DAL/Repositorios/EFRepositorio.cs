@@ -14,12 +14,7 @@ namespace ProyectoFinalTDP.DAL.Repositorios
 
         public EFRepositorio( TDbContext pContext )
         {
-            if (pContext == null)
-            {
-                throw new ArgumentNullException(nameof(pContext));
-            }
-
-            this.iDbContext = pContext;
+            this.iDbContext = pContext ?? throw new ArgumentNullException(nameof(pContext));
         }
 
         public void Add( TEntity pEntity )

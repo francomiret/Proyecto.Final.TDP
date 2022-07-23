@@ -28,27 +28,27 @@ namespace Trivia.TDP.DAL.Repositorios
                     }
 
                 }
-                catch (InvalidOperationException e)
+                catch (InvalidOperationException)
                 {
-
+                    throw new InvalidOperationException();
                 }
                 try
                 {
                     var dificultad = this.iDbContext.Dificultades.First(c => c.DificultadId == pregunta.ConjuntoPreguntas.Dificultad.DificultadId);
                     pregunta.ConjuntoPreguntas.Dificultad = dificultad;
                 }
-                catch (InvalidOperationException e)
+                catch (InvalidOperationException)
                 {
-
+                    throw new InvalidOperationException();
                 }
                 try
                 {
                     var categoria = this.iDbContext.Categorias.First(c => c.CategoriaId == pregunta.ConjuntoPreguntas.Categoria.CategoriaId);
                     pregunta.ConjuntoPreguntas.Categoria = categoria;
                 }
-                catch (InvalidOperationException e)
+                catch (InvalidOperationException)
                 {
-
+                    throw new InvalidOperationException();
                 }
                 iDbContext.Preguntas.Add(pregunta);
             }
