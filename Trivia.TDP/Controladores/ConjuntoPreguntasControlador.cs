@@ -27,15 +27,8 @@ namespace Trivia.TDP.Controladores
             {
                 using (IUnitOfWork bUoW = new UnitOfWork(bDbContext))
                 {
-                    try
-                    {
-                        List<ConjuntoPreguntas> conuntoPreguntas = bUoW.ConjuntoPreguntasRepositorio.ObtenerConjuntos();
-                        return conuntoPreguntas;
-                    }
-                    catch (DataNotFound)
-                    {
-                        throw new DataNotFound();
-                    }
+                    List<ConjuntoPreguntas> conuntoPreguntas = bUoW.ConjuntoPreguntasRepositorio.ObtenerConjuntos();
+                    return conuntoPreguntas;
                 }
             }
         }

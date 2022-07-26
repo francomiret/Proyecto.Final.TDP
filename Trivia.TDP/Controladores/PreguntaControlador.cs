@@ -27,15 +27,8 @@ namespace Trivia.TDP.Controladores
             {
                 using (IUnitOfWork bUoW = new UnitOfWork(bDbContext))
                 {
-                    try
-                    {
-                        IList<Pregunta> preguntas = bUoW.PreguntaRepositorio.ObtenerPreguntasPorCriterio(categoria, dificultad, conjunto);
-                        return preguntas;
-                    }
-                    catch (DataNotFound)
-                    {
-                        throw new DataNotFound();
-                    }
+                    IList<Pregunta> preguntas = bUoW.PreguntaRepositorio.ObtenerPreguntasPorCriterio(categoria, dificultad, conjunto);
+                    return preguntas;
                 }
             }
         }
@@ -46,15 +39,8 @@ namespace Trivia.TDP.Controladores
             {
                 using (IUnitOfWork bUoW = new UnitOfWork(bDbContext))
                 {
-                    try
-                    {
-                        bUoW.PreguntaRepositorio.EliminarPregunta(preguntaId);
-                        bUoW.Complete();
-                    }
-                    catch (DataNotFound)
-                    {
-                        throw new DataNotFound();
-                    }
+                    bUoW.PreguntaRepositorio.EliminarPregunta(preguntaId);
+                    bUoW.Complete();
                 }
             }
         }
