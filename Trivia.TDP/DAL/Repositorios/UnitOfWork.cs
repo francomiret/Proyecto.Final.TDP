@@ -7,8 +7,6 @@ namespace ProyectoFinalTDP.DAL.Repositorios
     class UnitOfWork : IUnitOfWork
     {
         private readonly PruebaDBContext pDbContext;
-        private static volatile UnitOfWork cInstancia = null;
-        private static readonly object cPadlock = new object();
 
         public UnitOfWork( PruebaDBContext pDbContex )
         {

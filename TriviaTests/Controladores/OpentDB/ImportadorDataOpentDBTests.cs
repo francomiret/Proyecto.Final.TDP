@@ -2,8 +2,9 @@
 using System.Linq;
 using Dominio;
 using System.Collections.Generic;
+using Trivia.TDP.Servicios.OpentDB;
 
-namespace Trivia.TDP.Controladores.OpentDB.Tests
+namespace Trivia.TDP.Servicios.OpentDB.Tests
 {
     [TestClass()]
     public class ImportadorDataOpentDBTests
@@ -54,7 +55,7 @@ namespace Trivia.TDP.Controladores.OpentDB.Tests
 
         [TestMethod()]
         public void ObtenerCategoriasTest()
-        {            
+        {
             // Act.
             IList<Categoria> res = importador.ObtenerCategorias();
 

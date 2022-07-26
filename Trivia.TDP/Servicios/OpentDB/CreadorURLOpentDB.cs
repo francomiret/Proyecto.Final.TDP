@@ -1,6 +1,6 @@
 ﻿using Dominio;
 
-namespace Trivia.TDP.Controladores.OpentDB
+namespace Trivia.TDP.Servicios.OpentDB
 {
     public class CreadorURLOpentDB
     {

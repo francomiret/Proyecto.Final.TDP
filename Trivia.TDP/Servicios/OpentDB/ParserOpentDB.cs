@@ -5,8 +5,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Text;
+using Trivia.TDP.Controladores;
 
-namespace Trivia.TDP.Controladores.OpentDB
+namespace Trivia.TDP.Servicios.OpentDB
 {
     public class ParserOpentDB
     {
@@ -30,7 +31,7 @@ namespace Trivia.TDP.Controladores.OpentDB
                     string nombreDificultad = HttpUtility.HtmlDecode(bResponseItem.difficulty.ToString());
                     var respuestas = new List<Respuesta>();
 
-                    if ((nombreCategoria != pConjunto.Categoria.Nombre) || (nombreDificultad != pConjunto.Dificultad.Descripcion))
+                    if (nombreCategoria != pConjunto.Categoria.Nombre || nombreDificultad != pConjunto.Dificultad.Descripcion)
                     {
                         throw new DataNotFound("Categoria o Dificultad no validos.");
                     }

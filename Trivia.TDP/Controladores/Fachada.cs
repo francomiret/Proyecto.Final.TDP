@@ -4,15 +4,13 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using Trivia.TDP.Conjuntos.Interfaz;
 using Trivia.TDP.Controladores.Interfaz;
-using Trivia.TDP.Controladores.OpentDB;
 using Trivia.TDP.DTO;
+using Trivia.TDP.Servicios.OpentDB;
 
 namespace Trivia.TDP.Controladores
 {
     class Fachada : IFachada
     {
-        private IImportadorDataOpentDB importador;
-
         private IUsuarioControlador iUsuarioControlador;
 
         private IDificultadControlador iDificultadControlador;
@@ -82,7 +80,7 @@ namespace Trivia.TDP.Controladores
         {
             iPreguntaControlador = new PreguntaControlador();
             iConjuntoPreguntasControlador = new ConjuntoPreguntasControlador();
-            IimportadorData importador = iConjuntoPreguntasControlador.obtenerImportador();
+            IimportadorData importador = new ImportadorDataOpentDB();
 
             Categoria categoria = new Categoria()
             {

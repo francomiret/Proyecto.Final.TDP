@@ -5,7 +5,7 @@ using ProyectoFinalTDP.DAL.Repositorios;
 using System.Collections.Generic;
 using Trivia.TDP.Conjuntos.Interfaz;
 using Trivia.TDP.Controladores.Interfaz;
-using Trivia.TDP.Controladores.OpentDB;
+using Trivia.TDP.Servicios.OpentDB;
 
 namespace Trivia.TDP.Controladores
 {

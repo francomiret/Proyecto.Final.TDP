@@ -19,37 +19,18 @@ namespace Trivia.TDP.DAL.Repositorios
         {
             foreach (var pregunta in pPreguntas)
             {
-                try
+                var conjunto = this.iDbContext.ConjuntoPreguntas.FirstOrDefault(c => c.Id == pregunta.ConjuntoPreguntas.Id);
+                if (conjunto != null)
                 {
-                    var conjunto = this.iDbContext.ConjuntoPreguntas.First(c => c.Id == pregunta.ConjuntoPreguntas.Id);
-                    if (conjunto != null)
-                    {
-                        pregunta.ConjuntoPreguntas = conjunto;
-                    }
+                    pregunta.ConjuntoPreguntas = conjunto;
+                }
 
-                }
-                catch (InvalidOperationException)
-                {
-                    throw new InvalidOperationException();
-                }
-                try
-                {
-                    var dificultad = this.iDbContext.Dificultades.First(c => c.DificultadId == pregunta.ConjuntoPreguntas.Dificultad.DificultadId);
-                    pregunta.ConjuntoPreguntas.Dificultad = dificultad;
-                }
-                catch (InvalidOperationException)
-                {
-                    throw new InvalidOperationException();
-                }
-                try
-                {
-                    var categoria = this.iDbContext.Categorias.First(c => c.CategoriaId == pregunta.ConjuntoPreguntas.Categoria.CategoriaId);
-                    pregunta.ConjuntoPreguntas.Categoria = categoria;
-                }
-                catch (InvalidOperationException)
-                {
-                    throw new InvalidOperationException();
-                }
+                var dificultad = this.iDbContext.Dificultades.First(c => c.DificultadId == pregunta.ConjuntoPreguntas.Dificultad.DificultadId);
+                pregunta.ConjuntoPreguntas.Dificultad = dificultad;
+
+                var categoria = this.iDbContext.Categorias.First(c => c.CategoriaId == pregunta.ConjuntoPreguntas.Categoria.CategoriaId);
+                pregunta.ConjuntoPreguntas.Categoria = categoria;
+
                 iDbContext.Preguntas.Add(pregunta);
             }
         }

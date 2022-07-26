@@ -1,7 +1,7 @@
 ﻿using Dominio;
 using System.Collections.Generic;
 
-namespace Trivia.TDP.Controladores.OpentDB
+namespace Trivia.TDP.Servicios.OpentDB
 {
     interface IImportadorDataOpentDB
     {

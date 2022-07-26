@@ -87,10 +87,10 @@
     <Compile Include="Controladores\Interfaz\IPreguntaControlador.cs" />
     <Compile Include="Controladores\Interfaz\IUsuarioControlador.cs" />
     <Compile Include="Controladores\Errores\DataNotFound.cs" />
-    <Compile Include="Controladores\OpentDB\IImportadorDataOpentDB.cs" />
-    <Compile Include="Controladores\OpentDB\ImportadorDataOpentDB.cs" />
-    <Compile Include="Controladores\OpentDB\WebRequesterOpentDB.cs" />
-    <Compile Include="Controladores\OpentDB\ParserOpentDB.cs" />
+    <Compile Include="Servicios\OpentDB\IImportadorDataOpentDB.cs" />
+    <Compile Include="Servicios\OpentDB\ImportadorDataOpentDB.cs" />
+    <Compile Include="Servicios\OpentDB\WebRequesterOpentDB.cs" />
+    <Compile Include="Servicios\OpentDB\ParserOpentDB.cs" />
     <Compile Include="Controladores\PreguntaControlador.cs" />
     <Compile Include="DAL\Interfaz\ICategoriaRepositorio.cs" />
     <Compile Include="DAL\Interfaz\IConjuntoPreguntasRepositorio.cs" />
@@ -111,7 +111,7 @@
     <Compile Include="Dominio\SesionPregunta.cs" />
     <Compile Include="DTO\ConjuntoPreguntasDTO.cs" />
     <Compile Include="Dominio\ConjuntoPreguntas.cs" />
-    <Compile Include="Controladores\OpentDB\CreadorURLOpentDB.cs" />
+    <Compile Include="Servicios\OpentDB\CreadorURLOpentDB.cs" />
     <Compile Include="Controladores\UsuarioControlador.cs" />
     <Compile Include="DAL\Interfaz\IRepositorio.cs" />
     <Compile Include="DAL\Interfaz\IUnitOfWork.cs" />

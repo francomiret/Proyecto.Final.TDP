@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using Trivia.TDP.Conjuntos.Interfaz;
 
-namespace Trivia.TDP.Controladores.OpentDB
+namespace Trivia.TDP.Servicios.OpentDB
 {
     public class ImportadorDataOpentDB : IimportadorData
     {
@@ -17,10 +17,10 @@ namespace Trivia.TDP.Controladores.OpentDB
             iWebRequester = new WebRequesterOpentDB();
             iParser = new ParserOpentDB();
 
-            if ((pConjunto == null) ||
-                (pConjunto.Categoria == null) ||
-                (pConjunto.Dificultad == null) ||
-                String.IsNullOrEmpty(pConjunto.Nombre))
+            if (pConjunto == null ||
+                pConjunto.Categoria == null ||
+                pConjunto.Dificultad == null ||
+                string.IsNullOrEmpty(pConjunto.Nombre))
             {
                 throw new ArgumentNullException();
             }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using Trivia.TDP.Controladores;
 using Trivia.TDP.Controladores.Interfaz;
-using Trivia.TDP.Controladores.OpentDB;
+using Trivia.TDP.Servicios.OpentDB;
 
 namespace Trivia.TDP.DAL.Migrations
 {

@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Trivia.TDP.Controladores.OpentDB.Tests
+namespace Trivia.TDP.Servicios.OpentDB.Tests
 {
     [TestClass()]
     public class ParserOpentDBTests
@@ -185,7 +185,7 @@ namespace Trivia.TDP.Controladores.OpentDB.Tests
                     ProvidedId = 32
                 },
             };
-            
+
             // Act.
             IList<Categoria> res = parser.FormatearCategorias(response);
 

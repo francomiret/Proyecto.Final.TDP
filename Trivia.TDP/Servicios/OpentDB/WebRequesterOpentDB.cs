@@ -1,13 +1,13 @@
 ﻿using System.Net;
 
-namespace Trivia.TDP.Controladores.OpentDB
+namespace Trivia.TDP.Servicios.OpentDB
 {
     public class WebRequesterOpentDB
     {
         public WebResponse CrearConsulta( string pUrl )
         {
             // Establecimiento del protocolo ssl de transporte
-            System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
             //CultureInfo provider = new CultureInfo("en-us");
 
