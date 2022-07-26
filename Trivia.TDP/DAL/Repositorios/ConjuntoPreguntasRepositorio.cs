@@ -1,6 +1,5 @@
 ﻿using Dominio;
 using ProyectoFinalTDP.DAL.Interfaz;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -15,24 +14,12 @@ namespace ProyectoFinalTDP.DAL.Repositorios
 
         public void AgregarConjunto( ConjuntoPreguntas pConjunto )
         {
-            try
-            {
-                var dificultad = this.iDbContext.Dificultades.First(c => c.DificultadId == pConjunto.Dificultad.DificultadId);
-                pConjunto.Dificultad = dificultad;
-            }
-            catch (InvalidOperationException)
-            {
-                throw new InvalidOperationException();
-            }
-            try
-            {
-                var categoria = this.iDbContext.Categorias.First(c => c.CategoriaId == pConjunto.Categoria.CategoriaId);
-                pConjunto.Categoria = categoria;
-            }
-            catch (InvalidOperationException)
-            {
-                throw new InvalidOperationException();
-            }
+            var dificultad = this.iDbContext.Dificultades.First(c => c.DificultadId == pConjunto.Dificultad.DificultadId);
+            pConjunto.Dificultad = dificultad;
+
+            var categoria = this.iDbContext.Categorias.First(c => c.CategoriaId == pConjunto.Categoria.CategoriaId);
+            pConjunto.Categoria = categoria;
+
             iDbContext.ConjuntoPreguntas.Add(pConjunto);
 
         }

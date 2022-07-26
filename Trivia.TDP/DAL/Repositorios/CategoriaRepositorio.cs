@@ -1,7 +1,6 @@
 ﻿using Dominio;
 using ProyectoFinalTDP.DAL;
 using ProyectoFinalTDP.DAL.Repositorios;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Trivia.TDP.DAL.Interfaz;
@@ -22,14 +21,7 @@ namespace Trivia.TDP.DAL.Repositorios
             {
                 for (var i = 0; i < pCategorias.Count; i++)
                 {
-                    try
-                    {
-                        iDbContext.Categorias.Add(pCategorias[i]);
-                    }
-                    catch (InvalidOperationException)
-                    {
-                        throw new InvalidOperationException();
-                    }
+                    iDbContext.Categorias.Add(pCategorias[i]);
                 }
             }
         }
