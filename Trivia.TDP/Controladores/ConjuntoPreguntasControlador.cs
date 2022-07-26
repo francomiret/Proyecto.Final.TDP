@@ -3,7 +3,9 @@ using ProyectoFinalTDP.DAL;
 using ProyectoFinalTDP.DAL.Interfaz;
 using ProyectoFinalTDP.DAL.Repositorios;
 using System.Collections.Generic;
+using Trivia.TDP.Conjuntos.Interfaz;
 using Trivia.TDP.Controladores.Interfaz;
+using Trivia.TDP.Controladores.OpentDB;
 
 namespace Trivia.TDP.Controladores
 {
@@ -38,6 +40,13 @@ namespace Trivia.TDP.Controladores
                     }
                 }
             }
+        }
+
+        //TODO: A futuro este metodo obtiene el importador de un conjunto determinado.
+        // Como actualmente solo soportamos OpenTDB devolvemos ese.
+        public IimportadorData obtenerImportador()
+        {
+            return new ImportadorDataOpentDB();
         }
 
     }
