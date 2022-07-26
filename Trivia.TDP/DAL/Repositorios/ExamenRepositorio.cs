@@ -28,7 +28,7 @@ namespace Trivia.TDP.DAL.Repositorios
             }
             else
             {
-                return new Examen() { Sesiones =new List<SesionPregunta>() };
+                return new Examen() { Sesiones = new List<SesionPregunta>() };
             }
         }
 

@@ -20,18 +20,18 @@ namespace ProyectoFinalTDP.DAL.Repositorios
                 var dificultad = this.iDbContext.Dificultades.First(c => c.DificultadId == pConjunto.Dificultad.DificultadId);
                 pConjunto.Dificultad = dificultad;
             }
-            catch (InvalidOperationException e)
+            catch (InvalidOperationException)
             {
-                throw e;
+                throw new InvalidOperationException();
             }
             try
             {
                 var categoria = this.iDbContext.Categorias.First(c => c.CategoriaId == pConjunto.Categoria.CategoriaId);
                 pConjunto.Categoria = categoria;
             }
-            catch (InvalidOperationException e)
+            catch (InvalidOperationException)
             {
-                throw e;
+                throw new InvalidOperationException();
             }
             iDbContext.ConjuntoPreguntas.Add(pConjunto);
 

@@ -26,9 +26,9 @@ namespace Trivia.TDP.DAL.Repositorios
                     {
                         iDbContext.Categorias.Add(pCategorias[i]);
                     }
-                    catch (InvalidOperationException e)
+                    catch (InvalidOperationException)
                     {
-                        throw e;
+                        throw new InvalidOperationException();
                     }
                 }
             }
