@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using Trivia.TDP.Conjuntos.Interfaz;
 using Trivia.TDP.Controladores.Interfaz;
 using Trivia.TDP.Controladores.OpentDB;
 using Trivia.TDP.DTO;
@@ -80,7 +81,9 @@ namespace Trivia.TDP.Controladores
         public IList<PreguntaDTO> AgregarPreguntas( DificultadDTO pDificultadDTO, CategoriaDTO pCategoriaDTO, int pCant )
         {
             iPreguntaControlador = new PreguntaControlador();
-            importador = new ImportadorDataOpentDB();
+            iConjuntoPreguntasControlador = new ConjuntoPreguntasControlador();
+            IimportadorData importador = iConjuntoPreguntasControlador.obtenerImportador();
+
             Categoria categoria = new Categoria()
             {
                 CategoriaId = pCategoriaDTO.CategoriaId,
@@ -129,7 +132,8 @@ namespace Trivia.TDP.Controladores
         public IList<PreguntaDTO> AgregarPreguntas( ConjuntoPreguntasDTO pConjuntoDTO )
         {
             iPreguntaControlador = new PreguntaControlador();
-            importador = new ImportadorDataOpentDB();
+            iConjuntoPreguntasControlador = new ConjuntoPreguntasControlador();
+            IimportadorData importador = iConjuntoPreguntasControlador.obtenerImportador();
 
             ConjuntoPreguntas conjunto = new ConjuntoPreguntas()
             {
@@ -137,7 +141,7 @@ namespace Trivia.TDP.Controladores
                 Nombre = pConjuntoDTO.Nombre,
                 TiempoEsperadoRespuesta = pConjuntoDTO.TiempoEsperadoRespuesta,
                 Dificultad = pConjuntoDTO.Dificultad,
-                Categoria = pConjuntoDTO.Categoria
+                Categoria = pConjuntoDTO.Categoria,
             };
 
             IList<Pregunta> preguntasActuales = iPreguntaControlador.ObtenerPreguntasPorCriterio(null, null, conjunto.Id);

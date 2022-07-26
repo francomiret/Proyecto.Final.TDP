@@ -1,10 +1,11 @@
 ﻿using Dominio;
 using System;
 using System.Collections.Generic;
+using Trivia.TDP.Conjuntos.Interfaz;
 
 namespace Trivia.TDP.Controladores.OpentDB
 {
-    public class ImportadorDataOpentDB : IImportadorDataOpentDB
+    public class ImportadorDataOpentDB : IimportadorData
     {
         private CreadorURLOpentDB iUrlCreador;
         private WebRequesterOpentDB iWebRequester;

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Trivia.TDP.Conjuntos.Interfaz;
 
 namespace Dominio
 {
