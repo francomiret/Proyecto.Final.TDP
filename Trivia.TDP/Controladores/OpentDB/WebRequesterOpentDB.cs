@@ -13,16 +13,8 @@ namespace Trivia.TDP.Controladores.OpentDB
 
             // Se crea el request http
             HttpWebRequest mRequest = (HttpWebRequest)WebRequest.Create(pUrl);
-            try
-            {
-                WebResponse mResponse = mRequest.GetResponse();
-
-                return mResponse;
-            }
-            catch (WebException e)
-            {
-                throw e;
-            }
+            WebResponse mResponse = mRequest.GetResponse();
+            return mResponse;
         }
     }
 }

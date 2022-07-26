@@ -2,7 +2,7 @@
 
 namespace Trivia.TDP.Controladores.OpentDB
 {
-    class CreadorURLOpentDB
+    public class CreadorURLOpentDB
     {
         public string ConstruirUrl( int pCantidad, ConjuntoPreguntas pConjunto )
         {
