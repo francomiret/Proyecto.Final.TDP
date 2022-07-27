@@ -1,5 +1,6 @@
 ﻿using Dominio;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -11,17 +12,27 @@ namespace Trivia.TDP.Servicios.OpentDB.Tests
         ParserOpentDB parser = new ParserOpentDB();
         WebRequesterOpentDB requester = new WebRequesterOpentDB();
 
+        public IList<string> ObtenerListaDeNombresDeCategorias( IList<Categoria> categorias )
+        {
+            IList<string> resultado = new List<string>();
+            foreach (Categoria categoria in categorias)
+            {
+                resultado.Add(categoria.Nombre);
+            }
+            return resultado;
+        }
+
         [TestMethod()]
         public void FormatearPreguntasTest()
         {
             // Arrange.
-            Dificultad dificultad = new Dificultad()
+            Dificultad dificultad = new()
             {
                 DificultadId = 1,
                 Descripcion = "easy",
             };
-            Categoria categoria = new Categoria() { CategoriaId = 1, Nombre = "General Knowledge", ProvidedId = 9 };
-            ConjuntoPreguntas conjunto = new ConjuntoPreguntas() { Categoria = categoria, Dificultad = dificultad, Nombre = "easy General Knowledge" };
+            Categoria categoria = new() { CategoriaId = 1, Nombre = "General Knowledge", ProvidedId = 9 };
+            ConjuntoPreguntas conjunto = new() { Categoria = categoria, Dificultad = dificultad, Nombre = "easy General Knowledge" };
             string mockURL = "https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple";
             var response = requester.CrearConsulta(mockURL);
 
@@ -32,6 +43,15 @@ namespace Trivia.TDP.Servicios.OpentDB.Tests
             // Assert
             Assert.IsTrue(res.Any());
             Assert.IsTrue(res.Count == 10);
+
+            int index = 0;
+            foreach (Pregunta resultado in res)
+            {
+                Assert.AreEqual(resultado.ConjuntoPreguntas.Nombre, conjunto.Nombre);
+                Assert.AreEqual(resultado.ConjuntoPreguntas.Categoria.Nombre, categoria.Nombre);
+                Assert.AreEqual(resultado.ConjuntoPreguntas.Dificultad.Descripcion, dificultad.Descripcion);
+                index++;
+            }
         }
 
         [TestMethod()]
@@ -192,6 +212,14 @@ namespace Trivia.TDP.Servicios.OpentDB.Tests
             // Assert.
             Assert.IsTrue(res.Any());
             Assert.AreEqual(expected.Count, res.Count);
+
+            int index = 0;
+            foreach (Categoria resultado in res)
+            {
+                Assert.AreEqual(resultado.Nombre, expected[index].Nombre);
+                Assert.AreEqual(resultado.ProvidedId, expected[index].ProvidedId);
+                index++;
+            }
         }
     }
 }
