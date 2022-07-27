@@ -2,7 +2,6 @@
 using System.Linq;
 using Dominio;
 using System.Collections.Generic;
-using Trivia.TDP.Servicios.OpentDB;
 
 namespace Trivia.TDP.Servicios.OpentDB.Tests
 {
@@ -20,16 +19,26 @@ namespace Trivia.TDP.Servicios.OpentDB.Tests
                 DificultadId = 1,
                 Descripcion = "easy",
             };
-            Categoria categoria = new Categoria() { CategoriaId = 1, Nombre = "General Knowledge", ProvidedId = 9 };
-            ConjuntoPreguntas conjunto = new ConjuntoPreguntas() { Categoria = categoria, Dificultad = dificultad, Nombre = "easy General Knowledge" };
+            Categoria categoria = new Categoria()
+            {
+                CategoriaId = 1,
+                Nombre = "General Knowledge",
+                ProvidedId = 9
+            };
+            ConjuntoPreguntas conjunto = new ConjuntoPreguntas()
+            {
+                Categoria = categoria,
+                Dificultad = dificultad,
+                Nombre = "easy General Knowledge"
+            };
 
             // Act.
-            IList<Pregunta> res = importador.ObtenerPreguntas(10, conjunto);
+            IList<Pregunta> resultado = importador.ObtenerPreguntas(10, conjunto);
 
 
             // Assert
-            Assert.IsTrue(res.Any());
-            Assert.IsTrue(res.Count == 10);
+            Assert.IsTrue(resultado.Any());
+            Assert.IsTrue(resultado.Count == 10);
         }
 
         [TestMethod()]
@@ -42,25 +51,36 @@ namespace Trivia.TDP.Servicios.OpentDB.Tests
                 Descripcion = "easy",
                 Peso = 1
             };
-            Categoria categoria = new Categoria() { CategoriaId = 1, Nombre = "General Knowledge", ProvidedId = 9 };
-            ConjuntoPreguntas conjunto = new ConjuntoPreguntas() { Categoria = categoria, Dificultad = dificultad, Nombre = "OpentDb" };
+            Categoria categoria = new Categoria()
+            {
+                CategoriaId = 1,
+                Nombre = "General Knowledge",
+                ProvidedId = 9
+            };
+            ConjuntoPreguntas conjunto = new ConjuntoPreguntas()
+            {
+                Categoria = categoria,
+                Dificultad = dificultad,
+                Nombre = "OpentDb"
+            };
 
             // Act.
-            IList<Pregunta> res = importador.ObtenerPreguntas(0, conjunto);
+            IList<Pregunta> resultado = importador.ObtenerPreguntas(0, conjunto);
 
             // Assertk
-            Assert.IsFalse(res.Any());
-            Assert.IsTrue(res.Count == 0);
+            Assert.IsFalse(resultado.Any());
+            Assert.IsTrue(resultado.Count == 0);
         }
 
         [TestMethod()]
         public void ObtenerCategoriasTest()
         {
             // Act.
-            IList<Categoria> res = importador.ObtenerCategorias();
+            IList<Categoria> resultado = importador.ObtenerCategorias();
 
             // Assert.
-            Assert.IsTrue(res.Any());
+            Assert.IsTrue(resultado.Any());
+            Assert.IsTrue(resultado.Count == 24);
         }
     }
 }

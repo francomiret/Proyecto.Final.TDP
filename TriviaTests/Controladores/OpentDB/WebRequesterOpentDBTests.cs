@@ -1,19 +1,24 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Net;
 
 namespace Trivia.TDP.Servicios.OpentDB.Tests
 {
     [TestClass()]
     public class WebRequesterOpentDBTests
     {
+        WebRequesterOpentDB requester = new WebRequesterOpentDB();
+
         [TestMethod()]
         public void CrearConsultaTest()
         {
-            throw new NotImplementedException();
+            // Arrange.
+            string url = "https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple";
+
+            // Act.
+            WebResponse resultado = requester.CrearConsulta(url);
+
+            // Assert
+            Assert.AreEqual(resultado.ResponseUri, url);
         }
     }
 }
